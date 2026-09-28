@@ -66,7 +66,7 @@ const pad = (value: number) => String(value).padStart(2, "0");
  */
 export function StepByStep({
   label,
-  doneMessage = "¡Muy bien! Ya conoces todos los pasos.",
+  doneMessage = "¡Muy bien! Ya conoce todos los pasos.",
   children,
 }: StepByStepProps) {
   const steps = Children.toArray(children)
@@ -144,9 +144,7 @@ export function StepByStep({
           <span className="flex size-16 items-center justify-center rounded-full border-2 border-ink bg-sun">
             <PartyPopper aria-hidden="true" className="size-8" strokeWidth={2.25} />
           </span>
-          <p className="font-display text-2xl font-semibold [font-variation-settings:'SOFT'_60]">
-            {doneMessage}
-          </p>
+          <p className="font-display text-2xl font-semibold">{doneMessage}</p>
         </m.div>
       ) : (
         <ol className="space-y-6">
@@ -164,9 +162,7 @@ export function StepByStep({
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <p className="flex items-baseline gap-2 font-display text-brand-600">
-                    <span className="text-6xl leading-none font-semibold [font-variation-settings:'SOFT'_100]">
-                      {pad(index + 1)}
-                    </span>
+                    <span className="text-6xl leading-none font-semibold">{pad(index + 1)}</span>
                     <span className="text-lg text-ink-muted">/ {pad(total)}</span>
                     <span className="sr-only">
                       Paso {index + 1} de {total}
@@ -180,9 +176,7 @@ export function StepByStep({
                     )}
                   </p>
                   {step.illustration && <div className="my-3">{step.illustration}</div>}
-                  <p className="mt-2 font-display text-2xl font-semibold [font-variation-settings:'SOFT'_60]">
-                    {step.title}
-                  </p>
+                  <p className="mt-2 font-display text-2xl font-semibold">{step.title}</p>
                   <div className="mt-1 text-ink-muted">{step.children}</div>
                 </m.div>
               </li>

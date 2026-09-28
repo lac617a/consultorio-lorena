@@ -162,7 +162,7 @@ Fuentes del semáforo: AAO, BOS, NHS, MouthHealthy, Sonría.
 
 - BOS: analgésico simple, "como para un dolor de cabeza", según el prospecto. AAO menciona ibuprofeno o paracetamol.
 - En la literatura, un metaanálisis encuentra alivio similar con ambos. Algunos estudios sugieren que los AINE (ibuprofeno) podrían frenar el movimiento dental, por eso muchos ortodoncistas prefieren paracetamol/acetaminofén.
-- **Texto obligatorio en el sitio:** _"Pregunta a tu ortodoncista qué analgésico puedes tomar."_ No nombrar medicamentos ni dosis.
+- **Texto obligatorio en el sitio:** _"Pregunte a su ortodoncista qué analgésico puede tomar."_ No nombrar medicamentos ni dosis.
 
 ### Cera de ortodoncia — paso a paso
 
@@ -539,7 +539,7 @@ Estos valores se modelan como **parámetros clínicos configurables** (ver PRD �
 
 ## Notas de cumplimiento
 
-- **Aviso clínico** en cada página, por ejemplo: _"Esta información es educativa y no sustituye la consulta con tu ortodoncista. Si tienes dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacta a tu consultorio."_
+- **Aviso clínico** en cada página, por ejemplo: _"Esta información es educativa y no sustituye la consulta con su ortodoncista. Si tiene dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacte a su consultorio."_
 - **Sello de revisión:**
   - Texto: "Revisado por [nombre], [especialidad], [cédula o n.º colegiado]".
   - Fecha de "Última revisión" y de "Próxima revisión".

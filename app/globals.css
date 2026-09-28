@@ -4,32 +4,35 @@
  * Design tokens — dirección "Cuaderno ilustrado" (A) con interactivos de "Juego" (B).
  * Ver docs/design-references.md.
  *
- * PALETA PROVISIONAL: `brand` y `accent` se reemplazan por los colores del
- * Consultorio Lore cuando lleguen (decisión D6). Al cambiarlos, volver a verificar
- * contraste: texto ≥ 4.5:1, UI ≥ 3:1.
+ * `brand` sale del logo de la clínica (COE Dental, oro rosa). El tono del logo
+ * (brand-400) solo llega a 2.6:1: se usa para decorar; texto y botones usan brand-600/700.
+ * Al cambiar colores, verificar contraste: texto ≥ 4.5:1, UI ≥ 3:1.
  */
 @theme {
   /* Papel y tinta: la base editorial */
-  --color-canvas: #fbf6ee; /* fondo crema */
-  --color-canvas-deep: #f3eadb; /* secciones */
-  --color-surface: #fffdf8; /* tarjetas */
-  --color-ink: #2b2320; /* texto y trazos (14.3:1) */
-  --color-ink-muted: #5e524b; /* texto secundario (7:1) */
-  --color-line: rgb(43 35 32 / 0.16); /* separadores suaves */
+  --color-canvas: #fbf7f1; /* fondo crema */
+  --color-canvas-deep: #f3ebdf; /* secciones */
+  --color-surface: #fffdf9; /* tarjetas */
+  --color-ink: #262220; /* texto y trazos (14.8:1) */
+  --color-ink-muted: #5c5550; /* texto secundario (6.9:1) */
+  --color-line: rgb(38 34 32 / 0.16); /* separadores suaves */
 
-  /* Marca (provisional: terracota) */
-  --color-brand-50: #fcf1ec;
-  --color-brand-100: #f8ddd1;
-  --color-brand-200: #f2c9b8;
-  --color-brand-300: #eba78e;
-  --color-brand-400: #e07a5f; /* ilustración y decoración (no texto) */
-  --color-brand-500: #c9603f;
-  --color-brand-600: #b24a2a; /* botones con texto blanco (5.4:1), números grandes */
-  --color-brand-700: #9a3f22; /* texto de marca y enlaces (6.3:1) */
-  --color-brand-800: #7a3119;
-  --color-brand-900: #5c2512;
+  /* Marca: oro rosa del logo (muestreado: #a8846c · #ba957c · #d2aa8f) */
+  --color-brand-50: #fbf3ee;
+  --color-brand-100: #f3e3d9;
+  --color-brand-200: #e8cfbf;
+  --color-brand-300: #d2aa8f;
+  --color-brand-400: #ba957c; /* tono del logo: solo decoración (2.6:1) */
+  --color-brand-500: #9e7860; /* bordes y UI (3.7:1) */
+  --color-brand-600: #84624d; /* texto grande, botones con texto blanco (5.5:1) */
+  --color-brand-700: #6b4f3e; /* texto de marca y enlaces (7:1) */
+  --color-brand-800: #533d30;
+  --color-brand-900: #3c2c23;
 
-  /* Acento (provisional: salvia) */
+  /* Encía: rosa anatómico, independiente de la marca */
+  --color-gum: #f1c3bb;
+
+  /* Acento: salvia, complementa al oro rosa */
   --color-accent-50: #eaf3ee;
   --color-accent-100: #d8e9e0;
   --color-accent-200: #b9d6c8;
@@ -89,7 +92,6 @@
   h3 {
     @apply font-display text-ink;
     font-weight: 600;
-    font-variation-settings: "SOFT" 60;
     line-height: 1.12;
     letter-spacing: -0.01em;
     text-wrap: balance;

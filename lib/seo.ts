@@ -1,3 +1,4 @@
+import { clinic } from "@/lib/content";
 import { absoluteUrl, site } from "@/lib/site";
 
 import type { Page } from "@/lib/content";
@@ -62,6 +63,31 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>): 
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  };
+}
+
+/** SEO local: consultorio dental (subtipo de LocalBusiness). */
+export function dentistJsonLd(): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    name: clinic.name,
+    alternateName: clinic.brandMark,
+    url: absoluteUrl(),
+    logo: absoluteUrl("/brand/logo-full.png"),
+    ...(clinic.website ? { sameAs: [clinic.website] } : {}),
+    ...(clinic.phone ? { telephone: clinic.phone.replace(/\s/g, "") } : {}),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: clinic.address.street,
+      addressLocality: clinic.address.city,
+      addressRegion: clinic.address.region,
+      addressCountry: clinic.address.country,
+    },
+    ...(clinic.geo
+      ? { geo: { "@type": "GeoCoordinates", ...clinic.geo }, hasMap: clinic.mapsUrl }
+      : {}),
+    ...(clinic.hours ? { description: `Atención: ${clinic.hours}` } : {}),
   };
 }
 

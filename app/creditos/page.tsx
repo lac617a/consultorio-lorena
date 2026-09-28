@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Créditos de imágenes, iconos y tipografía",
   description:
-    "Licencias y atribuciones de las ilustraciones, iconos y tipografías que usa OrtoGuía, la guía visual para pacientes de ortodoncia.",
+    "Licencias y atribuciones de las ilustraciones, iconos y tipografías que usa la guía de ortodoncia del Consultorio Lore Odontológico.",
   alternates: { canonical: "/creditos" },
 };
 

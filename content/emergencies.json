@@ -4,9 +4,9 @@
     "title": "Me pica un alambre",
     "urgency": "llama-pronto",
     "steps": [
-      "Con la goma de un lápiz o un hisopo limpio, empuja el alambre con cuidado contra el diente.",
-      "Si no se puede, cúbrelo con cera de ortodoncia.",
-      "Llama a tu clínica para que recorten el alambre."
+      "Con la goma de un lápiz o un hisopo limpio, empuje el alambre con cuidado contra el diente.",
+      "Si no se puede, cúbralo con cera de ortodoncia.",
+      "Llame a su consultorio para que le recorten el alambre."
     ],
     "treatments": ["metalicos", "esteticos", "autoligables"]
   },
@@ -15,10 +15,10 @@
     "title": "Se me despegó un bracket",
     "urgency": "llama-pronto",
     "steps": [
-      "Si sigue en el alambre, deslízalo con pinzas limpias al centro del diente.",
-      "Cúbrelo con cera para que no lastime.",
-      "Evita comida dura o pegajosa.",
-      "Llama a tu clínica, aunque no te duela."
+      "Si sigue en el alambre, deslícelo con pinzas limpias al centro del diente.",
+      "Cúbralo con cera para que no lastime.",
+      "Evite comida dura o pegajosa.",
+      "Llame a su consultorio, aunque no le duela."
     ],
     "treatments": ["metalicos", "esteticos", "autoligables"]
   },
@@ -27,9 +27,9 @@
     "title": "Se me soltó una banda o parte del aparato",
     "urgency": "llama-pronto",
     "steps": [
-      "No lo muevas ni lo jales.",
-      "Si se sale, guárdalo y llévalo a tu cita.",
-      "Avisa a tu clínica de inmediato."
+      "No lo mueva ni lo hale.",
+      "Si se sale, guárdelo y llévelo a su cita.",
+      "Avise a su consultorio de inmediato."
     ],
     "treatments": ["metalicos", "esteticos", "autoligables"]
   },
@@ -37,7 +37,7 @@
     "id": "liga-perdida",
     "title": "Se me cayó una liga",
     "urgency": "puede-esperar",
-    "steps": ["Llama a tu clínica para saber si debes adelantar tu cita."],
+    "steps": ["Llame a su consultorio para saber si debe adelantar su cita."],
     "treatments": ["metalicos", "esteticos"]
   },
   {
@@ -45,8 +45,8 @@
     "title": "Perdí un elástico o se me acabaron",
     "urgency": "llama-pronto",
     "steps": [
-      "Ponte uno de repuesto. Lleva siempre repuestos contigo.",
-      "Si se te acabaron, pasa por tu clínica sin esperar a tu cita."
+      "Póngase uno de repuesto. Lleve siempre repuestos.",
+      "Si se le acabaron, pase por su consultorio sin esperar a su cita."
     ],
     "treatments": ["metalicos", "esteticos", "autoligables", "alineadores"]
   },
@@ -55,9 +55,9 @@
     "title": "Mi alineador o retenedor se rompió o se perdió",
     "urgency": "llama-pronto",
     "steps": [
-      "No lo uses si está roto, deformado o corta.",
-      "Si usas alineadores, ponte el anterior si todavía te ajusta bien.",
-      "Pide una cita pronto: tus dientes pueden moverse."
+      "No lo use si está roto, deformado o corta.",
+      "Si usa alineadores, póngase el anterior si todavía le ajusta bien.",
+      "Pida una cita pronto: sus dientes pueden moverse."
     ],
     "treatments": ["alineadores", "retenedor"]
   },
@@ -66,12 +66,12 @@
     "title": "Me duele o tengo llagas",
     "urgency": "puede-esperar",
     "steps": [
-      "Come cosas suaves por unos días.",
-      "Enjuágate con agua tibia con sal.",
-      "Pon cera sobre el bracket que roza.",
-      "Pregunta a tu ortodoncista qué analgésico puedes tomar."
+      "Coma cosas suaves por unos días.",
+      "Enjuáguese con agua tibia con sal.",
+      "Ponga cera sobre el bracket que roza.",
+      "Pregunte a su ortodoncista qué analgésico puede tomar."
     ],
-    "note": "Si el dolor es muy fuerte o dura más de unos días, llama a tu clínica.",
+    "note": "Si el dolor es muy fuerte o dura más de unos días, llame a su consultorio.",
     "treatments": ["metalicos", "esteticos", "autoligables", "alineadores", "retenedor"]
   },
   {
@@ -79,7 +79,7 @@
     "title": "Sangrado que no para, golpe fuerte o hinchazón con fiebre",
     "urgency": "urgencias",
     "steps": [
-      "Ve a urgencias si tienes sangrado abundante que no para, dificultad para respirar o tragar, un golpe fuerte en la cara o la boca, un diente que se salió o se movió mucho, o dolor fuerte con hinchazón y fiebre."
+      "Vaya a urgencias si tiene sangrado abundante que no para, dificultad para respirar o tragar, un golpe fuerte en la cara o la boca, un diente que se salió o se movió mucho, o dolor fuerte con hinchazón y fiebre."
     ],
     "treatments": ["metalicos", "esteticos", "autoligables", "alineadores", "retenedor"]
   }

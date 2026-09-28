@@ -11,7 +11,7 @@ export const OFFSET = { x: 4, y: 4 };
 export const FILL = {
   tooth: "var(--color-surface)",
   toothShadow: "var(--color-brand-100)",
-  gum: "var(--color-brand-200)",
+  gum: "var(--color-gum)",
   metal: "var(--color-accent-200)",
   accent: "var(--color-brand-400)",
   soft: "var(--color-accent-300)",

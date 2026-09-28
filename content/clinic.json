@@ -1,11 +1,33 @@
 {
-  "name": "Consultorio Lore Odontológico",
-  "shortName": "Consultorio Lore",
+  "name": "Clínica Odontológica Sánchez Quintero",
+  "shortName": "Clínica Sánchez Quintero",
+  "brandMark": "COE Dental",
+  "tagline": "Clínica de ortodoncia y estética dental",
+  "doctors": [
+    {
+      "name": "Dra. Lorena Sánchez Lázaro",
+      "specialty": "Ortodoncia y Odontología Estética"
+    },
+    {
+      "name": "Dr. José David Quintero",
+      "specialty": "Odontología estética e integral"
+    }
+  ],
+  "website": "https://odontosanchezquintero.com",
   "address": {
     "street": "Calle 33 # 28-18",
     "neighborhood": "La Aurora",
     "city": "Bucaramanga",
     "region": "Santander",
     "country": "CO"
+  },
+  "phone": "+57 320 6243002",
+  "whatsapp": "573206243002",
+  "hours": "Lunes a sábado, solo con cita. Domingo cerrado.",
+  "mapsUrl": "https://maps.google.com/?cid=18134188495122802587",
+  "googleBusinessName": "Odontologia Sanchez Quintero",
+  "geo": {
+    "latitude": 7.1244033,
+    "longitude": -73.1165684
   }
 }

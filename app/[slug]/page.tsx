@@ -66,7 +66,7 @@ export default async function ContentPage({ params }: PageProps<"/[slug]">) {
       {related.length > 0 && (
         <nav aria-labelledby="relacionados" className="space-y-3">
           <h2 id="relacionados" className="text-2xl">
-            También te puede servir
+            También le puede servir
           </h2>
           <ul className="grid gap-3 sm:grid-cols-3">
             {related.map((item) => (

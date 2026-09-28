@@ -4,7 +4,7 @@
 
 ## Qué es este proyecto
 
-Guía web mobile-first para los pacientes de **ortodoncia** del **Consultorio Lore Odontológico** (Calle 33 # 28-18, La Aurora, Bucaramanga, Colombia). _OrtoGuía_ es el nombre interno del proyecto. El paciente llega escaneando un **código QR** en el consultorio y ve, **sin registrarse**, cómo:
+Guía web mobile-first para los pacientes de **ortodoncia** de la **Clínica Odontológica Sánchez Quintero** (logo: COE Dental) (Calle 33 # 28-18, La Aurora, Bucaramanga, Colombia). _OrtoGuía_ es el nombre interno del proyecto. El paciente llega escaneando un **código QR** en el consultorio y ve, **sin registrarse**, cómo:
 
 - cepillarse con brackets;
 - qué cepillos usar;
@@ -121,11 +121,11 @@ El código se formatea y se valida de forma automática. **No discutas estilo a 
 
 1. **Nunca inventes datos clínicos.** Toda cifra, técnica o recomendación debe estar en `docs/content-research.md` o citar una fuente autorizada (AAO, BOS, NHS, ADA, literatura revisada por pares). Si falta algo, agrégalo primero a `docs/content-research.md` con su fuente.
 2. **Valores discutidos, nunca en el texto.** Si un valor está marcado con ⚠ en la tabla de discrepancias, léelo de `content/clinical-params.json` con `<Param name="…" />` en el MDX. Ejemplos: horas de alineador, intervalo entre citas, cambio de elásticos, pauta del retenedor.
-3. **Medicamentos:** no nombres fármacos ni dosis. Usa siempre _"Pregunta a tu ortodoncista qué analgésico puedes tomar."_
+3. **Medicamentos:** no nombres fármacos ni dosis. Usa siempre _"Pregunte a su ortodoncista qué analgésico puede tomar."_
 4. **Metadatos obligatorios en cada página MDX:** `review` y `sources`. No los desactives ni pongas valores falsos.
    - Contenido sin revisar: `review: { status: pendiente }`. La página muestra "Pendiente de revisión clínica".
    - Contenido revisado: `status: revisado` con `reviewedBy` (`name`, `specialty`, `license`), `reviewedAt` y `nextReview` (máximo 12 meses después).
-   - Solo el revisor clínico cambia una página a `revisado` o `clinical-params.json` a `validado`.
+   - Solo la revisora clínica (Dra. Lorena Sánchez Lázaro) cambia una página a `revisado` o `clinical-params.json` a `validado`.
 5. **Cada página muestra** `ClinicalDisclaimer` y `ReviewStamp`.
 6. **Sin promesas ni publicidad:** nada de "garantizado", antes y después, testimonios, precios, promociones, comparaciones con otros consultorios ni marcas comerciales de productos (Ley 35 de 1989, arts. 51 a 53).
 7. **No copies texto literal de las fuentes.** Reescribe con palabras propias.
@@ -133,10 +133,10 @@ El código se formatea y se valida de forma automática. **No discutas estilo a 
 
 ## Estilo de redacción
 
-- **Español de Colombia**, con **tuteo**. Tono cálido, claro y tranquilizador.
+- **Español de Colombia**, con trato de **usted** ("Lávese las manos", "su ortodoncista"). Nunca tuteo. Tono cálido, claro y tranquilizador.
 - Vocabulario colombiano: _pitillo_ (no popote), _gaseosa_ (no refresco), _maní_ (no cacahuate), _mazorca_ (no elote), _crema dental_, _batido_ (no licuado).
 - Frases cortas, nivel de lectura de ~6.º grado y **una idea por tarjeta**.
-- Pasos siempre numerados y empezando con un verbo ("Seca el bracket…").
+- Pasos siempre numerados y empezando con un verbo ("Seque el bracket…").
 - **Terminología estándar:**
   - brackets;
   - arco;
@@ -155,7 +155,7 @@ El código se formatea y se valida de forma automática. **No discutas estilo a 
 
 - **Mobile-first.** Diseña a 360 px y mejora hacia escritorio.
 - **Lenguaje visual** (dirección A + B, ver `docs/design-references.md`):
-  - usa los tokens de `app/globals.css`; nunca colores sueltos. `brand` y `accent` son provisionales hasta tener los colores del consultorio;
+  - usa los tokens de `app/globals.css`; nunca colores sueltos. `brand` es el dorado del logo: `brand-400` solo para decorar, `brand-600`/`700` para texto y botones;
   - títulos con `font-display` (Fraunces); texto con la sans por defecto;
   - bordes de tinta (`border-2 border-ink`), `shadow-[var(--shadow-print)]` en tarjetas destacadas, `.sticker` para etiquetas;
   - botones: `.btn` + `.btn-primary` o `.btn-secondary`. Una sola acción primaria por bloque;

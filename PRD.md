@@ -1,17 +1,17 @@
-# PRD — Guía de ortodoncia del Consultorio Lore Odontológico
+# PRD — Guía de ortodoncia de la Clínica Odontológica Sánchez Quintero
 
-> Guía visual e interactiva para los pacientes de ortodoncia del Consultorio Lore Odontológico (Bucaramanga). Sin registro, desde un código QR.
+> Guía visual e interactiva para los pacientes de ortodoncia de la Clínica Odontológica Sánchez Quintero (Bucaramanga). Sin registro, desde un código QR.
 >
 > _OrtoGuía_ queda como nombre interno del proyecto (repositorio y código).
 
-|                             |                                                                                                          |
-| --------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **Producto**                | Guía de ortodoncia del **Consultorio Lore Odontológico**                                                 |
-| **Consultorio**             | Calle 33 # 28-18, barrio La Aurora, Bucaramanga, Santander, Colombia                                     |
-| **Versión del documento**   | 0.2 — la guía pasa a ser del Consultorio Lore                                                            |
-| **Fecha**                   | 2026-09-28                                                                                               |
-| **Estado**                  | En definición                                                                                            |
-| **Documentos relacionados** | [roadmap.md](roadmap.md) · [CLAUDE.md](CLAUDE.md) · [docs/content-research.md](docs/content-research.md) |
+|                             |                                                                                                                                              |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Producto**                | Guía de ortodoncia de la **Clínica Odontológica Sánchez Quintero** (marca del logo: **COE Dental**, clínica de ortodoncia y estética dental) |
+| **Clínica**                 | Calle 33 # 28-18, barrio La Aurora, Bucaramanga, Santander, Colombia                                                                         |
+| **Versión del documento**   | 0.3 — marca oficial (COE Dental · Clínica Odontológica Sánchez Quintero) y trato de usted                                                    |
+| **Fecha**                   | 2026-09-28                                                                                                                                   |
+| **Estado**                  | En definición                                                                                                                                |
+| **Documentos relacionados** | [roadmap.md](roadmap.md) · [CLAUDE.md](CLAUDE.md) · [docs/content-research.md](docs/content-research.md)                                     |
 
 ---
 
@@ -36,7 +36,7 @@ Hoy esa información se entrega en **folletos impresos que nadie lee** y **PDFs 
 
 **"Escanea, entiende y cuida tu ortodoncia en 2 minutos."**
 
-Es un sitio web **mobile-first** del **Consultorio Lore Odontológico** al que el paciente llega escaneando un **código QR** que le entregan en el consultorio. El sitio:
+Es un sitio web **mobile-first** de la **Clínica Odontológica Sánchez Quintero** al que el paciente llega escaneando un **código QR** que le entregan en el consultorio. El sitio:
 
 - **No pide registro, ni app, ni datos personales.** Abre y funciona.
 - **Enseña con imágenes, pasos cortos y animaciones**, no con párrafos.
@@ -48,7 +48,7 @@ Es un sitio web **mobile-first** del **Consultorio Lore Odontológico** al que e
 
 ## 3. Usuarios
 
-Pacientes del Consultorio Lore Odontológico en Bucaramanga y su área metropolitana, y sus familias.
+Pacientes de la Clínica Odontológica Sánchez Quintero en Bucaramanga y su área metropolitana, y sus familias.
 
 | Persona                                       | Contexto                                                                   | Qué necesita                                                                                    |
 | --------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -101,7 +101,7 @@ Alcance: **solo ortodoncia**. Cubre brackets metálicos, estéticos y autoligabl
 - Dieta blanda para esos días, con ejemplos visuales.
 - **Cera de ortodoncia paso a paso** (6 pasos ilustrados).
 - Llagas: enjuague de agua tibia con sal y cera sobre el bracket que roza.
-- Dolor: _"Pregunta a tu ortodoncista qué analgésico puedes tomar."_ Sin nombres de medicamentos ni dosis.
+- Dolor: _"Pregunte a su ortodoncista qué analgésico puede tomar."_ Sin nombres de medicamentos ni dosis.
 - Cuándo **no** es normal: dolor intenso o persistente, o encías muy hinchadas → contactar a la clínica.
 
 ### 5.3 Cepillado paso a paso (módulo estrella)
@@ -258,7 +258,7 @@ Alcance: **solo ortodoncia**. Cubre brackets metálicos, estéticos y autoligabl
 
 ### Contenido y lenguaje
 
-- **Español de Colombia**, con **tuteo** (es lo habitual al hablar con pacientes jóvenes; validarlo con la Dra. Lorena).
+- **Español de Colombia**, con trato de **usted** (decisión de la clínica: es lo habitual en Santander, también con pacientes jóvenes).
 - Vocabulario colombiano: _pitillo_ (no popote), _gaseosa_ (no refresco), _maní_, _mazorca_, _crema dental_, _seda dental_ o _hilo dental_, _cita de control_.
 - Nivel de lectura de ~6.º grado: frases cortas y **una idea por tarjeta**.
 - Terminología estándar: ver el glosario en [docs/content-research.md](docs/content-research.md#glosario-de-terminología-latinoamérica).
@@ -346,7 +346,7 @@ Es contenido de salud, un tema que Google trata como YMYL ("Your Money or Your L
    - `reviewedAt` y `nextReview`: revisión cada 12 meses como máximo.
    - `sources`: lista de URLs.
 3. **Sello visible:** "Revisado por … · Última revisión: DD/MM/AAAA".
-4. **Aviso clínico en cada página:** _"Esta información es educativa y no sustituye la consulta con tu ortodoncista. Si tienes dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacta a tu consultorio."_
+4. **Aviso clínico en cada página:** _"Esta información es educativa y no sustituye la consulta con su ortodoncista. Si tiene dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacte a su consultorio."_
 5. **Parámetros clínicos configurables.** Cuando las fuentes discrepan, el valor no se escribe en el texto: vive en un archivo de configuración (`content/clinical-params.json`). Hoy tiene un único valor por defecto validado por el revisor; en la fase 4 cada clínica tendrá el suyo.
    - Frecuencia de cepillado y momento del enjuague con flúor.
    - Intervalo entre citas de control.
@@ -370,7 +370,7 @@ Es contenido de salud, un tema que Google trata como YMYL ("Your Money or Your L
 
 ### Sistema visual
 
-- **Paleta y logo del consultorio** (pendiente de recibir). Los tokens de color se derivan de ellos, verificando contraste. Colores de estado accesibles para el semáforo y la urgencia.
+- **Paleta del logo del consultorio:** dorado champán, tinta casi negra y fondo claro. El dorado del logo solo se usa para decorar (2.2:1); texto y botones usan un bronce más oscuro de la misma familia. Colores de estado accesibles para el semáforo y la urgencia.
 - **Evitar el look genérico de clínica dental** (azul o menta, foto de stock, tarjetas iguales). Dirección visual en [docs/design-references.md](docs/design-references.md).
 - Tipografía: **Fraunces** (serif con carácter) para títulos y **Atkinson Hyperlegible Next** (máxima legibilidad) para el texto.
 - **Ilustraciones SVG propias** estilo cuaderno (contorno de tinta y relleno desplazado) de dientes, brackets, arco, ligas, elásticos y herramientas, con capas nombradas para animar.
@@ -413,17 +413,17 @@ Es contenido de salud, un tema que Google trata como YMYL ("Your Money or Your L
 
 ## 11. Riesgos y decisiones abiertas
 
-| #   | Tema                                 | Detalle                                                                                                                                                                                                                                                                                                                                                                               | Responsable | Estado                              |
-| --- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------------- |
-| D1  | **Hosting**                          | Vercel Hobby prohíbe el uso comercial. Opciones: **Vercel Pro** (~US$20 al mes, mejor integración con Next.js, redirects y optimización de imágenes) o **Cloudflare Pages / Netlify** (plan gratuito que permite uso comercial, requiere más configuración). En desarrollo se puede usar Vercel Hobby para previews.                                                                  | Producto    | Abierta, antes de la fase 3         |
-| D2  | **Revisor clínico**                  | Resuelta: la **Dra. Lorena**. Falta su nombre completo, especialidad, universidad y registro profesional para el sello de revisión, y que resuelva la tabla de discrepancias.                                                                                                                                                                                                         | Dra. Lorena | Resuelta; faltan datos              |
-| D3  | **Normativa colombiana**             | Ley 35 de 1989 (ética odontológica): el art. 51 considera incompatible la propaganda; el art. 53 prohíbe avalar publicaciones sin respaldo científico o con fines de promoción personal. Por eso el sitio es educativo y cita fuentes. Datos personales: Ley 1581 de 2012. **Validar con asesoría legal o con el Tribunal de Ética Odontológica de Santander** antes del lanzamiento. | Legal       | Abierta, antes de la fase 3         |
-| D4  | **Marca y dominio**                  | Resuelta la marca: la guía es del **Consultorio Lore Odontológico**. Falta el dominio (¿subdominio o ruta del sitio del consultorio, o dominio propio?).                                                                                                                                                                                                                              | Producto    | Dominio abierto, antes de la fase 3 |
-| D6  | **Identidad visual del consultorio** | El consultorio tiene logo y colores. Hay que recibirlos (logo en SVG o PNG grande y códigos de color) para derivar los design tokens.                                                                                                                                                                                                                                                 | Consultorio | Abierta, bloquea el diseño          |
-| D7  | **Dirección de diseño**              | Resuelta: base editorial "Cuaderno ilustrado" (A) con la mecánica de juego (B) en los interactivos. Ver [docs/design-references.md](docs/design-references.md).                                                                                                                                                                                                                       | Producto    | Resuelta                            |
-| D8  | **Datos de contacto**                | Teléfono, WhatsApp, horario y enlace de Google Maps del consultorio.                                                                                                                                                                                                                                                                                                                  | Consultorio | Abierta, fase 1                     |
-| D5  | **Producción de ilustraciones**      | Se necesita un set SVG propio y consistente. Opciones: ilustrador freelance, o bocetos con IA redibujados en vector. Toda ilustración clínica requiere revisión.                                                                                                                                                                                                                      | Diseño      | Abierta, fase 0–1                   |
-| R1  | **Precisión clínica**                | Un error en una técnica o en una urgencia puede dañar al paciente. Mitigación: fuente única, revisión obligatoria, parámetros configurables y aviso clínico.                                                                                                                                                                                                                          | —           | Mitigado por proceso                |
-| R2  | **Licencias de assets**              | Storyset y Servier exigen atribución. Mitigación: priorizar CC0 y SVG propios, y mantener `CREDITS.md`.                                                                                                                                                                                                                                                                               | —           | Mitigado por proceso                |
-| R3  | **Rendimiento en gama baja**         | Las animaciones pueden degradar el INP. Mitigación: SVG en lugar de video, solo `transform` y `opacity`, islas de cliente mínimas y pruebas en dispositivo real.                                                                                                                                                                                                                      | —           | Mitigado por diseño                 |
-| R4  | **Adopción**                         | Si el QR no se entrega, no hay usuarios. Mitigación: material impreso atractivo en el consultorio, entregarlo en la cita de montaje y métricas por punto de entrega (recepción, sillón, tarjeta).                                                                                                                                                                                     | Consultorio | Seguimiento en el piloto            |
+| #   | Tema                            | Detalle                                                                                                                                                                                                                                                                                                                                                                               | Responsable | Estado                              |
+| --- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------------- |
+| D1  | **Hosting**                     | Vercel Hobby prohíbe el uso comercial. Opciones: **Vercel Pro** (~US$20 al mes, mejor integración con Next.js, redirects y optimización de imágenes) o **Cloudflare Pages / Netlify** (plan gratuito que permite uso comercial, requiere más configuración). En desarrollo se puede usar Vercel Hobby para previews.                                                                  | Producto    | Abierta, antes de la fase 3         |
+| D2  | **Revisor clínico**             | Resuelta: **Dra. Lorena Sánchez Lázaro**, Ortodoncia y Odontología Estética. Faltan universidad y registro profesional para el sello (la clínica aún no los tiene a mano), y que resuelva la tabla de discrepancias.                                                                                                                                                                  | Dra. Lorena | Resuelta; faltan datos              |
+| D3  | **Normativa colombiana**        | Ley 35 de 1989 (ética odontológica): el art. 51 considera incompatible la propaganda; el art. 53 prohíbe avalar publicaciones sin respaldo científico o con fines de promoción personal. Por eso el sitio es educativo y cita fuentes. Datos personales: Ley 1581 de 2012. **Validar con asesoría legal o con el Tribunal de Ética Odontológica de Santander** antes del lanzamiento. | Legal       | Abierta, antes de la fase 3         |
+| D4  | **Marca y dominio**             | Resuelta la marca: **Clínica Odontológica Sánchez Quintero**, nombre de su web oficial ([odontosanchezquintero.com](https://odontosanchezquintero.com), WordPress.com), con el logo **COE Dental**. Dominio sugerido: un subdominio como `guia.odontosanchezquintero.com`, que mantiene la marca y el SEO en el mismo dominio.                                                        | Producto    | Dominio abierto, antes de la fase 3 |
+| D6  | **Identidad visual**            | Resuelta: logo COE Dental tomado de su web (`public/brand/`, PNG de 2117×1128 con transparencia). Paleta de oro rosa muestreada del logo; el tono del logo solo decora por contraste. Ideal a futuro: el logo en SVG.                                                                                                                                                                 | Clínica     | Resuelta                            |
+| D7  | **Dirección de diseño**         | Resuelta: base editorial "Cuaderno ilustrado" (A) con la mecánica de juego (B) en los interactivos. Ver [docs/design-references.md](docs/design-references.md).                                                                                                                                                                                                                       | Producto    | Resuelta                            |
+| D8  | **Datos de contacto**           | Resuelta: teléfono y WhatsApp +57 320 6243002 (el mismo número que usa su web para WhatsApp); lunes a sábado solo con cita, domingo cerrado. Perfil de Google Maps: "Odontologia Sanchez Quintero" (enlace por CID en `content/clinic.json`). **Ojo SEO local:** ese nombre difiere del de la web ("Clínica Odontológica Sánchez Quintero"); conviene unificarlos.                    | Clínica     | Resuelta                            |
+| D5  | **Producción de ilustraciones** | Se necesita un set SVG propio y consistente. Opciones: ilustrador freelance, o bocetos con IA redibujados en vector. Toda ilustración clínica requiere revisión.                                                                                                                                                                                                                      | Diseño      | Abierta, fase 0–1                   |
+| R1  | **Precisión clínica**           | Un error en una técnica o en una urgencia puede dañar al paciente. Mitigación: fuente única, revisión obligatoria, parámetros configurables y aviso clínico.                                                                                                                                                                                                                          | —           | Mitigado por proceso                |
+| R2  | **Licencias de assets**         | Storyset y Servier exigen atribución. Mitigación: priorizar CC0 y SVG propios, y mantener `CREDITS.md`.                                                                                                                                                                                                                                                                               | —           | Mitigado por proceso                |
+| R3  | **Rendimiento en gama baja**    | Las animaciones pueden degradar el INP. Mitigación: SVG en lugar de video, solo `transform` y `opacity`, islas de cliente mínimas y pruebas en dispositivo real.                                                                                                                                                                                                                      | —           | Mitigado por diseño                 |
+| R4  | **Adopción**                    | Si el QR no se entrega, no hay usuarios. Mitigación: material impreso atractivo en el consultorio, entregarlo en la cita de montaje y métricas por punto de entrega (recepción, sillón, tarjeta).                                                                                                                                                                                     | Consultorio | Seguimiento en el piloto            |

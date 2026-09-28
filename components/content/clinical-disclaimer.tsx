@@ -9,9 +9,8 @@ export function ClinicalDisclaimer() {
     >
       <Stethoscope aria-hidden="true" className="mt-0.5 size-6 shrink-0 text-ink" />
       <p>
-        Esta información es educativa y no sustituye la consulta con tu ortodoncista. Si tienes
-        dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacta a tu
-        consultorio.
+        Esta información es educativa y no sustituye la consulta con su ortodoncista. Si tiene dolor
+        intenso, sangrado, un alambre que lastima o un aparato suelto, contacte a su consultorio.
       </p>
     </aside>
   );

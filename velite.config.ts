@@ -138,6 +138,11 @@ const clinic = defineCollection({
   schema: s.object({
     name: s.string(),
     shortName: s.string(),
+    /** Marca del logo, p. ej. "COE Dental". */
+    brandMark: s.string(),
+    tagline: s.string(),
+    doctors: s.array(s.object({ name: s.string(), specialty: s.string() })),
+    website: s.string().url().optional(),
     address: s.object({
       street: s.string(),
       neighborhood: s.string(),
@@ -152,7 +157,11 @@ const clinic = defineCollection({
       .regex(/^\d{10,15}$/)
       .optional(),
     hours: s.string().optional(),
+    /** Enlace estable al perfil de Google Maps (por CID). */
     mapsUrl: s.string().url().optional(),
+    /** Nombre exacto del perfil de Google Business (debe coincidir con el sitio para el SEO local). */
+    googleBusinessName: s.string().optional(),
+    geo: s.object({ latitude: s.number(), longitude: s.number() }).optional(),
   }),
 });
 

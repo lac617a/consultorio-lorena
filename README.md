@@ -1,6 +1,6 @@
-# OrtoGuía
+# OrtoGuía — Guía de ortodoncia de COE Dental
 
-Guía visual e interactiva para pacientes de ortodoncia. Sin registro, desde un código QR.
+Guía visual e interactiva para los pacientes de ortodoncia de la Clínica Odontológica Sánchez Quintero (COE Dental, Bucaramanga). Sin registro, desde un código QR.
 
 - Producto: [PRD.md](PRD.md)
 - Hoja de ruta: [roadmap.md](roadmap.md)

@@ -1,4 +1,4 @@
-# Roadmap — Guía de ortodoncia del Consultorio Lore
+# Roadmap — Guía de ortodoncia de la Clínica Sánchez Quintero
 
 > Hoja de ruta por fases. No hay fechas fijas. Una fase termina cuando cumple su **criterio de salida**.
 > Alcance y requisitos: [PRD.md](PRD.md). Contenido clínico: [docs/content-research.md](docs/content-research.md).
@@ -54,13 +54,13 @@
 
 **Objetivo:** cubrir lo que el paciente necesita **la primera semana**.
 
-**Antes de empezar:** recibir logo y colores del consultorio (D6). La dirección de diseño (D7) ya está elegida: A + B.
+**Listo para empezar:** marca (COE Dental), paleta, dirección de diseño (A + B), contacto y trato de usted ya están definidos.
 
-- [ ] **Identidad del consultorio:** tokens de color desde su paleta y logo en la cabecera. _Ya hecho: nombre del consultorio en `site.name`, metadatos y `content/clinic.json`._
+- [x] **Identidad de la clínica:** logo COE Dental en la cabecera y en "Su clínica", paleta de oro rosa del logo, nombre oficial en metadatos y `content/clinic.json`.
 - [x] **Rediseño según la dirección elegida** (D7): tipografía, formas, estilo de ilustración y componentes base, aplicado al inicio y a `/primeros-dias` con paleta provisional.
-- [ ] **Datos del consultorio** en `content/clinic.json` y bloque "Tu consultorio". _Ya hecho: dirección y "Cómo llegar" en el inicio y el pie. Falta teléfono, WhatsApp y horario (D8)._
-- [ ] **Vocabulario colombiano** en el contenido existente (pitillo, gaseosa, maní, mazorca, crema dental).
-- [ ] JSON-LD `Dentist` con la dirección del consultorio.
+- [x] **Datos de la clínica** en `content/clinic.json` y bloque "Su clínica": especialistas, dirección, horario, WhatsApp, llamar y cómo llegar. Incluye el enlace del perfil de Google Maps.
+- [x] **Vocabulario colombiano y trato de usted** en el contenido existente (pitillo, gaseosa, maní, mazorca, batido).
+- [x] JSON-LD `Dentist` con nombre, marca, logo, dirección, teléfono y web.
 
 - [ ] **Empieza aquí:** `TreatmentSelector`, recorrido personalizado y guardado en `localStorage`.
 - [ ] **Primeros días:** molestias, dieta blanda, cera paso a paso, llagas y cuándo consultar. _Borrador creado en la fase 0 como página de ejemplo; faltan las ilustraciones de los pasos y la revisión clínica._
@@ -118,7 +118,7 @@
 - [ ] Páginas de **Política de tratamiento de datos** (Ley 1581 de 2012), **Créditos** y **Fuentes y revisión clínica**.
 - [ ] **Resolver D3:** validar con asesoría legal que el sitio cumple la Ley 35 de 1989.
 - [ ] Enlazar el sitio desde el perfil de Google Business del consultorio.
-- [ ] Piloto en el Consultorio Lore, con recolección de métricas y feedback de pacientes durante un ciclo de controles.
+- [ ] Piloto en el Clínica Sánchez Quintero, con recolección de métricas y feedback de pacientes durante un ciclo de controles.
 
 **Criterio de salida:** sitio en producción, contenido firmado por el revisor clínico, QR entregado a pacientes reales y primer reporte de métricas del piloto.
 
@@ -150,8 +150,8 @@
 | D1  | Hosting: Vercel Pro o Cloudflare Pages / Netlify                           | Fase 3                          |
 | D2  | Datos de la Dra. Lorena para el sello y valores de los parámetros clínicos | Fase 3 (bloquea el lanzamiento) |
 | D3  | Validación legal: Ley 35 de 1989 y Ley 1581 de 2012                        | Fase 3                          |
-| D4  | Dominio del sitio                                                          | Fase 3                          |
+| D4  | Dominio (sugerido: `guia.odontosanchezquintero.com`)                       | Fase 3                          |
 | D5  | Producción de ilustraciones (freelance o interno)                          | Fase 1                          |
-| D6  | Logo y colores del consultorio                                             | Fase 1 (bloquea el diseño)      |
+| D6  | Logo y colores: **resuelta (COE Dental)**                                  | —                               |
 | D7  | Dirección de diseño: **resuelta (A + B)**                                  | —                               |
-| D8  | Teléfono, WhatsApp, horario y mapa del consultorio                         | Fase 1                          |
+| D8  | Datos de contacto: **resuelta**                                            | —                               |

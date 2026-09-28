@@ -7,7 +7,7 @@
   },
   {
     "id": "frutos-secos",
-    "name": "Cacahuates y otros frutos secos",
+    "name": "Maní y otros frutos secos",
     "verdict": "evitar",
     "reason": "Son duros y pequeños: pueden despegar brackets."
   },
@@ -15,11 +15,11 @@
     "id": "hielo",
     "name": "Hielo",
     "verdict": "evitar",
-    "reason": "Morder hielo puede romper brackets. Tómalo sin masticarlo."
+    "reason": "Morder hielo puede romper brackets. Tome las bebidas sin masticar el hielo."
   },
   {
     "id": "papas-de-bolsa",
-    "name": "Papas fritas de bolsa y totopos",
+    "name": "Papas de paquete y nachos",
     "verdict": "evitar",
     "reason": "Son duros y crujientes: pueden despegar brackets."
   },
@@ -31,10 +31,10 @@
   },
   {
     "id": "elote-mazorca",
-    "name": "Elote o choclo en mazorca",
+    "name": "Mazorca",
     "verdict": "evitar",
     "reason": "Morder la mazorca puede despegar los brackets de enfrente.",
-    "tip": "Desgránalo con un cuchillo y cómelo con cuchara."
+    "tip": "Desgránela con un cuchillo y cómala con cuchara."
   },
   {
     "id": "gomitas",
@@ -47,7 +47,7 @@
     "name": "Chicle",
     "verdict": "evitar",
     "reason": "Es pegajoso y se enreda en los brackets.",
-    "tip": "Evítalo, salvo que tu ortodoncista te lo permita."
+    "tip": "Evítelo, salvo que su ortodoncista se lo permita."
   },
   {
     "id": "pan-duro",
@@ -57,24 +57,24 @@
   },
   {
     "id": "refrescos",
-    "name": "Refrescos y bebidas deportivas",
+    "name": "Gaseosas y bebidas deportivas",
     "verdict": "evitar",
     "reason": "Son ácidos, incluso los de dieta: dañan el esmalte alrededor de los brackets.",
-    "tip": "Entre comidas, toma agua simple o leche."
+    "tip": "Entre comidas, tome agua o leche."
   },
   {
     "id": "manzana",
     "name": "Manzana",
     "verdict": "cuidado",
     "reason": "Morderla entera puede despegar brackets.",
-    "tip": "Córtala en trozos pequeños y mastica con los dientes de atrás."
+    "tip": "Córtela en trozos pequeños y mastique con los dientes de atrás."
   },
   {
     "id": "zanahoria-cruda",
     "name": "Zanahoria cruda y apio",
     "verdict": "cuidado",
     "reason": "Son duros si están crudos.",
-    "tip": "Córtalos en trozos pequeños o cómelos cocidos."
+    "tip": "Córtelos en trozos pequeños o cómalos cocidos."
   },
   {
     "id": "pizza-orilla",
@@ -88,14 +88,14 @@
     "name": "Alitas, costillas y carne fibrosa",
     "verdict": "cuidado",
     "reason": "Morder junto al hueso o jalar la carne fuerza los brackets.",
-    "tip": "Quita la carne del hueso y córtala en trozos pequeños."
+    "tip": "Quite la carne del hueso y córtela en trozos pequeños."
   },
   {
     "id": "jugo",
     "name": "Jugo de fruta",
     "verdict": "cuidado",
     "reason": "Tiene azúcar y ácido.",
-    "tip": "Tómalo solo con las comidas y con popote."
+    "tip": "Tómelo solo con las comidas y con pitillo."
   },
   {
     "id": "cafe",
@@ -114,7 +114,7 @@
     "id": "sopa",
     "name": "Sopas y caldos",
     "verdict": "si",
-    "reason": "No necesitas morder: perfectos cuando tus dientes están sensibles."
+    "reason": "No necesita morder: perfectos cuando sus dientes están sensibles."
   },
   {
     "id": "pasta",
@@ -142,9 +142,9 @@
   },
   {
     "id": "yogur",
-    "name": "Yogur y licuados",
+    "name": "Yogur y batidos",
     "verdict": "si",
-    "reason": "No necesitas morder: perfectos para los días de molestias."
+    "reason": "No necesita morder: perfectos para los días de molestias."
   },
   {
     "id": "avena",

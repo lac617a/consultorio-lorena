@@ -1,6 +1,6 @@
 # Referencias y dirección de diseño
 
-> Estado: **elegida la mezcla A + B** (decisión D7, 28/09/2026). Aplicada al inicio y a `/primeros-dias` con paleta provisional. La paleta final sale del logo y los colores del Consultorio Lore (D6). La dirección define la tipografía, las formas, el estilo de ilustración y el tono.
+> Estado: **elegida la mezcla A + B** (decisión D7, 28/09/2026). Aplicada al inicio y a `/primeros-dias` con la marca COE Dental. La paleta final sale del logo y los colores del Consultorio Lore (D6). La dirección define la tipografía, las formas, el estilo de ilustración y el tono.
 
 ## Diagnóstico: por qué el diseño actual se siente genérico
 
@@ -67,8 +67,8 @@ Los sitios revisados son casi todos iguales. Ninguno tiene contenido educativo p
 
 ## Implementación (sistema visual aplicado)
 
-- **Tokens** en `app/globals.css`. `brand` (terracota) y `accent` (salvia) son **provisionales** hasta recibir los colores del consultorio (D6); el resto (papel, tinta, estados) se mantiene.
-- **Tipografía:** Fraunces para títulos (eje `SOFT` alto, más amable) y Atkinson Hyperlegible Next para el texto.
+- **Tokens** en `app/globals.css`. `brand` es el oro rosa del logo COE Dental (muestreado del PNG); el tono exacto del logo (`brand-400`) solo decora, y texto y botones usan `brand-600`/`700`. `accent` (salvia) lo complementa. La encía tiene su propio token (`gum`).
+- **Tipografía:** Fraunces clásica (sin suavizar) para títulos, con cursiva para acentos, en sintonía con la serif del logo; Atkinson Hyperlegible Next para el texto.
 - **Formas:** bordes de tinta de 2 px, sombra "impresa" desplazada (`--shadow-print`) en tarjetas destacadas, stickers (`.sticker`) y números de paso grandes en serif.
 - **Ilustración:** contorno de tinta de 2,5 px y relleno plano desplazado 4 px (`components/illustrations/style.ts`). Colores siempre por variable CSS.
 - **Mecánica de juego (B), solo en interactivos:** botones con cuerpo que se hunden al presionar (`.btn-primary`, `.btn-secondary`), barra de progreso por segmentos con estrella final y celebración al terminar (`Celebration`).
