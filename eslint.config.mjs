@@ -17,7 +17,9 @@ const eslintConfig = defineConfig([
         "error",
         {
           groups: ["builtin", "external", "internal", "parent", "sibling", "index", "type"],
-          pathGroups: [{ pattern: "@/**", group: "internal" }],
+          // dot: true para que "@/.velite" (contenido generado) cuente como interno
+          // aunque la carpeta aún no exista, como pasa en el CI antes de generar contenido.
+          pathGroups: [{ pattern: "@/**", group: "internal", patternOptions: { dot: true } }],
           pathGroupsExcludedImportTypes: ["type"],
           "newlines-between": "always",
           alphabetize: { order: "asc", caseInsensitive: true },
