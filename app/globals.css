@@ -43,6 +43,9 @@
   /* Celebración (estrellas, logros de los interactivos) */
   --color-sun: #f5c04a;
 
+  /* Pastillas reveladoras de placa (solo ilustración) */
+  --color-plaque: #c77dba;
+
   /* Estados: semáforo y urgencia. Siempre con icono + texto. */
   --color-ok: #1b6e45;
   --color-ok-soft: #e3f4ea;

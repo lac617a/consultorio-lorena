@@ -142,6 +142,38 @@ const clinicalParams = defineCollection({
   }),
 });
 
+/**
+ * Herramientas del kit de higiene (guía /kit-de-higiene).
+ * Los textos pueden incluir {parametro} de clinical-params.json (ver lib/content → fillParams).
+ */
+const hygieneTools = defineCollection({
+  name: "HygieneTool",
+  pattern: "hygiene-tools.json",
+  schema: s.object({
+    id: s.enum([
+      "v-brush",
+      "interdental-brush",
+      "threader",
+      "toothpaste",
+      "single-tuft",
+      "electric-brush",
+      "stiff-floss",
+      "water-flosser",
+      "mouthwash",
+      "disclosing-tablets",
+    ]),
+    name: s.string(),
+    group: s.enum(["basico", "extra"]),
+    purpose: s.string(),
+    steps: s.array(s.string()).default([]),
+    when: s.string().optional(),
+    replace: s.string().optional(),
+    note: s.string().optional(),
+    /** Guía relacionada, p. ej. "/cepillado". */
+    guide: s.string().startsWith("/").optional(),
+  }),
+});
+
 /** Datos del consultorio. Teléfono, WhatsApp, horario y mapa pendientes (decisión D8). */
 const clinic = defineCollection({
   name: "Clinic",
@@ -187,10 +219,21 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { pages, foods, emergencies, colors, clinicalParams, clinic },
-  prepare: ({ pages, clinicalParams }) => {
+  collections: { pages, foods, emergencies, colors, clinicalParams, clinic, hygieneTools },
+  prepare: ({ pages, clinicalParams, hygieneTools }) => {
     const slugs = new Set(pages.map((page) => page.slug));
     const errors: string[] = [];
+
+    // Los marcadores {parametro} de los JSON deben existir en clinical-params.json.
+    const paramNames = new Set(Object.keys(clinicalParams));
+    for (const tool of hygieneTools) {
+      const texts = [tool.purpose, tool.when, tool.replace, tool.note, ...tool.steps];
+      for (const match of texts.join(" ").matchAll(/\{(\w+)\}/g)) {
+        if (!paramNames.has(match[1])) {
+          errors.push(`hygiene-tools.json (${tool.id}): parámetro {${match[1]}} no existe.`);
+        }
+      }
+    }
 
     for (const page of pages) {
       for (const related of page.related) {

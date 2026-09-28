@@ -65,7 +65,7 @@
 - [ ] **Empieza aquí:** `TreatmentSelector`, recorrido personalizado y guardado en `localStorage`.
 - [ ] **Primeros días:** molestias, dieta blanda, cera paso a paso, llagas y cuándo consultar. _Borrador creado en la fase 0 como página de ejemplo; faltan las ilustraciones de los pasos y la revisión clínica._
 - [x] **Cepillado paso a paso** (`/cepillado`): `BrushingScene` (7 escenas SVG animadas: perfil del diente para los ángulos del cepillo y vista frontal para interdental e hilo) y `BrushingTimer` de 2 minutos por cuadrantes con celebración. _Pendiente de revisión clínica de textos e ilustraciones._
-- [ ] **Tu kit de higiene:** tarjetas de las 9 herramientas con su mini paso a paso.
+- [x] **Kit de higiene** (`/kit-de-higiene`): 10 herramientas ilustradas en "Lo básico" y "Ayudas extra" (para qué sirve, cómo se usa, cuándo, cada cuánto cambiarla), con "Lo tengo" y progreso del kit básico con celebración. Textos con `{parametro}` clínicos validados por Velite. _Pendiente de revisión clínica._
 - [x] **Alimentos** (`/alimentos`): tres reglas, `FoodTrafficLight` (buscador sin tildes, filtros por semáforo y "Manchan", consejo por alimento), qué tomar y brackets estéticos. _Pendiente de revisión clínica._
 - [x] **Urgencias** (`/urgencias`): alerta de emergencia médica con botón "Llamar al 123", `EmergencyTriage` (acordeón "¿Qué le pasó?" con pasos en casa, nivel de urgencia con icono y texto, WhatsApp con mensaje según el caso y llamada) y checklist del kit de emergencia. _Pendiente de revisión clínica._
 - [ ] Revisión clínica preliminar de estos módulos por la Dra. Lorena.
@@ -103,13 +103,13 @@
 - [ ] **SEO** (ver PRD §7):
   - [ ] Validar las intenciones de búsqueda con una herramienta de palabras clave y ajustar los `title` y `h1`.
   - [ ] `title` y `description` únicos por página, revisados.
-  - [ ] Canonical sin parámetros en todas las páginas.
+  - [x] Canonical sin parámetros en todas las páginas.
   - [ ] `/q/<id>` con redirect 308, excluido del índice.
-  - [ ] `sitemap.xml` con `lastModified` desde `reviewedAt`.
-  - [ ] `robots.txt` que bloquea `/q/` y enlaza al sitemap.
+  - [x] `sitemap.xml` con `lastModified` desde `reviewedAt`.
+  - [x] `robots.txt` que bloquea `/q/` y enlaza al sitemap (solo en producción; fuera de ella bloquea todo).
   - [ ] Imágenes Open Graph por módulo, probadas al compartir en WhatsApp.
-  - [ ] JSON-LD: `MedicalWebPage`, `Organization`, `WebSite`, `BreadcrumbList` y `FAQPage`, validados con la Prueba de resultados enriquecidos de Google.
-  - [ ] Página 404 útil.
+  - [ ] JSON-LD: `MedicalWebPage`, `WebSite`, `BreadcrumbList` y `Dentist` ya están; falta `FAQPage` (con Mitos y FAQ) y validarlos con la Prueba de resultados enriquecidos de Google.
+  - [x] Página 404 útil.
   - [ ] Revisión de enlazado interno.
   - [ ] Google Search Console: verificar el dominio y enviar el sitemap.
 - [ ] Analítica: Umami Cloud, UTM por consultorio y eventos personalizados (ver PRD §4).
@@ -118,7 +118,7 @@
 - [ ] Páginas de **Política de tratamiento de datos** (Ley 1581 de 2012), **Créditos** y **Fuentes y revisión clínica**.
 - [ ] **Resolver D3:** validar con asesoría legal que el sitio cumple la Ley 35 de 1989.
 - [ ] Enlazar el sitio desde el perfil de Google Business del consultorio.
-- [ ] Piloto en el Clínica Sánchez Quintero, con recolección de métricas y feedback de pacientes durante un ciclo de controles.
+- [ ] Piloto en la Clínica Sánchez Quintero, con recolección de métricas y feedback de pacientes durante un ciclo de controles.
 
 **Criterio de salida:** sitio en producción, contenido firmado por el revisor clínico, QR entregado a pacientes reales y primer reporte de métricas del piloto.
 

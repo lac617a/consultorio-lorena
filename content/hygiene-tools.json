@@ -1,0 +1,101 @@
+[
+  {
+    "id": "v-brush",
+    "name": "Cepillo de ortodoncia",
+    "group": "basico",
+    "purpose": "Tiene las cerdas en forma de V: las del centro son más cortas para abrazar el bracket. Busque uno de cabeza pequeña y cerdas suaves.",
+    "when": "{brushingFrequency}",
+    "replace": "cada 3 meses, o antes si las cerdas se abren.",
+    "guide": "/cepillado"
+  },
+  {
+    "id": "interdental-brush",
+    "name": "Cepillo interdental",
+    "group": "basico",
+    "purpose": "Es un cepillo muy delgado que entra por debajo del arco y entre los brackets, donde el cepillo normal no llega.",
+    "steps": [
+      "Elija un tamaño que entre ajustado, sin forzarlo. Si no entra, use uno más pequeño.",
+      "Páselo por debajo del arco, a cada lado del bracket.",
+      "Muévalo de arriba abajo a cada lado del bracket y a lo largo del arco."
+    ],
+    "when": "al menos una vez al día"
+  },
+  {
+    "id": "threader",
+    "name": "Enhebrador de hilo dental",
+    "group": "basico",
+    "purpose": "Es un lazo de plástico que le ayuda a pasar el hilo dental por debajo del arco.",
+    "steps": [
+      "Pase el hilo por el lazo del enhebrador.",
+      "Meta la punta por debajo del arco y hálela hasta que pase el hilo.",
+      "Limpie entre los dientes como lo haría normalmente.",
+      "Repita en cada espacio."
+    ],
+    "when": "al menos una vez al día"
+  },
+  {
+    "id": "toothpaste",
+    "name": "Crema dental con flúor",
+    "group": "basico",
+    "purpose": "El flúor protege el esmalte alrededor de los brackets. Para adultos, busque una crema con 1 350 a 1 500 ppm de flúor.",
+    "steps": [
+      "Use una cantidad del tamaño de una arveja.",
+      "Al terminar, escupa sin enjuagarse: así el flúor sigue actuando."
+    ],
+    "note": "Su ortodoncista puede recetarle una crema con más flúor si la necesita."
+  },
+  {
+    "id": "single-tuft",
+    "name": "Cepillo unipenacho",
+    "group": "extra",
+    "purpose": "Tiene un solo mechón de cerdas en punta. Sirve para limpiar los rincones difíciles alrededor de cada bracket."
+  },
+  {
+    "id": "electric-brush",
+    "name": "Cepillo eléctrico con cabezal de ortodoncia",
+    "group": "extra",
+    "purpose": "Es una alternativa al cepillo manual, no una varita mágica: limpia bien solo si se usa con buena técnica. Use el que mejor le funcione."
+  },
+  {
+    "id": "stiff-floss",
+    "name": "Hilo dental con punta rígida",
+    "group": "extra",
+    "purpose": "Tiene tres partes: una punta rígida, un tramo esponjoso y un tramo de hilo normal. No necesita enhebrador.",
+    "steps": [
+      "Con la punta rígida, pase el hilo por debajo del arco.",
+      "Con el tramo esponjoso, limpie alrededor del bracket con un vaivén suave.",
+      "Con el tramo de hilo normal, limpie entre los dientes y deslícelo bajo la encía de arriba abajo."
+    ],
+    "when": "al menos una vez al día"
+  },
+  {
+    "id": "water-flosser",
+    "name": "Irrigador bucal",
+    "group": "extra",
+    "purpose": "Lanza un chorro de agua que ayuda a quitar la placa alrededor de los brackets. Es una alternativa si le cuesta usar el hilo dental.",
+    "steps": [
+      "Llene el depósito con agua tibia.",
+      "Empiece con la presión más baja.",
+      "Inclínese sobre el lavamanos con los labios entreabiertos.",
+      "Empiece por los dientes de atrás, con la punta hacia la encía.",
+      "Deténgase entre los dientes y alrededor de cada bracket."
+    ]
+  },
+  {
+    "id": "mouthwash",
+    "name": "Enjuague bucal con flúor",
+    "group": "extra",
+    "purpose": "Da una protección extra contra las caries. Elija uno sin alcohol.",
+    "steps": [
+      "Úselo una vez al día, {fluorideRinseTiming}.",
+      "Después, no coma ni beba durante 20 minutos."
+    ],
+    "note": "Úselo si su ortodoncista se lo indica."
+  },
+  {
+    "id": "disclosing-tablets",
+    "name": "Pastillas reveladoras de placa",
+    "group": "extra",
+    "purpose": "Tiñen la placa de color para que vea dónde le falta cepillar."
+  }
+]

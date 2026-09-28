@@ -4,6 +4,7 @@ import * as runtime from "react/jsx-runtime";
 import { Callout } from "@/components/content/callout";
 import { EmergencyGuide } from "@/components/content/emergency-guide";
 import { FoodGuide } from "@/components/content/food-guide";
+import { HygieneKitGuide } from "@/components/content/hygiene-kit-guide";
 import { Param } from "@/components/content/param";
 import { BrushingScene } from "@/components/illustrations/brushing-scene";
 import { BrushingTimer } from "@/components/interactive/brushing-timer";
@@ -20,6 +21,7 @@ const components = {
   Checklist,
   EmergencyGuide,
   FoodGuide,
+  HygieneKitGuide,
   Param,
   Step,
   StepByStep,

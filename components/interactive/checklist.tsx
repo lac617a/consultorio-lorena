@@ -26,11 +26,14 @@ export function Checklist({ id, title, items }: ChecklistProps) {
   }, [storageKey]);
 
   function toggle(item: string) {
-    const next = checked.includes(item)
-      ? checked.filter((value) => value !== item)
-      : [...checked, item];
-    setChecked(next);
-    writeStorage(storageKey, next);
+    // Actualización funcional: varios toques seguidos no se pisan entre sí.
+    setChecked((current) => {
+      const next = current.includes(item)
+        ? current.filter((value) => value !== item)
+        : [...current, item];
+      writeStorage(storageKey, next);
+      return next;
+    });
   }
 
   return (
