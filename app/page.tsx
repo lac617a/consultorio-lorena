@@ -21,14 +21,17 @@ const HERO_LIGATURES = Array.from({ length: 10 }, (_, index) =>
   index % 2 === 0 ? "var(--color-brand-400)" : "var(--color-accent-300)",
 );
 
-/** Guías planeadas (fase 1 y 2): se muestran como "muy pronto" hasta que existan. */
-const UPCOMING = [
-  { title: "Cómo cepillarse con brackets", Illustration: OrthodonticToothbrush },
-  { title: "Su kit de higiene", Illustration: InterdentalBrush },
-  { title: "¿Puedo comer esto?" },
-  { title: "Qué hacer si algo se rompe" },
-  { title: "Elija el color de sus ligas" },
+/** Guías planeadas (fase 1 y 2): se muestran como "muy pronto" hasta que exista su página. */
+const PLANNED = [
+  { slug: "cepillado", title: "Cómo cepillarse con brackets", Illustration: OrthodonticToothbrush },
+  { slug: "kit-de-higiene", title: "Su kit de higiene", Illustration: InterdentalBrush },
+  { slug: "alimentos", title: "¿Puedo comer esto?" },
+  { slug: "urgencias", title: "Qué hacer si algo se rompe" },
+  { slug: "ligas", title: "Elija el color de sus ligas" },
 ];
+
+const publishedSlugs = new Set(allPages.map((page) => page.slug));
+const UPCOMING = PLANNED.filter((guide) => !publishedSlugs.has(guide.slug));
 
 const pad = (value: number) => String(value).padStart(2, "0");
 
@@ -105,8 +108,8 @@ export default function HomePage() {
               </Link>
             </li>
           ))}
-          {UPCOMING.map(({ title, Illustration }, index) => (
-            <li key={title} className="flex items-center gap-4 py-5 text-ink-muted">
+          {UPCOMING.map(({ slug, title, Illustration }, index) => (
+            <li key={slug} className="flex items-center gap-4 py-5 text-ink-muted">
               <span className="font-display text-4xl font-semibold text-line">
                 {pad(allPages.length + index + 1)}
               </span>

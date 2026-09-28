@@ -3,6 +3,8 @@ import * as runtime from "react/jsx-runtime";
 
 import { Callout } from "@/components/content/callout";
 import { Param } from "@/components/content/param";
+import { BrushingScene } from "@/components/illustrations/brushing-scene";
+import { BrushingTimer } from "@/components/interactive/brushing-timer";
 import { Checklist } from "@/components/interactive/checklist";
 import { Step, StepByStep } from "@/components/interactive/step-by-step";
 
@@ -10,6 +12,8 @@ import type { ComponentProps, ReactNode } from "react";
 
 /** Componentes disponibles dentro de los archivos MDX de content/pages. */
 const components = {
+  BrushingScene,
+  BrushingTimer,
   Callout,
   Checklist,
   Param,
