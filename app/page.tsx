@@ -124,10 +124,10 @@ export default function HomePage() {
       </section>
 
       <section
-        aria-labelledby="consultorio"
+        aria-labelledby="clinica"
         className="rounded-card border-2 border-ink bg-surface p-5 shadow-[var(--shadow-print)]"
       >
-        <h2 id="consultorio" className="text-2xl">
+        <h2 id="clinica" className="text-2xl">
           Su clínica
         </h2>
         <Image

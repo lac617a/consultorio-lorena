@@ -539,7 +539,7 @@ Estos valores se modelan como **parámetros clínicos configurables** (ver PRD �
 
 ## Notas de cumplimiento
 
-- **Aviso clínico** en cada página, por ejemplo: _"Esta información es educativa y no sustituye la consulta con su ortodoncista. Si tiene dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacte a su consultorio."_
+- **Aviso clínico** en cada página, por ejemplo: _"Esta información es educativa y no sustituye la consulta con su ortodoncista. Si tiene dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacte a su clínica."_
 - **Sello de revisión:**
   - Texto: "Revisado por [nombre], [especialidad], [cédula o n.º colegiado]".
   - Fecha de "Última revisión" y de "Próxima revisión".

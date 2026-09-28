@@ -346,7 +346,7 @@ Es contenido de salud, un tema que Google trata como YMYL ("Your Money or Your L
    - `reviewedAt` y `nextReview`: revisión cada 12 meses como máximo.
    - `sources`: lista de URLs.
 3. **Sello visible:** "Revisado por … · Última revisión: DD/MM/AAAA".
-4. **Aviso clínico en cada página:** _"Esta información es educativa y no sustituye la consulta con su ortodoncista. Si tiene dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacte a su consultorio."_
+4. **Aviso clínico en cada página:** _"Esta información es educativa y no sustituye la consulta con su ortodoncista. Si tiene dolor intenso, sangrado, un alambre que lastima o un aparato suelto, contacte a su clínica."_
 5. **Parámetros clínicos configurables.** Cuando las fuentes discrepan, el valor no se escribe en el texto: vive en un archivo de configuración (`content/clinical-params.json`). Hoy tiene un único valor por defecto validado por el revisor; en la fase 4 cada clínica tendrá el suyo.
    - Frecuencia de cepillado y momento del enjuague con flúor.
    - Intervalo entre citas de control.

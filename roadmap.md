@@ -67,7 +67,7 @@
 - [x] **Cepillado paso a paso** (`/cepillado`): `BrushingScene` (7 escenas SVG animadas: perfil del diente para los ángulos del cepillo y vista frontal para interdental e hilo) y `BrushingTimer` de 2 minutos por cuadrantes con celebración. _Pendiente de revisión clínica de textos e ilustraciones._
 - [ ] **Tu kit de higiene:** tarjetas de las 9 herramientas con su mini paso a paso.
 - [ ] **Alimentos:** `FoodTrafficLight` con alimentos típicos de LATAM, bebidas y alimentos que manchan los brackets estéticos.
-- [ ] **Urgencias:** `EmergencyTriage`, bloque de emergencia médica real, kit de emergencia y botón de WhatsApp del consultorio con mensaje prellenado.
+- [x] **Urgencias** (`/urgencias`): alerta de emergencia médica con botón "Llamar al 123", `EmergencyTriage` (acordeón "¿Qué le pasó?" con pasos en casa, nivel de urgencia con icono y texto, WhatsApp con mensaje según el caso y llamada) y checklist del kit de emergencia. _Pendiente de revisión clínica._
 - [ ] Revisión clínica preliminar de estos módulos por la Dra. Lorena.
 
 **Criterio de salida:** desde un QR de prueba, en un Android de gama baja real, el paciente completa el recorrido "Empieza aquí → Primeros días → Cepillado → Alimentos → Urgencias" sin errores. LCP < 2.5 s en todas estas páginas.

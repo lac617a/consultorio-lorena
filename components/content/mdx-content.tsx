@@ -2,6 +2,7 @@ import Link from "next/link";
 import * as runtime from "react/jsx-runtime";
 
 import { Callout } from "@/components/content/callout";
+import { EmergencyGuide } from "@/components/content/emergency-guide";
 import { Param } from "@/components/content/param";
 import { BrushingScene } from "@/components/illustrations/brushing-scene";
 import { BrushingTimer } from "@/components/interactive/brushing-timer";
@@ -16,6 +17,7 @@ const components = {
   BrushingTimer,
   Callout,
   Checklist,
+  EmergencyGuide,
   Param,
   Step,
   StepByStep,

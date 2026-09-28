@@ -92,8 +92,20 @@ const emergencies = defineCollection({
     id: s.unique("emergencies"),
     title: s.string(),
     urgency: s.enum(["puede-esperar", "llama-pronto", "urgencias"]),
+    icon: s.enum([
+      "wire",
+      "bracket",
+      "band",
+      "ligature",
+      "elastic",
+      "appliance",
+      "pain",
+      "medical",
+    ]),
     steps: s.array(s.string()).min(1),
     note: s.string().optional(),
+    /** Mensaje prellenado para WhatsApp. Nunca datos del paciente: él decide qué agregar. */
+    whatsappMessage: s.string().optional(),
     treatments: s.array(treatment).min(1),
   }),
 });
