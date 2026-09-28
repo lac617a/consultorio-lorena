@@ -2,14 +2,19 @@
 
 import { ChevronDown, MessageCircle, Phone } from "lucide-react";
 import * as m from "motion/react-m";
+import Link from "next/link";
 import { useId, useState } from "react";
 
 import { cn } from "@/lib/cn";
+import { appliesTo, treatmentLabel, useTreatment } from "@/lib/treatment";
 import { EMERGENCY_ICONS, URGENCY } from "@/lib/urgency";
 
 import type { Emergency } from "@/lib/content";
 
-export type TriageItem = Pick<Emergency, "id" | "title" | "urgency" | "icon" | "steps" | "note"> & {
+export type TriageItem = Pick<
+  Emergency,
+  "id" | "title" | "urgency" | "icon" | "steps" | "note" | "treatments"
+> & {
   whatsappUrl: string | null;
 };
 
@@ -25,6 +30,8 @@ type EmergencyTriageProps = {
 export function EmergencyTriage({ items, phoneUrl }: EmergencyTriageProps) {
   const [openId, setOpenId] = useState<string | null>(null);
   const baseId = useId();
+  const treatment = useTreatment();
+  const hiddenCount = items.filter((item) => !appliesTo(item.treatments, treatment)).length;
 
   return (
     <section aria-labelledby={`${baseId}-title`} className="my-10">
@@ -32,6 +39,12 @@ export function EmergencyTriage({ items, phoneUrl }: EmergencyTriageProps) {
         ¿Qué le pasó?
       </h2>
       <p className="mt-1 text-ink-muted">Toque lo que le pasó para ver qué hacer.</p>
+      {treatment && hiddenCount > 0 && (
+        <p className="mt-2 text-base text-ink-muted">
+          Mostrando lo que aplica a {treatmentLabel(treatment).toLowerCase()}.{" "}
+          <Link href="/#tratamiento">Cambiar tratamiento</Link>
+        </p>
+      )}
 
       <ul className="mt-5 space-y-3">
         {items.map((item) => {
@@ -43,6 +56,7 @@ export function EmergencyTriage({ items, phoneUrl }: EmergencyTriageProps) {
           return (
             <li
               key={item.id}
+              hidden={!appliesTo(item.treatments, treatment)}
               className={cn(
                 "rounded-card border-2 border-ink bg-surface transition-shadow",
                 open && "shadow-[var(--shadow-print)]",

@@ -1,16 +1,15 @@
 import { ArrowRight, Clock, MapPin, MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { ArchWithBraces } from "@/components/illustrations/arch-with-braces";
-import { InterdentalBrush } from "@/components/illustrations/interdental-brush";
-import { OrthodonticToothbrush } from "@/components/illustrations/orthodontic-toothbrush";
+import { StartHere } from "@/components/interactive/start-here";
 import { JsonLd } from "@/components/seo/json-ld";
 import { allPages, clinic } from "@/lib/content";
 import { dentistJsonLd, websiteJsonLd } from "@/lib/seo";
 import { clinicAddressLine, clinicMapsUrl, clinicPhoneUrl, clinicWhatsappUrl } from "@/lib/site";
 import logoFull from "@/public/brand/logo-full.png";
 
+import type { GuideSummary, UpcomingGuide } from "@/components/interactive/start-here";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -21,19 +20,46 @@ const HERO_LIGATURES = Array.from({ length: 10 }, (_, index) =>
   index % 2 === 0 ? "var(--color-brand-400)" : "var(--color-accent-300)",
 );
 
-/** Guías planeadas (fase 1 y 2): se muestran como "muy pronto" hasta que exista su página. */
-const PLANNED = [
-  { slug: "cepillado", title: "Cómo cepillarse con brackets", Illustration: OrthodonticToothbrush },
-  { slug: "kit-de-higiene", title: "Su kit de higiene", Illustration: InterdentalBrush },
-  { slug: "alimentos", title: "¿Puedo comer esto?" },
-  { slug: "urgencias", title: "Qué hacer si algo se rompe" },
-  { slug: "ligas", title: "Elija el color de sus ligas" },
+/**
+ * Guías planeadas (fase 2): se muestran como "muy pronto" hasta que exista su página,
+ * filtradas según el tratamiento del paciente.
+ */
+const PLANNED: UpcomingGuide[] = [
+  { slug: "ligas", title: "Elija el color de sus ligas", treatments: ["metalicos", "esteticos"] },
+  {
+    slug: "elasticos",
+    title: "Cómo ponerse los elásticos",
+    treatments: ["metalicos", "esteticos", "autoligables", "alineadores"],
+  },
+  { slug: "alineadores", title: "Cuidado de sus alineadores", treatments: ["alineadores"] },
+  { slug: "retenedores", title: "Cuidado de su retenedor", treatments: ["retenedor"] },
+  {
+    slug: "citas",
+    title: "Sus citas de control",
+    treatments: ["metalicos", "esteticos", "autoligables", "alineadores"],
+  },
+  {
+    slug: "deportes",
+    title: "Deportes e instrumentos",
+    treatments: ["metalicos", "esteticos", "autoligables", "alineadores", "retenedor"],
+  },
+  {
+    slug: "mitos",
+    title: "Mitos y preguntas frecuentes",
+    treatments: ["metalicos", "esteticos", "autoligables", "alineadores", "retenedor"],
+  },
 ];
 
 const publishedSlugs = new Set(allPages.map((page) => page.slug));
 const UPCOMING = PLANNED.filter((guide) => !publishedSlugs.has(guide.slug));
 
-const pad = (value: number) => String(value).padStart(2, "0");
+const GUIDES: GuideSummary[] = allPages.map(({ slug, url, title, lead, treatments }) => ({
+  slug,
+  url,
+  title,
+  lead,
+  treatments,
+}));
 
 export default function HomePage() {
   const whatsappUrl = clinicWhatsappUrl();
@@ -44,7 +70,7 @@ export default function HomePage() {
       <JsonLd data={[websiteJsonLd(), dentistJsonLd()]} />
 
       <section className="space-y-6 pt-2">
-        <p className="sticker">Para pacientes con brackets</p>
+        <p className="sticker">Para pacientes de ortodoncia</p>
         <h1 className="text-5xl sm:text-6xl">
           Su ortodoncia,{" "}
           <span className="relative font-medium whitespace-nowrap text-brand-600 italic">
@@ -66,7 +92,7 @@ export default function HomePage() {
           </span>
         </h1>
         <p className="max-w-xl text-xl text-ink-muted">
-          Todo lo que necesita para cuidar sus brackets: explicado con dibujos, en pasos cortos y
+          Todo lo que necesita para cuidar su tratamiento: explicado con dibujos, en pasos cortos y
           sin letra pequeña.
         </p>
         <ArchWithBraces
@@ -75,53 +101,13 @@ export default function HomePage() {
           ligatureColors={HERO_LIGATURES}
           className="mx-auto w-full max-w-lg"
         />
-        {allPages[0] && (
-          <Link href={allPages[0].url} className="btn btn-primary w-full text-lg sm:w-auto">
-            Empiece por aquí
-            <ArrowRight aria-hidden="true" className="size-5" />
-          </Link>
-        )}
+        <a href="#tratamiento" className="btn btn-primary w-full text-lg sm:w-auto">
+          Empiece aquí
+          <ArrowRight aria-hidden="true" className="size-5" />
+        </a>
       </section>
 
-      <section aria-labelledby="guias" className="space-y-2">
-        <h2 id="guias" className="text-3xl">
-          Las guías
-        </h2>
-        <ol className="divide-y-2 divide-ink border-y-2 border-ink">
-          {allPages.map((page, index) => (
-            <li key={page.slug}>
-              <Link
-                href={page.url}
-                className="group flex items-center gap-4 py-5 text-ink no-underline"
-              >
-                <span className="font-display text-4xl font-semibold text-brand-600">
-                  {pad(index + 1)}
-                </span>
-                <span className="flex-1">
-                  <span className="block font-display text-2xl font-semibold">{page.title}</span>
-                  {page.lead && <span className="block text-base text-ink-muted">{page.lead}</span>}
-                </span>
-                <ArrowRight
-                  aria-hidden="true"
-                  className="size-7 shrink-0 transition-transform group-hover:translate-x-1"
-                />
-              </Link>
-            </li>
-          ))}
-          {UPCOMING.map(({ slug, title, Illustration }, index) => (
-            <li key={slug} className="flex items-center gap-4 py-5 text-ink-muted">
-              <span className="font-display text-4xl font-semibold text-line">
-                {pad(allPages.length + index + 1)}
-              </span>
-              <span className="flex-1">
-                <span className="block font-display text-2xl font-semibold">{title}</span>
-                <span className="text-sm font-bold">Muy pronto</span>
-              </span>
-              {Illustration && <Illustration className="hidden h-10 w-auto sm:block" />}
-            </li>
-          ))}
-        </ol>
-      </section>
+      <StartHere guides={GUIDES} upcoming={UPCOMING} />
 
       <section
         aria-labelledby="clinica"

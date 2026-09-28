@@ -62,7 +62,7 @@
 - [x] **Vocabulario colombiano y trato de usted** en el contenido existente (pitillo, gaseosa, maní, mazorca, batido).
 - [x] JSON-LD `Dentist` con nombre, marca, logo, dirección, teléfono y web.
 
-- [ ] **Empieza aquí:** `TreatmentSelector`, recorrido personalizado y guardado en `localStorage`.
+- [x] **Empieza aquí** (inicio): selector "¿Qué tratamiento tiene?" con 5 opciones ilustradas, guardado en el dispositivo; filtra las guías del inicio (y las "Muy pronto") y el triage de Urgencias, y sugiere la primera guía de cuidado.
 - [ ] **Primeros días:** molestias, dieta blanda, cera paso a paso, llagas y cuándo consultar. _Borrador creado en la fase 0 como página de ejemplo; faltan las ilustraciones de los pasos y la revisión clínica._
 - [x] **Cepillado paso a paso** (`/cepillado`): `BrushingScene` (7 escenas SVG animadas: perfil del diente para los ángulos del cepillo y vista frontal para interdental e hilo) y `BrushingTimer` de 2 minutos por cuadrantes con celebración. _Pendiente de revisión clínica de textos e ilustraciones._
 - [x] **Kit de higiene** (`/kit-de-higiene`): 10 herramientas ilustradas en "Lo básico" y "Ayudas extra" (para qué sirve, cómo se usa, cuándo, cada cuánto cambiarla), con "Lo tengo" y progreso del kit básico con celebración. Textos con `{parametro}` clínicos validados por Velite. _Pendiente de revisión clínica._

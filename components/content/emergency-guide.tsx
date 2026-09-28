@@ -19,13 +19,14 @@ export function EmergencyGuide() {
   const medical = emergencies.filter((item) => item.urgency === "urgencias");
   const items: TriageItem[] = emergencies
     .filter((item) => item.urgency !== "urgencias")
-    .map(({ id, title, urgency, icon, steps, note, whatsappMessage }) => ({
+    .map(({ id, title, urgency, icon, steps, note, whatsappMessage, treatments }) => ({
       id,
       title,
       urgency,
       icon,
       steps,
       note,
+      treatments,
       whatsappUrl: whatsappMessage ? clinicWhatsappUrl(whatsappMessage) : null,
     }));
 
