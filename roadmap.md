@@ -66,7 +66,7 @@
 - [ ] **Primeros días:** molestias, dieta blanda, cera paso a paso, llagas y cuándo consultar. _Borrador creado en la fase 0 como página de ejemplo; faltan las ilustraciones de los pasos y la revisión clínica._
 - [x] **Cepillado paso a paso** (`/cepillado`): `BrushingScene` (7 escenas SVG animadas: perfil del diente para los ángulos del cepillo y vista frontal para interdental e hilo) y `BrushingTimer` de 2 minutos por cuadrantes con celebración. _Pendiente de revisión clínica de textos e ilustraciones._
 - [ ] **Tu kit de higiene:** tarjetas de las 9 herramientas con su mini paso a paso.
-- [ ] **Alimentos:** `FoodTrafficLight` con alimentos típicos de LATAM, bebidas y alimentos que manchan los brackets estéticos.
+- [x] **Alimentos** (`/alimentos`): tres reglas, `FoodTrafficLight` (buscador sin tildes, filtros por semáforo y "Manchan", consejo por alimento), qué tomar y brackets estéticos. _Pendiente de revisión clínica._
 - [x] **Urgencias** (`/urgencias`): alerta de emergencia médica con botón "Llamar al 123", `EmergencyTriage` (acordeón "¿Qué le pasó?" con pasos en casa, nivel de urgencia con icono y texto, WhatsApp con mensaje según el caso y llamada) y checklist del kit de emergencia. _Pendiente de revisión clínica._
 - [ ] Revisión clínica preliminar de estos módulos por la Dra. Lorena.
 

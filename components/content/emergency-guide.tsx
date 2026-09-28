@@ -1,4 +1,4 @@
-import { Phone, Siren } from "lucide-react";
+import { MessageCircle, Phone, Siren } from "lucide-react";
 
 import { EmergencyTriage } from "@/components/interactive/emergency-triage";
 import { clinic, emergencies } from "@/lib/content";
@@ -12,6 +12,10 @@ import type { TriageItem } from "@/components/interactive/emergency-triage";
  * Los datos vienen de content/emergencies.json; los enlaces de contacto, de content/clinic.json.
  */
 export function EmergencyGuide() {
+  // En una emergencia médica real, primero el 123; la clínica también se entera por WhatsApp.
+  const notifyClinicUrl = clinicWhatsappUrl(
+    "Hola, soy paciente de ortodoncia. Tuve una emergencia y voy a urgencias.",
+  );
   const medical = emergencies.filter((item) => item.urgency === "urgencias");
   const items: TriageItem[] = emergencies
     .filter((item) => item.urgency !== "urgencias")
@@ -45,13 +49,26 @@ export function EmergencyGuide() {
               {step}
             </p>
           ))}
-          <a
-            href={`tel:${EMERGENCY_LINE}`}
-            className="btn mt-4 w-full border-2 border-ink bg-stop text-white shadow-[0_4px_0_var(--color-ink)] sm:w-auto"
-          >
-            <Phone aria-hidden="true" className="size-5" />
-            Llamar al {EMERGENCY_LINE}
-          </a>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <a
+              href={`tel:${EMERGENCY_LINE}`}
+              className="btn border-2 border-ink bg-stop text-white shadow-[0_4px_0_var(--color-ink)]"
+            >
+              <Phone aria-hidden="true" className="size-5" />
+              Llamar al {EMERGENCY_LINE}
+            </a>
+            {notifyClinicUrl && (
+              <a
+                href={notifyClinicUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+                className="btn btn-secondary"
+              >
+                <MessageCircle aria-hidden="true" className="size-5" />
+                Avisar a la clínica
+              </a>
+            )}
+          </div>
         </aside>
       ))}
 
