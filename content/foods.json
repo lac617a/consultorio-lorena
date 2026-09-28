@@ -1,0 +1,181 @@
+[
+  {
+    "id": "caramelos-duros",
+    "name": "Caramelos duros",
+    "verdict": "evitar",
+    "reason": "Son duros: pueden despegar un bracket o doblar el arco."
+  },
+  {
+    "id": "frutos-secos",
+    "name": "Cacahuates y otros frutos secos",
+    "verdict": "evitar",
+    "reason": "Son duros y pequeños: pueden despegar brackets."
+  },
+  {
+    "id": "hielo",
+    "name": "Hielo",
+    "verdict": "evitar",
+    "reason": "Morder hielo puede romper brackets. Tómalo sin masticarlo."
+  },
+  {
+    "id": "papas-de-bolsa",
+    "name": "Papas fritas de bolsa y totopos",
+    "verdict": "evitar",
+    "reason": "Son duros y crujientes: pueden despegar brackets."
+  },
+  {
+    "id": "palomitas",
+    "name": "Palomitas de maíz",
+    "verdict": "evitar",
+    "reason": "Los granos duros y las cáscaras se atoran en los brackets."
+  },
+  {
+    "id": "elote-mazorca",
+    "name": "Elote o choclo en mazorca",
+    "verdict": "evitar",
+    "reason": "Morder la mazorca puede despegar los brackets de enfrente.",
+    "tip": "Desgránalo con un cuchillo y cómelo con cuchara."
+  },
+  {
+    "id": "gomitas",
+    "name": "Gomitas y caramelos masticables",
+    "verdict": "evitar",
+    "reason": "Son pegajosos: se quedan en los brackets y jalan el aparato."
+  },
+  {
+    "id": "chicle",
+    "name": "Chicle",
+    "verdict": "evitar",
+    "reason": "Es pegajoso y se enreda en los brackets.",
+    "tip": "Evítalo, salvo que tu ortodoncista te lo permita."
+  },
+  {
+    "id": "pan-duro",
+    "name": "Pan duro y bagels",
+    "verdict": "evitar",
+    "reason": "Morder algo muy duro puede despegar brackets."
+  },
+  {
+    "id": "refrescos",
+    "name": "Refrescos y bebidas deportivas",
+    "verdict": "evitar",
+    "reason": "Son ácidos, incluso los de dieta: dañan el esmalte alrededor de los brackets.",
+    "tip": "Entre comidas, toma agua simple o leche."
+  },
+  {
+    "id": "manzana",
+    "name": "Manzana",
+    "verdict": "cuidado",
+    "reason": "Morderla entera puede despegar brackets.",
+    "tip": "Córtala en trozos pequeños y mastica con los dientes de atrás."
+  },
+  {
+    "id": "zanahoria-cruda",
+    "name": "Zanahoria cruda y apio",
+    "verdict": "cuidado",
+    "reason": "Son duros si están crudos.",
+    "tip": "Córtalos en trozos pequeños o cómelos cocidos."
+  },
+  {
+    "id": "pizza-orilla",
+    "name": "Orilla de pizza y pan crujiente",
+    "verdict": "cuidado",
+    "reason": "La parte dura puede despegar brackets.",
+    "tip": "Corta en trozos pequeños o deja la orilla."
+  },
+  {
+    "id": "carnes-con-hueso",
+    "name": "Alitas, costillas y carne fibrosa",
+    "verdict": "cuidado",
+    "reason": "Morder junto al hueso o jalar la carne fuerza los brackets.",
+    "tip": "Quita la carne del hueso y córtala en trozos pequeños."
+  },
+  {
+    "id": "jugo",
+    "name": "Jugo de fruta",
+    "verdict": "cuidado",
+    "reason": "Tiene azúcar y ácido.",
+    "tip": "Tómalo solo con las comidas y con popote."
+  },
+  {
+    "id": "cafe",
+    "name": "Café y té",
+    "verdict": "cuidado",
+    "reason": "No dañan los brackets, pero manchan los brackets estéticos y las ligas claras.",
+    "stains": true
+  },
+  {
+    "id": "huevo",
+    "name": "Huevo revuelto",
+    "verdict": "si",
+    "reason": "Es suave: ideal para los primeros días."
+  },
+  {
+    "id": "sopa",
+    "name": "Sopas y caldos",
+    "verdict": "si",
+    "reason": "No necesitas morder: perfectos cuando tus dientes están sensibles."
+  },
+  {
+    "id": "pasta",
+    "name": "Pasta",
+    "verdict": "si",
+    "reason": "Es suave y fácil de masticar."
+  },
+  {
+    "id": "pure",
+    "name": "Puré de papa",
+    "verdict": "si",
+    "reason": "Es suave: ideal para los primeros días."
+  },
+  {
+    "id": "verduras-cocidas",
+    "name": "Verduras cocidas",
+    "verdict": "si",
+    "reason": "Cocidas quedan suaves y no fuerzan los brackets."
+  },
+  {
+    "id": "platano",
+    "name": "Plátano",
+    "verdict": "si",
+    "reason": "Es suave y no se pega."
+  },
+  {
+    "id": "yogur",
+    "name": "Yogur y licuados",
+    "verdict": "si",
+    "reason": "No necesitas morder: perfectos para los días de molestias."
+  },
+  {
+    "id": "avena",
+    "name": "Avena",
+    "verdict": "si",
+    "reason": "Es suave y fácil de comer."
+  },
+  {
+    "id": "pescado",
+    "name": "Pescado suave",
+    "verdict": "si",
+    "reason": "Es suave y se deshace fácil."
+  },
+  {
+    "id": "queso",
+    "name": "Queso blando",
+    "verdict": "si",
+    "reason": "Es suave y no se pega."
+  },
+  {
+    "id": "salsa-tomate",
+    "name": "Salsa de tomate y curry",
+    "verdict": "si",
+    "reason": "No dañan los brackets, pero manchan los brackets estéticos y las ligas claras.",
+    "stains": true
+  },
+  {
+    "id": "frutos-rojos",
+    "name": "Fresas y otros frutos rojos",
+    "verdict": "si",
+    "reason": "Son suaves, pero manchan los brackets estéticos y las ligas claras.",
+    "stains": true
+  }
+]

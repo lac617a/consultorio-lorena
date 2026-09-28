@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — dirección "Cuaderno ilustrado" (A) con interactivos de "Juego" (B).
+ * Ver docs/design-references.md.
+ *
+ * PALETA PROVISIONAL: `brand` y `accent` se reemplazan por los colores del
+ * Consultorio Lore cuando lleguen (decisión D6). Al cambiarlos, volver a verificar
+ * contraste: texto ≥ 4.5:1, UI ≥ 3:1.
+ */
+@theme {
+  /* Papel y tinta: la base editorial */
+  --color-canvas: #fbf6ee; /* fondo crema */
+  --color-canvas-deep: #f3eadb; /* secciones */
+  --color-surface: #fffdf8; /* tarjetas */
+  --color-ink: #2b2320; /* texto y trazos (14.3:1) */
+  --color-ink-muted: #5e524b; /* texto secundario (7:1) */
+  --color-line: rgb(43 35 32 / 0.16); /* separadores suaves */
+
+  /* Marca (provisional: terracota) */
+  --color-brand-50: #fcf1ec;
+  --color-brand-100: #f8ddd1;
+  --color-brand-200: #f2c9b8;
+  --color-brand-300: #eba78e;
+  --color-brand-400: #e07a5f; /* ilustración y decoración (no texto) */
+  --color-brand-500: #c9603f;
+  --color-brand-600: #b24a2a; /* botones con texto blanco (5.4:1), números grandes */
+  --color-brand-700: #9a3f22; /* texto de marca y enlaces (6.3:1) */
+  --color-brand-800: #7a3119;
+  --color-brand-900: #5c2512;
+
+  /* Acento (provisional: salvia) */
+  --color-accent-50: #eaf3ee;
+  --color-accent-100: #d8e9e0;
+  --color-accent-200: #b9d6c8;
+  --color-accent-300: #8fb9a8;
+  --color-accent-500: #5c9280;
+  --color-accent-700: #3b6b5b; /* texto sobre accent-50 (5.4:1) */
+
+  /* Celebración (estrellas, logros de los interactivos) */
+  --color-sun: #f5c04a;
+
+  /* Estados: semáforo y urgencia. Siempre con icono + texto. */
+  --color-ok: #1b6e45;
+  --color-ok-soft: #e3f4ea;
+  --color-caution: #7a4d00;
+  --color-caution-soft: #fff2cf;
+  --color-stop: #a8231b;
+  --color-stop-soft: #fdeae8;
+
+  --color-focus: #1f5fbf;
+
+  /* Tipografía: serif con carácter para títulos, sans muy legible para texto */
+  --font-sans: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  /* Formas */
+  --radius-card: 1.25rem;
+  --shadow-card: 0 1px 0 rgb(43 35 32 / 0.08);
+  --shadow-print: 4px 4px 0 var(--color-ink); /* sombra "impresa" desplazada */
+
+  --spacing-tap: 2.75rem; /* 44 px: tamaño mínimo táctil */
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* Texto base 18 px; A+ sube a 20 px. Todo escala en rem. */
+    font-size: 112.5%;
+  }
+
+  :root[data-text-size="large"] {
+    font-size: 125%;
+  }
+
+  html {
+    scroll-padding-top: 5rem;
+    /* La barra de accesos rápidos es fija: que no tape el foco (WCAG 2.4.11). */
+    scroll-padding-bottom: 6rem;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-ink;
+    font-weight: 600;
+    font-variation-settings: "SOFT" 60;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  a {
+    @apply text-brand-700 underline decoration-2 underline-offset-3;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+}
+
+@layer components {
+  /* Botones "con cuerpo" (mecánica de juego): se hunden al presionar. */
+  .btn {
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-2xl px-5 font-bold no-underline transition-transform select-none;
+  }
+
+  .btn:active {
+    transform: translateY(3px);
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 text-white;
+    box-shadow: 0 4px 0 var(--color-brand-800);
+  }
+
+  .btn-primary:active {
+    box-shadow: 0 1px 0 var(--color-brand-800);
+  }
+
+  .btn-secondary {
+    @apply border-2 border-ink bg-surface text-ink;
+    box-shadow: 0 4px 0 var(--color-ink);
+  }
+
+  .btn-secondary:active {
+    box-shadow: 0 1px 0 var(--color-ink);
+  }
+
+  /* Etiqueta tipo sticker */
+  .sticker {
+    @apply inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-surface px-3 py-0.5 text-sm font-bold text-ink;
+  }
+
+  /* Texto largo de las páginas MDX */
+  .content > h2 {
+    @apply mt-12 mb-4 text-3xl;
+  }
+
+  .content > h3 {
+    @apply mt-8 mb-2 text-2xl;
+  }
+
+  .content > p {
+    @apply my-4;
+  }
+
+  .content > ul,
+  .content > ol {
+    @apply my-4 space-y-1.5 pl-6;
+  }
+
+  .content > ul {
+    @apply list-disc marker:text-brand-400;
+  }
+
+  .content > ol {
+    @apply list-decimal marker:font-bold marker:text-brand-700;
+  }
+}
+
+@utility tap {
+  min-height: var(--spacing-tap);
+  min-width: var(--spacing-tap);
+}
+
+@utility min-h-tap {
+  min-height: var(--spacing-tap);
+}

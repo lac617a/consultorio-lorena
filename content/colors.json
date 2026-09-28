@@ -1,0 +1,18 @@
+[
+  { "id": "azul-marino", "name": "Azul marino", "hex": "#1f3a93", "effect": "aclara" },
+  { "id": "morado-oscuro", "name": "Morado oscuro", "hex": "#5b2a86", "effect": "aclara" },
+  { "id": "verde-esmeralda", "name": "Verde esmeralda", "hex": "#0f7b5f", "effect": "aclara" },
+  { "id": "negro", "name": "Negro", "hex": "#1d1d1f", "effect": "aclara" },
+  { "id": "turquesa", "name": "Turquesa", "hex": "#1fb5b0", "effect": "neutro" },
+  { "id": "azul-cielo", "name": "Azul cielo", "hex": "#4aa3df", "effect": "neutro" },
+  { "id": "rojo", "name": "Rojo", "hex": "#d62839", "effect": "neutro" },
+  { "id": "rosa", "name": "Rosa", "hex": "#f06a9b", "effect": "neutro" },
+  { "id": "lila", "name": "Lila", "hex": "#b28ddb", "effect": "neutro" },
+  { "id": "plata", "name": "Plata", "hex": "#a7adb3", "effect": "neutro" },
+  { "id": "amarillo", "name": "Amarillo", "hex": "#f5d027", "effect": "amarillea" },
+  { "id": "naranja", "name": "Naranja", "hex": "#f28c28", "effect": "amarillea" },
+  { "id": "blanco", "name": "Blanco", "hex": "#f7f7f2", "effect": "se-mancha" },
+  { "id": "transparente", "name": "Transparente", "hex": "#e3ecee", "effect": "se-mancha" },
+  { "id": "verde-lima", "name": "Verde lima", "hex": "#8cc63f", "effect": "parece-comida" },
+  { "id": "cafe", "name": "Café", "hex": "#7b4a2a", "effect": "parece-comida" }
+]

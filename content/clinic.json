@@ -1,0 +1,11 @@
+{
+  "name": "Consultorio Lore Odontológico",
+  "shortName": "Consultorio Lore",
+  "address": {
+    "street": "Calle 33 # 28-18",
+    "neighborhood": "La Aurora",
+    "city": "Bucaramanga",
+    "region": "Santander",
+    "country": "CO"
+  }
+}
