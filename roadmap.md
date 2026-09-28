@@ -43,7 +43,7 @@
   - [x] `noindex` fuera de producción (`NEXT_PUBLIC_SITE_ENV`): metadato, encabezado `X-Robots-Tag` y `robots.txt`.
   - [x] `robots.txt` y `sitemap.xml` generados.
 - [x] CI: lint, verificación de formato, typecheck y build en cada PR (`.github/workflows/ci.yml`).
-- [ ] Crear el repositorio remoto en GitHub y ver el CI en verde.
+- [x] Crear el repositorio remoto en GitHub ([lac617a/consultorio-lorena](https://github.com/lac617a/consultorio-lorena), público) y ver el CI en verde.
 - [ ] Despliegues de preview (depende de D1, hosting).
 
 **Criterio de salida:** una página de ejemplo en MDX se renderiza con aviso, sello de revisión y un `StepByStep` animado; el build falla si falta un metadato de revisión; el pre-commit corrige solos los imports desordenados y el formato, y el CI falla si llegan sin corregir; CI en verde.
