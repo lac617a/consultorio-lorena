@@ -54,7 +54,7 @@ export function TextSizeToggle() {
           aria-label={option === "normal" ? "Texto normal" : "Texto grande"}
           className={cn(
             "tap rounded-full px-3 font-bold transition-colors",
-            size === option ? "bg-ink text-canvas" : "text-ink hover:bg-brand-50",
+            size === option ? "bg-ink text-white" : "text-ink hover:bg-brand-100",
           )}
         >
           <span aria-hidden="true" className={option === "large" ? "text-lg" : "text-sm"}>

@@ -1,7 +1,3 @@
-"use client";
-
-import * as m from "motion/react-m";
-
 import { FILL, INK, OFFSET, STROKE } from "@/components/illustrations/style";
 
 /**
@@ -11,8 +7,6 @@ import { FILL, INK, OFFSET, STROKE } from "@/components/illustrations/style";
  *
  * Ilustración clínica: ángulos y posiciones siguen docs/content-research.md §1–2
  * (45° hacia la encía, por encima y por debajo del bracket). Cambios requieren revisión clínica.
- *
- * Las animaciones se repiten pocas veces (< 5 s, WCAG 2.2.2) y respetan reduced motion.
  */
 
 export type BrushingStep =
@@ -26,12 +20,6 @@ const TITLES: Record<BrushingStep, string> = {
   interdental: "Cepillo interdental pasando por debajo del arco, entre dos brackets",
   floss: "Hilo dental pasado por debajo del arco y entre dos dientes",
   check: "Diente con bracket limpio y brillante",
-};
-
-/** Movimiento circular pequeño del cepillo, repetido pocas veces. */
-const SCRUB = {
-  animate: { x: [0, 2.5, 0, -2.5, 0], y: [0, -2.5, 0, 2.5, 0] },
-  transition: { duration: 0.9, repeat: 4, ease: "linear" as const },
 };
 
 export function BrushingScene({ step, className }: { step: BrushingStep; className?: string }) {
@@ -113,7 +101,7 @@ function ProfileTooth({ step }: { step: BrushingStep }) {
       {step === "check" && <Sparkles />}
       {pose && <ToothbrushEndOn {...pose} />}
       {step === "angle" && (
-        <g fontFamily="var(--font-display)" fontStyle="italic" fontSize="17" fill={INK}>
+        <g fontFamily="var(--font-display)" fontSize="17" fill={INK}>
           <path
             d="M 236 72 A 30 30 0 0 0 227 51"
             fill="none"
@@ -139,7 +127,7 @@ function ProfileTooth({ step }: { step: BrushingStep }) {
 function ToothbrushEndOn({ x, y, rotate }: { x: number; y: number; rotate: number }) {
   return (
     <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
-      <m.g data-part="toothbrush" {...SCRUB}>
+      <g data-part="toothbrush">
         <rect
           x={0}
           y={-8}
@@ -166,28 +154,26 @@ function ToothbrushEndOn({ x, y, rotate }: { x: number; y: number; rotate: numbe
           stroke={INK}
           strokeWidth={STROKE}
         />
-      </m.g>
+      </g>
     </g>
   );
 }
 
 function WaterDrops() {
   const drops = [
-    { x: 212, y: 60, delay: 0 },
-    { x: 226, y: 96, delay: 0.3 },
-    { x: 206, y: 132, delay: 0.6 },
+    { x: 212, y: 60 },
+    { x: 226, y: 96 },
+    { x: 206, y: 132 },
   ];
   return (
     <g data-part="water">
       {drops.map((drop) => (
-        <m.path
+        <path
           key={drop.x}
           d={`M ${drop.x} ${drop.y} c -6 9, -8 14, 0 18 c 8 -4, 6 -9, 0 -18 Z`}
-          fill="var(--color-accent-100)"
+          fill={FILL.water}
           stroke={INK}
           strokeWidth={2}
-          animate={{ y: [0, 14], opacity: [1, 0] }}
-          transition={{ duration: 1.1, repeat: 3, delay: drop.delay, ease: "easeIn" }}
         />
       ))}
     </g>
@@ -203,18 +189,15 @@ function Sparkles() {
   return (
     <g
       data-part="sparkles"
-      fill="var(--color-sun)"
+      fill={FILL.sparkle}
       stroke={INK}
       strokeWidth={1.75}
       strokeLinejoin="round"
     >
-      {stars.map((star, index) => (
-        <m.path
+      {stars.map((star) => (
+        <path
           key={star.x}
           d={`M ${star.x} ${star.y - star.size} L ${star.x + star.size * 0.3} ${star.y - star.size * 0.3} L ${star.x + star.size} ${star.y} L ${star.x + star.size * 0.3} ${star.y + star.size * 0.3} L ${star.x} ${star.y + star.size} L ${star.x - star.size * 0.3} ${star.y + star.size * 0.3} L ${star.x - star.size} ${star.y} L ${star.x - star.size * 0.3} ${star.y - star.size * 0.3} Z`}
-          animate={{ scale: [1, 1.35, 1] }}
-          transition={{ duration: 0.8, repeat: 4, delay: index * 0.25 }}
-          style={{ transformOrigin: `${star.x}px ${star.y}px` }}
         />
       ))}
     </g>
@@ -315,11 +298,7 @@ function FrontTeeth({ step }: { step: BrushingStep }) {
 
 function InterdentalInGap() {
   return (
-    <m.g
-      data-part="interdental-brush"
-      animate={{ y: [0, -14, 0, 10, 0] }}
-      transition={{ duration: 1.2, repeat: 3, ease: "easeInOut" }}
-    >
+    <g data-part="interdental-brush">
       <path d={`M ${GAP_X} 88 V 176`} stroke={INK} strokeWidth={2.5} strokeLinecap="round" />
       <g stroke={FILL.soft} strokeWidth={2.5} strokeLinecap="round">
         {Array.from({ length: 9 }, (_, index) => {
@@ -338,17 +317,13 @@ function InterdentalInGap() {
         stroke={INK}
         strokeWidth={STROKE}
       />
-    </m.g>
+    </g>
   );
 }
 
 function FlossInGap() {
   return (
-    <m.g
-      data-part="floss"
-      animate={{ x: [0, -3, 3, 0] }}
-      transition={{ duration: 0.8, repeat: 5, ease: "easeInOut" }}
-    >
+    <g data-part="floss">
       <path
         d={`M ${GAP_X - 30} 70 C ${GAP_X - 6} 90, ${GAP_X} 100, ${GAP_X} 130 L ${GAP_X} 200`}
         fill="none"
@@ -374,6 +349,6 @@ function FlossInGap() {
         strokeWidth={3}
         transform={`rotate(-40 ${GAP_X - 34} 64)`}
       />
-    </m.g>
+    </g>
   );
 }

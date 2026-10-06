@@ -9,6 +9,30 @@ const requireClinicalReview = process.env.REQUIRE_CLINICAL_REVIEW === "true";
 
 const MAX_REVIEW_MONTHS = 12;
 
+type HastNode = { type: string; tagName?: string; children?: HastNode[]; [key: string]: unknown };
+
+/**
+ * Agrupa cada h2 del MDX con lo que le sigue en un <section>: así cada tema de la guía
+ * se ve como un panel del folleto (estilos en app/globals.css → .content > section).
+ */
+function rehypeSections() {
+  return (tree: HastNode) => {
+    const children: HastNode[] = [];
+    let current: HastNode | null = null;
+    for (const node of tree.children ?? []) {
+      if (node.type === "element" && node.tagName === "h2") {
+        current = { type: "element", tagName: "section", properties: {}, children: [node] };
+        children.push(current);
+      } else if (current) {
+        current.children!.push(node);
+      } else {
+        children.push(node);
+      }
+    }
+    tree.children = children;
+  };
+}
+
 const treatment = s.enum(["metalicos", "esteticos", "autoligables", "alineadores", "retenedor"]);
 
 const reviewer = s.object({
@@ -219,6 +243,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
+  mdx: { rehypePlugins: [rehypeSections] },
   collections: { pages, foods, emergencies, colors, clinicalParams, clinic, hygieneTools },
   prepare: ({ pages, clinicalParams, hygieneTools }) => {
     const slugs = new Set(pages.map((page) => page.slug));

@@ -2,29 +2,32 @@ import Link from "next/link";
 import * as runtime from "react/jsx-runtime";
 
 import { Callout } from "@/components/content/callout";
-import { EmergencyGuide } from "@/components/content/emergency-guide";
+import { Card, Cards } from "@/components/content/cards";
+import { EmergencyAlert, EmergencyGuide } from "@/components/content/emergency-guide";
 import { FoodGuide } from "@/components/content/food-guide";
 import { HygieneKitGuide } from "@/components/content/hygiene-kit-guide";
 import { Param } from "@/components/content/param";
 import { BrushingScene } from "@/components/illustrations/brushing-scene";
-import { BrushingTimer } from "@/components/interactive/brushing-timer";
-import { Checklist } from "@/components/interactive/checklist";
-import { Step, StepByStep } from "@/components/interactive/step-by-step";
 
 import type { ComponentProps, ReactNode } from "react";
 
 /** Componentes disponibles dentro de los archivos MDX de content/pages. */
 const components = {
   BrushingScene,
-  BrushingTimer,
   Callout,
-  Checklist,
+  Card,
+  Cards,
+  EmergencyAlert,
   EmergencyGuide,
   FoodGuide,
   HygieneKitGuide,
   Param,
-  Step,
-  StepByStep,
+  // Cada título de tema lleva el trazo de resaltador del folleto.
+  h2: ({ children, ...props }: ComponentProps<"h2">) => (
+    <h2 {...props}>
+      <span className="marker">{children}</span>
+    </h2>
+  ),
   a: ({ href = "", ...props }: ComponentProps<"a">) =>
     href.startsWith("/") ? (
       <Link href={href} {...props} />

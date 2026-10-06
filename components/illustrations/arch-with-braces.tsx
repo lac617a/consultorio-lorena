@@ -1,12 +1,8 @@
-"use client";
-
-import * as m from "motion/react-m";
-
 import { FILL, INK, OFFSET, STROKE } from "@/components/illustrations/style";
 
 /**
  * Arcada superior de frente con brackets, arco y ligas.
- * Capas nombradas con data-part para animar y para el simulador de ligas (fase 2).
+ * Capas nombradas con data-part para el simulador de ligas (fase 2).
  * Ilustración clínica: cambios en la posición de brackets o arco requieren revisión clínica.
  */
 
@@ -73,8 +69,6 @@ const WIRE_PATH = (() => {
 type ArchWithBracesProps = {
   /** 10 colores de ligas, de izquierda a derecha en pantalla. */
   ligatureColors?: string[];
-  /** Anima el arco y las ligas al aparecer. */
-  animated?: boolean;
   /** Muestra etiquetas a mano: "bracket", "arco", "liga". */
   annotated?: boolean;
   className?: string;
@@ -83,7 +77,6 @@ type ArchWithBracesProps = {
 
 export function ArchWithBraces({
   ligatureColors,
-  animated = false,
   annotated = false,
   className,
   title = "Dientes de arriba con brackets, arco y ligas de colores",
@@ -154,7 +147,7 @@ export function ArchWithBraces({
         ))}
       </g>
 
-      <m.path
+      <path
         data-part="archwire"
         d={WIRE_PATH}
         fill="none"
@@ -162,16 +155,13 @@ export function ArchWithBraces({
         strokeWidth={3}
         strokeLinecap="round"
         strokeLinejoin="round"
-        initial={animated ? { pathLength: 0 } : false}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
       />
 
       <g data-part="ligatures">
         {TEETH_LAYOUT.map((tooth, index) => {
           const cx = tooth.x + tooth.width / 2;
           return (
-            <m.rect
+            <rect
               key={tooth.id}
               data-part="ligature"
               data-tooth={tooth.id}
@@ -183,28 +173,13 @@ export function ArchWithBraces({
               fill="none"
               stroke={ligatureColors?.[index] ?? FILL.accent}
               strokeWidth={4.5}
-              initial={animated ? { opacity: 0, scale: 0.5 } : false}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 320,
-                damping: 14,
-                delay: 0.9 + 0.06 * index,
-              }}
-              style={{ transformOrigin: `${cx}px ${tooth.bracketY}px` }}
             />
           );
         })}
       </g>
 
       {annotated && (
-        <g
-          data-part="labels"
-          fontFamily="var(--font-display)"
-          fontStyle="italic"
-          fontSize="17"
-          fill={INK}
-        >
+        <g data-part="labels" fontFamily="var(--font-display)" fontSize="17" fill={INK}>
           <text x={labelX - 22} y={-10}>
             bracket
           </text>

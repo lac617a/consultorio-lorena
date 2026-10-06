@@ -6,7 +6,7 @@ import type { HygieneTool } from "@/lib/content";
 import type { ReactNode } from "react";
 
 /**
- * Ilustraciones del kit de higiene, estilo cuaderno (contorno de tinta + relleno desplazado).
+ * Ilustraciones del kit de higiene, estilo folleto (contorno de tinta + relleno desplazado).
  * Todas comparten viewBox 240 × 80 para alinearse en las tarjetas.
  */
 type ToolId = HygieneTool["id"];
@@ -80,7 +80,7 @@ const DRAWINGS: Partial<Record<ToolId, ReactNode>> = {
       <path d="M10 44 H72" stroke={INK} strokeWidth={8} strokeLinecap="round" />
       <path
         d="M10 44 H72"
-        stroke="var(--color-accent-500)"
+        stroke="var(--color-brand-500)"
         strokeWidth={4.5}
         strokeLinecap="round"
       />
@@ -98,7 +98,7 @@ const DRAWINGS: Partial<Record<ToolId, ReactNode>> = {
     <>
       <rect x={160} y={14} width={66} height={60} rx={10} {...shadow} />
       <rect x={160} y={14} width={66} height={60} rx={10} fill={FILL.tooth} />
-      <path d="M162 36 C178 29, 196 43, 224 34 V70 H162 Z" fill="var(--color-accent-100)" />
+      <path d="M162 36 C178 29, 196 43, 224 34 V70 H162 Z" fill="var(--color-water)" />
       <rect x={160} y={14} width={66} height={60} rx={10} fill="none" {...outline} />
       <path
         d="M160 62 C132 76, 122 62, 114 50"
@@ -109,7 +109,7 @@ const DRAWINGS: Partial<Record<ToolId, ReactNode>> = {
       />
       <rect x={46} y={40} width={70} height={17} rx={8.5} fill={FILL.accent} {...outline} />
       <path d="M46 48 L18 40" stroke={INK} strokeWidth={4} strokeLinecap="round" />
-      <g stroke="var(--color-accent-500)" strokeWidth={2.5} strokeLinecap="round">
+      <g stroke="var(--color-brand-500)" strokeWidth={2.5} strokeLinecap="round">
         <path d="M13 37 L5 34" />
         <path d="M13 41 L4 42" />
         <path d="M14 33 L8 27" />

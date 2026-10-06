@@ -4,7 +4,7 @@ export const site = {
   name: clinic.shortName,
   legalName: clinic.name,
   product: "Guía de ortodoncia",
-  tagline: "Su ortodoncia, paso a paso",
+  tagline: "Su ortodoncia, bien cuidada",
   description: `Guía visual de ${clinic.name} para pacientes de ortodoncia: cómo cepillarse con brackets, qué comer, qué hacer si algo se rompe y cómo elegir los colores de sus ligas.`,
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   locale: "es_CO",

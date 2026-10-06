@@ -1,50 +1,41 @@
 @import "tailwindcss";
 
 /*
- * Design tokens — dirección "Cuaderno ilustrado" (A) con interactivos de "Juego" (B).
+ * Design tokens — dirección "Folleto ilustrado" (D9): papel claro, paneles lavanda,
+ * dibujos a mano con contorno de tinta y títulos con trazo de resaltador.
  * Ver docs/design-references.md.
  *
- * `brand` sale del logo de la clínica (COE Dental, oro rosa). El tono del logo
- * (brand-400) solo llega a 2.6:1: se usa para decorar; texto y botones usan brand-600/700.
+ * `brand` es el azul lavanda del folleto. brand-400 solo llega a 3.1:1: se usa para
+ * decorar e ilustrar; texto y botones usan brand-600/700.
  * Al cambiar colores, verificar contraste: texto ≥ 4.5:1, UI ≥ 3:1.
  */
 @theme {
-  /* Papel y tinta: la base editorial */
-  --color-canvas: #fbf7f1; /* fondo crema */
-  --color-canvas-deep: #f3ebdf; /* secciones */
-  --color-surface: #fffdf9; /* tarjetas */
-  --color-ink: #262220; /* texto y trazos (14.8:1) */
-  --color-ink-muted: #5c5550; /* texto secundario (6.9:1) */
-  --color-line: rgb(38 34 32 / 0.16); /* separadores suaves */
+  /* Papel y tinta */
+  --color-canvas: #f2f2ef; /* fondo: papel gris claro */
+  --color-canvas-deep: #e8e8e3; /* bloques sutiles sobre el papel */
+  --color-surface: #ffffff; /* tarjetas */
+  --color-ink: #1d1d22; /* texto y trazos (15:1 sobre el papel, 11:1 sobre lavanda) */
+  --color-ink-muted: #4b4b57; /* texto secundario (7.7:1 papel, 5.6:1 lavanda) */
+  --color-line: rgb(29 29 34 / 0.16); /* separadores suaves */
 
-  /* Marca: oro rosa del logo (muestreado: #a8846c · #ba957c · #d2aa8f) */
-  --color-brand-50: #fbf3ee;
-  --color-brand-100: #f3e3d9;
-  --color-brand-200: #e8cfbf;
-  --color-brand-300: #d2aa8f;
-  --color-brand-400: #ba957c; /* tono del logo: solo decoración (2.6:1) */
-  --color-brand-500: #9e7860; /* bordes y UI (3.7:1) */
-  --color-brand-600: #84624d; /* texto grande, botones con texto blanco (5.5:1) */
-  --color-brand-700: #6b4f3e; /* texto de marca y enlaces (7:1) */
-  --color-brand-800: #533d30;
-  --color-brand-900: #3c2c23;
+  /* Marca: azul lavanda */
+  --color-brand-50: #f1f3fe;
+  --color-brand-100: #e3e7fd;
+  --color-brand-200: #c6cffb; /* paneles lavanda y resaltador */
+  --color-brand-300: #a3b1f6;
+  --color-brand-400: #6f82ea; /* relleno de ilustraciones: solo decoración (3.1:1) */
+  --color-brand-500: #5468db; /* bordes y UI (4.3:1) */
+  --color-brand-600: #3f4fc4; /* botones con texto blanco (6.7:1) */
+  --color-brand-700: #323f9e; /* texto de marca y enlaces (8:1 papel, 5.9:1 lavanda) */
+  --color-brand-800: #27317a;
+  --color-brand-900: #1c2358;
 
-  /* Encía: rosa anatómico, independiente de la marca */
+  /* Anatomía y materiales (solo ilustración) */
   --color-gum: #f1c3bb;
-
-  /* Acento: salvia, complementa al oro rosa */
-  --color-accent-50: #eaf3ee;
-  --color-accent-100: #d8e9e0;
-  --color-accent-200: #b9d6c8;
-  --color-accent-300: #8fb9a8;
-  --color-accent-500: #5c9280;
-  --color-accent-700: #3b6b5b; /* texto sobre accent-50 (5.4:1) */
-
-  /* Celebración (estrellas, logros de los interactivos) */
-  --color-sun: #f5c04a;
-
-  /* Pastillas reveladoras de placa (solo ilustración) */
+  --color-metal: #d9dce8;
+  --color-water: #dbeafe;
   --color-plaque: #c77dba;
+  --color-sparkle: #f5c04a;
 
   /* Estados: semáforo y urgencia. Siempre con icono + texto. */
   --color-ok: #1b6e45;
@@ -54,15 +45,15 @@
   --color-stop: #a8231b;
   --color-stop-soft: #fdeae8;
 
-  --color-focus: #1f5fbf;
+  --color-focus: #c2410c;
 
-  /* Tipografía: serif con carácter para títulos, sans muy legible para texto */
+  /* Tipografía: marcador a mano para títulos cortos, sans muy legible para el texto */
   --font-sans: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-display: var(--font-marker), "Comic Sans MS", ui-rounded, sans-serif;
 
   /* Formas */
-  --radius-card: 1.25rem;
-  --shadow-card: 0 1px 0 rgb(43 35 32 / 0.08);
+  --radius-card: 1.5rem;
+  --radius-panel: 2rem;
   --shadow-print: 4px 4px 0 var(--color-ink); /* sombra "impresa" desplazada */
 
   --spacing-tap: 2.75rem; /* 44 px: tamaño mínimo táctil */
@@ -80,23 +71,39 @@
   }
 
   html {
+    scroll-behavior: smooth;
     scroll-padding-top: 5rem;
     /* La barra de accesos rápidos es fija: que no tape el foco (WCAG 2.4.11). */
     scroll-padding-bottom: 6rem;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     @apply bg-canvas font-sans text-ink antialiased;
     line-height: 1.6;
+    /* Grano de papel muy suave, como el folleto impreso. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    overflow-x: clip;
   }
 
   h1,
-  h2,
-  h3 {
+  h2 {
     @apply font-display text-ink;
-    font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+
+  h3 {
+    @apply font-sans text-ink;
+    font-weight: 700;
+    line-height: 1.25;
     text-wrap: balance;
   }
 
@@ -109,34 +116,44 @@
     outline-offset: 2px;
     border-radius: 0.375rem;
   }
+
+  summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
 }
 
 @layer components {
-  /* Botones "con cuerpo" (mecánica de juego): se hunden al presionar. */
+  /* Contenedores */
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-4;
+  }
+
+  .container-text {
+    @apply mx-auto w-full max-w-2xl px-4;
+  }
+
+  /* Botones: píldora con contorno de tinta. Una sola acción primaria por bloque. */
   .btn {
-    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-2xl px-5 font-bold no-underline transition-transform select-none;
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full border-2 border-ink px-5 py-2 font-bold no-underline transition-transform select-none;
+    box-shadow: 3px 3px 0 var(--color-ink);
   }
 
   .btn:active {
-    transform: translateY(3px);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--color-ink);
   }
 
   .btn-primary {
     @apply bg-brand-600 text-white;
-    box-shadow: 0 4px 0 var(--color-brand-800);
-  }
-
-  .btn-primary:active {
-    box-shadow: 0 1px 0 var(--color-brand-800);
   }
 
   .btn-secondary {
-    @apply border-2 border-ink bg-surface text-ink;
-    box-shadow: 0 4px 0 var(--color-ink);
-  }
-
-  .btn-secondary:active {
-    box-shadow: 0 1px 0 var(--color-ink);
+    @apply bg-surface text-ink;
   }
 
   /* Etiqueta tipo sticker */
@@ -144,30 +161,131 @@
     @apply inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-surface px-3 py-0.5 text-sm font-bold text-ink;
   }
 
-  /* Texto largo de las páginas MDX */
-  .content > h2 {
-    @apply mt-12 mb-4 text-3xl;
+  /*
+   * Trazo de resaltador detrás de un título, como las barras del folleto.
+   * Se repite en cada línea si el título se parte (box-decoration-break).
+   */
+  .marker {
+    background-image: linear-gradient(
+      transparent 18%,
+      var(--marker-color, var(--color-brand-200)) 18%,
+      var(--marker-color, var(--color-brand-200)) 90%,
+      transparent 90%
+    );
+    border-radius: 0.5em 0.2em 0.6em 0.25em;
+    padding-inline: 0.3em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
-  .content > h3 {
-    @apply mt-8 mb-2 text-2xl;
+  /* Panel lavanda: el resaltador pasa a blanco para seguir viéndose. */
+  .panel-lavender {
+    @apply bg-brand-200;
+    --marker-color: var(--color-surface);
   }
 
-  .content > p {
-    @apply my-4;
+  /* Ilustración sobre un círculo de color, como los iconos del folleto. */
+  .blob {
+    @apply relative isolate grid place-items-center;
   }
 
-  .content > ul,
-  .content > ol {
-    @apply my-4 space-y-1.5 pl-6;
+  .blob::before {
+    content: "";
+    position: absolute;
+    inset: 8%;
+    z-index: -1;
+    border-radius: 46% 54% 50% 50% / 52% 46% 54% 48%;
+    background: var(--blob-color, var(--color-brand-100));
   }
 
-  .content > ul {
-    @apply list-disc marker:text-brand-400;
+  /* Texto largo de las guías (MDX). Cada h2 abre un panel (rehype en velite.config.ts). */
+  .content > section {
+    @apply my-8 rounded-[var(--radius-panel)] px-4 py-7 sm:px-8 sm:py-8;
   }
 
-  .content > ol {
-    @apply list-decimal marker:font-bold marker:text-brand-700;
+  .content > section:nth-of-type(even) {
+    @apply bg-brand-200;
+    --marker-color: var(--color-surface);
+  }
+
+  .content > section:nth-of-type(odd) {
+    @apply border-2 border-ink bg-surface;
+  }
+
+  .content h2 {
+    @apply mb-5 text-3xl;
+  }
+
+  .content h3 {
+    @apply mt-6 mb-2 text-xl;
+  }
+
+  .content section > p {
+    @apply my-3;
+  }
+
+  .content section > ul:not([class]),
+  .content section > ol:not([class]) {
+    @apply my-4 space-y-2;
+  }
+
+  .content section > ul:not([class]) {
+    @apply list-none pl-0;
+  }
+
+  .content section > ul:not([class]) > li {
+    @apply relative pl-8;
+  }
+
+  /* Viñeta: estrellita dibujada */
+  .content section > ul:not([class]) > li::before {
+    content: "";
+    position: absolute;
+    left: 0.35rem;
+    top: 0.45em;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: var(--color-brand-400);
+    clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  }
+
+  /* Lista numerada con números grandes a mano */
+  .content section > ol:not([class]) {
+    @apply list-none pl-0;
+    counter-reset: item;
+  }
+
+  .content section > ol:not([class]) > li {
+    @apply relative pl-12;
+    counter-increment: item;
+  }
+
+  .content section > ol:not([class]) > li::before {
+    content: counter(item);
+    @apply absolute top-0 left-0 grid size-9 place-items-center rounded-full border-2 border-ink bg-surface font-display text-lg leading-none text-ink;
+  }
+}
+
+/*
+ * Parallax con animaciones ligadas al scroll, sin JavaScript.
+ * Solo decoración e ilustraciones; el texto nunca se mueve.
+ * Navegadores sin soporte o con "reducir movimiento" ven todo quieto.
+ */
+@keyframes parallax-shift {
+  from {
+    translate: 0 var(--parallax, 2rem);
+  }
+  to {
+    translate: 0 calc(var(--parallax, 2rem) * -1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .parallax {
+      animation: parallax-shift linear both;
+      animation-timeline: view();
+    }
   }
 }
 

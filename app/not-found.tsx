@@ -9,7 +9,7 @@ const SHORTCUTS = [
 
 export default function NotFound() {
   return (
-    <div className="space-y-6">
+    <div className="container-text space-y-6 py-10">
       <h1 className="text-4xl">No encontramos esta página</h1>
       <p className="text-ink-muted">
         Puede que todavía la estemos preparando. Esto es lo más buscado:
@@ -19,7 +19,7 @@ export default function NotFound() {
           <li key={href}>
             <Link
               href={href}
-              className="flex tap items-center gap-3 rounded-card border-2 border-ink bg-surface p-4 font-bold text-ink no-underline shadow-[var(--shadow-print)]"
+              className="flex tap items-center gap-3 rounded-card border-2 border-ink bg-surface p-4 font-bold text-ink no-underline hover:bg-brand-50"
             >
               <Icon aria-hidden="true" className="size-6" />
               {label}

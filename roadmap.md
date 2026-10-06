@@ -62,15 +62,16 @@
 - [x] **Vocabulario colombiano y trato de usted** en el contenido existente (pitillo, gaseosa, maní, mazorca, batido).
 - [x] JSON-LD `Dentist` con nombre, marca, logo, dirección, teléfono y web.
 
-- [x] **Empieza aquí** (inicio): selector "¿Qué tratamiento tiene?" con 5 opciones ilustradas, guardado en el dispositivo; filtra las guías del inicio (y las "Muy pronto") y el triage de Urgencias, y sugiere la primera guía de cuidado.
-- [ ] **Primeros días:** molestias, dieta blanda, cera paso a paso, llagas y cuándo consultar. _Borrador creado en la fase 0 como página de ejemplo; faltan las ilustraciones de los pasos y la revisión clínica._
-- [x] **Cepillado paso a paso** (`/cepillado`): `BrushingScene` (7 escenas SVG animadas: perfil del diente para los ángulos del cepillo y vista frontal para interdental e hilo) y `BrushingTimer` de 2 minutos por cuadrantes con celebración. _Pendiente de revisión clínica de textos e ilustraciones._
-- [x] **Kit de higiene** (`/kit-de-higiene`): 10 herramientas ilustradas en "Lo básico" y "Ayudas extra" (para qué sirve, cómo se usa, cuándo, cada cuánto cambiarla), con "Lo tengo" y progreso del kit básico con celebración. Textos con `{parametro}` clínicos validados por Velite. _Pendiente de revisión clínica._
+- [x] **Rediseño tipo folleto** (D9): inicio de una página con portada, "Le ayudamos", un panel por guía y "Su clínica"; paleta lavanda, títulos con resaltador, garabatos con parallax CSS y guías en paneles (un `##` por panel). Se retiraron el carrusel de pasos, el cronómetro, el selector de tratamiento, el "Lo tengo" del kit, las celebraciones y la librería Motion.
+- [x] **Inicio** (`/`): portada tipo folleto que lleva a cada guía y a los datos de la clínica. _Reemplaza al selector "Empieza aquí"._
+- [ ] **Primeros días:** molestias, dieta blanda, cómo poner la cera (lista numerada), llagas y cuándo consultar. _Borrador creado en la fase 0 como página de ejemplo; faltan las ilustraciones de los pasos y la revisión clínica._
+- [x] **Cepillado** (`/cepillado`): 7 tarjetas numeradas con `BrushingScene` (escenas SVG estáticas: perfil del diente para los ángulos del cepillo y vista frontal para interdental e hilo). _Pendiente de revisión clínica de textos e ilustraciones._
+- [x] **Kit de higiene** (`/kit-de-higiene`): 10 herramientas ilustradas en "Lo básico" y "Ayudas extra" (para qué sirve, cuándo, cada cuánto cambiarla y "Cómo se usa" plegable). Textos con `{parametro}` clínicos validados por Velite. _Pendiente de revisión clínica._
 - [x] **Alimentos** (`/alimentos`): tres reglas, `FoodTrafficLight` (buscador sin tildes, filtros por semáforo y "Manchan", consejo por alimento), qué tomar y brackets estéticos. _Pendiente de revisión clínica._
-- [x] **Urgencias** (`/urgencias`): alerta de emergencia médica con botón "Llamar al 123", `EmergencyTriage` (acordeón "¿Qué le pasó?" con pasos en casa, nivel de urgencia con icono y texto, WhatsApp con mensaje según el caso y llamada) y checklist del kit de emergencia. _Pendiente de revisión clínica._
+- [x] **Urgencias** (`/urgencias`): alerta de emergencia médica con botón "Llamar al 123", `EmergencyGuide` (desplegables nativos "¿Qué le pasó?" con pasos en casa, nivel de urgencia con icono y texto, WhatsApp con mensaje según el caso y llamada) y lista del kit de emergencia. _Pendiente de revisión clínica._
 - [ ] Revisión clínica preliminar de estos módulos por la Dra. Lorena.
 
-**Criterio de salida:** desde un QR de prueba, en un Android de gama baja real, el paciente completa el recorrido "Empieza aquí → Primeros días → Cepillado → Alimentos → Urgencias" sin errores. LCP < 2.5 s en todas estas páginas.
+**Criterio de salida:** desde un QR de prueba, en un Android de gama baja real, el paciente completa el recorrido "Inicio → Primeros días → Cepillado → Alimentos → Urgencias" sin errores. LCP < 2.5 s en todas estas páginas.
 
 ---
 
@@ -145,13 +146,14 @@
 
 ## Decisiones abiertas vinculadas
 
-| ID  | Decisión                                                                   | Debe resolverse antes de        |
-| --- | -------------------------------------------------------------------------- | ------------------------------- |
-| D1  | Hosting: Vercel Pro o Cloudflare Pages / Netlify                           | Fase 3                          |
-| D2  | Datos de la Dra. Lorena para el sello y valores de los parámetros clínicos | Fase 3 (bloquea el lanzamiento) |
-| D3  | Validación legal: Ley 35 de 1989 y Ley 1581 de 2012                        | Fase 3                          |
-| D4  | Dominio (sugerido: `guia.odontosanchezquintero.com`)                       | Fase 3                          |
-| D5  | Producción de ilustraciones (freelance o interno)                          | Fase 1                          |
-| D6  | Logo y colores: **resuelta (COE Dental)**                                  | —                               |
-| D7  | Dirección de diseño: **resuelta (A + B)**                                  | —                               |
-| D8  | Datos de contacto: **resuelta**                                            | —                               |
+| ID  | Decisión                                                                    | Debe resolverse antes de        |
+| --- | --------------------------------------------------------------------------- | ------------------------------- |
+| D1  | Hosting: Vercel Pro o Cloudflare Pages / Netlify                            | Fase 3                          |
+| D2  | Datos de la Dra. Lorena para el sello y valores de los parámetros clínicos  | Fase 3 (bloquea el lanzamiento) |
+| D3  | Validación legal: Ley 35 de 1989 y Ley 1581 de 2012                         | Fase 3                          |
+| D4  | Dominio (sugerido: `guia.odontosanchezquintero.com`)                        | Fase 3                          |
+| D5  | Producción de ilustraciones (freelance o interno)                           | Fase 1                          |
+| D6  | Logo y colores: **resuelta (COE Dental)**                                   | —                               |
+| D7  | Dirección de diseño: **resuelta (A + B)**                                   | —                               |
+| D8  | Datos de contacto: **resuelta**                                             | —                               |
+| D9  | Rediseño tipo folleto (lavanda, sin pasos, pocas animaciones): **resuelta** | —                               |

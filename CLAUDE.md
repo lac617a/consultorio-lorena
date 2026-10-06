@@ -15,7 +15,7 @@ Guía web mobile-first para los pacientes de **ortodoncia** de la **Clínica Odo
 
 Reemplaza los folletos y PDFs que nadie lee. Es **educativa, no publicitaria** (Ley 35 de 1989): nada de precios, promociones ni comparaciones.
 
-- **Dirección visual:** [docs/design-references.md](docs/design-references.md). La identidad (logo y colores) es la del consultorio.
+- **Dirección visual:** [docs/design-references.md](docs/design-references.md). Folleto ilustrado en azul lavanda con el logo del consultorio.
 
 - **Qué construir y por qué:** [PRD.md](PRD.md)
 - **Orden de trabajo y fase actual:** [roadmap.md](roadmap.md)
@@ -29,7 +29,7 @@ Antes de empezar una tarea, revisa la fase actual en `roadmap.md` y marca las ca
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Framework          | Next.js 16, App Router, TypeScript estricto, páginas estáticas (SSG)                                                                                                     |
 | Estilos            | Tailwind CSS v4 con design tokens                                                                                                                                        |
-| Animación          | Motion v13: paquete `motion`, importar desde `motion/react` y `motion/react-m` (**no** `framer-motion`)                                                                  |
+| Animación          | Solo CSS: parallax decorativo con animaciones ligadas al scroll (`animation-timeline: view()`). Sin librería de animación                                                |
 | Contenido          | MDX y JSON en `content/`, tipados con Velite y esquemas Zod                                                                                                              |
 | Lottie             | `@lottiefiles/dotlottie-react` (solo decorativo, WASM servido desde `/public`)                                                                                           |
 | Iconos             | `lucide-react` y Healthicons/Tabler (SVG)                                                                                                                                |
@@ -61,16 +61,15 @@ pnpm typecheck     # velite + next typegen + tsc --noEmit
 app/
   [slug]/page.tsx       # renderiza cada página MDX de content/pages (SSG)
   creditos/             # página de créditos (sincronizada con CREDITS.md)
-  layout.tsx            # fuente, metadatos base, MotionProvider, cabecera, accesos rápidos
+  layout.tsx            # fuentes, metadatos base, cabecera, accesos rápidos
   globals.css           # design tokens (@theme) y estilos base
   robots.ts, sitemap.ts # SEO; robots bloquea todo fuera de producción
   q/[id]/               # (fase 3) rutas cortas del QR → redirect con UTM
 components/
-  content/              # MdxContent, ClinicalDisclaimer, ReviewStamp, SourcesList, Callout, Param
-  interactive/          # islas de cliente: StepByStep, Checklist (luego BracesColorPicker, EmergencyTriage…)
-  illustrations/        # SVG con capas nombradas (ArchWithBraces, OrthodonticToothbrush, InterdentalBrush)
+  content/              # MdxContent, Cards, Callout, Param, EmergencyGuide, HygieneKitGuide, ClinicalDisclaimer…
+  interactive/          # islas de cliente: FoodTrafficLight (luego BracesColorPicker)
+  illustrations/        # SVG con capas nombradas (ArchWithBraces, BrushingScene, GuideArt, doodles…)
   layout/               # SiteHeader, SiteFooter, QuickAccessBar, TextSizeToggle
-  providers/            # MotionProvider
   seo/                  # JsonLd
 content/
   pages/*.mdx           # contenido de cada módulo, con metadatos de revisión y SEO
@@ -154,20 +153,23 @@ El código se formatea y se valida de forma automática. **No discutas estilo a 
 ## Reglas de UI e implementación
 
 - **Mobile-first.** Diseña a 360 px y mejora hacia escritorio.
-- **Lenguaje visual** (dirección A + B, ver `docs/design-references.md`):
-  - usa los tokens de `app/globals.css`; nunca colores sueltos. `brand` es el dorado del logo: `brand-400` solo para decorar, `brand-600`/`700` para texto y botones;
-  - títulos con `font-display` (Fraunces); texto con la sans por defecto;
-  - bordes de tinta (`border-2 border-ink`), `shadow-[var(--shadow-print)]` en tarjetas destacadas, `.sticker` para etiquetas;
+- **Lenguaje visual: folleto ilustrado** (D9, ver `docs/design-references.md`). Simple, fácil de leer y con pocas animaciones:
+  - usa los tokens de `app/globals.css`; nunca colores sueltos. `brand` es el azul lavanda: `brand-200` para paneles y resaltador, `brand-400` solo para decorar e ilustrar, `brand-600`/`700` para texto y botones;
+  - títulos cortos (`h1`, `h2`) con `font-display` (Permanent Marker); todo lo demás con la sans. Nunca texto largo en la fuente de marcador;
+  - `.marker` pone el trazo de resaltador detrás de un título; `.panel-lavender` para bandas lavanda; `.blob` para el círculo detrás de una ilustración;
+  - en las guías, cada `##` del MDX abre un panel solo (plugin rehype en `velite.config.ts`): una idea por panel;
+  - bordes de tinta (`border-2 border-ink`), `.sticker` para etiquetas y garabatos de `components/illustrations/doodles.tsx` para decorar;
   - botones: `.btn` + `.btn-primary` o `.btn-secondary`. Una sola acción primaria por bloque;
-  - la mecánica de juego (progreso, estrellas, `Celebration`) va solo en los interactivos, no en el texto;
+  - sin mecánica de juego (progreso, estrellas, celebraciones, "Lo tengo");
   - ilustraciones con las constantes de `components/illustrations/style.ts`.
-- **Server Components por defecto.** Solo las piezas interactivas llevan `"use client"`. Mantén la primera carga por debajo de ~100 KB de JavaScript.
-- **Motion:**
-  - usa `LazyMotion` con `domAnimation` y el componente `m` (`motion/react-m`);
-  - anima **solo `opacity` y `transform`**;
-  - `MotionConfig reducedMotion="user"` ya está en el layout raíz. Usa `useReducedMotion()` en casos especiales, por ejemplo para mostrar el último frame de una animación;
-  - el scroll-linking (`useScroll`) se usa con moderación.
-- **Pasos navegables** con botones Anterior/Siguiente e indicador "Paso X de Y". No dependas solo del scroll.
+- **Server Components por defecto.** Solo las piezas interactivas llevan `"use client"` (hoy: buscador de alimentos y tamaño del texto). Mantén la primera carga por debajo de ~100 KB de JavaScript.
+- **Desplegables sin JavaScript:** usa `<details>`/`<summary>` nativos (urgencias, "Cómo se usa" del kit).
+- **Animación: solo parallax CSS** y con moderación:
+  - clase `.parallax` con la distancia en `--parallax` (por ejemplo `[--parallax:2rem]`; negativa para ir al revés);
+  - solo en garabatos e ilustraciones, **nunca en texto**;
+  - se anima `translate`; sin soporte del navegador o con "reducir movimiento" todo queda quieto;
+  - nada de animaciones al aparecer, en bucle ni celebraciones.
+- **Sin carruseles ni asistentes de pasos.** Las secuencias (cera, cepillado) van como lista numerada de Markdown o con `<Cards>`/`<Card>`, todas visibles a la vez.
 - **Accesibilidad (WCAG 2.2 AA):**
   - objetivos táctiles de 44 px o más;
   - contraste de 4.5:1;
@@ -215,7 +217,7 @@ Requisitos completos en el PRD §7. Al crear o modificar una página:
 ## Privacidad
 
 - **No agregues formularios, cuentas, cookies ni captura de datos personales o de salud.**
-- `localStorage` solo guarda preferencias locales (tratamiento elegido, tamaño de texto, diseño de ligas), envuelto en `try/catch`.
+- `localStorage` solo guarda preferencias locales (tamaño de texto y, más adelante, diseño de ligas), envuelto en `try/catch`.
 - Los parámetros UTM y las rutas `/q/<id>` identifican **consultorios**, nunca pacientes.
 - La analítica es solo Umami, sin cookies. No añadas otros scripts de terceros sin actualizar el PRD.
 

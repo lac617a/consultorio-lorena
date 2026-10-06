@@ -6,12 +6,12 @@ import { clinicAddressLine, clinicMapsUrl, clinicPhoneUrl, site } from "@/lib/si
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t-2 border-ink bg-canvas-deep">
-      <div className="mx-auto max-w-3xl space-y-6 px-4 py-10">
+    <footer className="border-t-2 border-ink bg-canvas-deep">
+      <div className="container-page space-y-6 py-10">
         <div className="space-y-2">
-          <p className="font-display text-2xl font-semibold">{clinic.name}</p>
+          <p className="font-display text-2xl">{clinic.name}</p>
           <p className="flex items-start gap-2 text-ink-muted">
-            <MapPin aria-hidden="true" className="mt-1 size-5 shrink-0 text-brand-700" />
+            <MapPin aria-hidden="true" className="mt-1 size-5 shrink-0 text-ink" />
             <span>
               {clinicAddressLine()}.{" "}
               <a href={clinicMapsUrl()} rel="noopener noreferrer" target="_blank">
@@ -21,13 +21,13 @@ export function SiteFooter() {
           </p>
           {clinic.hours && (
             <p className="flex items-start gap-2 text-ink-muted">
-              <Clock aria-hidden="true" className="mt-1 size-5 shrink-0 text-brand-700" />
+              <Clock aria-hidden="true" className="mt-1 size-5 shrink-0 text-ink" />
               {clinic.hours}
             </p>
           )}
           {clinic.phone && (
             <p className="flex items-start gap-2 text-ink-muted">
-              <Phone aria-hidden="true" className="mt-1 size-5 shrink-0 text-brand-700" />
+              <Phone aria-hidden="true" className="mt-1 size-5 shrink-0 text-ink" />
               <a href={clinicPhoneUrl() ?? undefined}>{clinic.phone}</a>
             </p>
           )}
