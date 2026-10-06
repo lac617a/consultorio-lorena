@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 // Mantener sincronizado con CREDITS.md.
 const CREDITS = [
   {
-    name: "Ilustraciones de dientes, brackets y cepillos",
+    name: "Ilustraciones y garabatos de dientes, brackets, cepillos y alimentos",
     author: "Equipo de OrtoGuía",
     license: "Propias",
   },
@@ -21,10 +21,10 @@ const CREDITS = [
     url: "https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next",
   },
   {
-    name: "Fraunces (tipografía de títulos)",
-    author: "Undercase Type (Phaedra Charles y Flavia Zimbardi)",
-    license: "SIL Open Font License 1.1",
-    url: "https://fonts.google.com/specimen/Fraunces",
+    name: "Permanent Marker (tipografía de títulos)",
+    author: "Font Diner",
+    license: "Apache License 2.0",
+    url: "https://fonts.google.com/specimen/Permanent+Marker",
   },
   {
     name: "Lucide (iconos)",
@@ -36,7 +36,7 @@ const CREDITS = [
 
 export default function CreditsPage() {
   return (
-    <div className="space-y-6">
+    <div className="container-text space-y-6 py-10">
       <h1 className="text-4xl">Créditos</h1>
       <p className="text-ink-muted">Estos son los recursos gráficos que usamos y sus licencias.</p>
       <ul className="space-y-4">

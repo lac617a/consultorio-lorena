@@ -1,6 +1,6 @@
 # Referencias y dirección de diseño
 
-> Estado: **elegida la mezcla A + B** (decisión D7, 28/09/2026). Aplicada al inicio y a `/primeros-dias` con la marca COE Dental. La paleta final sale del logo y los colores del Consultorio Lore (D6). La dirección define la tipografía, las formas, el estilo de ilustración y el tono.
+> Estado: **folleto ilustrado** (decisión D9, 06/10/2026). Reemplaza a la mezcla A + B (D7, 28/09/2026): la clínica la encontró abrumadora (pasos, animaciones, mecánica de juego) y pidió algo más parecido a un folleto tríptico, fácil de leer y con parallax suave. Las secciones de abajo se conservan como historial.
 
 ## Diagnóstico: por qué el diseño actual se siente genérico
 
@@ -65,10 +65,22 @@ Los sitios revisados son casi todos iguales. Ninguno tiene contenido educativo p
 2. Elegir la dirección.
 3. Aplicarla al inicio y a `/primeros-dias`, y revisarla en el celular antes de seguir con la fase 1.
 
-## Implementación (sistema visual aplicado)
+## D9 · Folleto ilustrado (vigente)
 
-- **Tokens** en `app/globals.css`. `brand` es el oro rosa del logo COE Dental (muestreado del PNG); el tono exacto del logo (`brand-400`) solo decora, y texto y botones usan `brand-600`/`700`. `accent` (salvia) lo complementa. La encía tiene su propio token (`gum`).
-- **Tipografía:** Fraunces clásica (sin suavizar) para títulos, con cursiva para acentos, en sintonía con la serif del logo; Atkinson Hyperlegible Next para el texto.
-- **Formas:** bordes de tinta de 2 px, sombra "impresa" desplazada (`--shadow-print`) en tarjetas destacadas, stickers (`.sticker`) y números de paso grandes en serif.
-- **Ilustración:** contorno de tinta de 2,5 px y relleno plano desplazado 4 px (`components/illustrations/style.ts`). Colores siempre por variable CSS.
-- **Mecánica de juego (B), solo en interactivos:** botones con cuerpo que se hunden al presionar (`.btn-primary`, `.btn-secondary`), barra de progreso por segmentos con estrella final y celebración al terminar (`Celebration`).
+**Referencia:** un folleto tríptico de servicios: fondo de papel gris claro, columna central lavanda, iconos dibujados a mano (contorno negro y relleno azul sobre un círculo claro), títulos en mayúsculas con trazo de resaltador, estrellas, destellos y zigzags. Mucho aire y párrafos cortos y centrados.
+
+**Qué tomamos:**
+
+- **Inicio de una sola página** con bandas que alternan papel y lavanda: portada → "Le ayudamos" → un panel por guía (dibujo, título resaltado, frase y enlace) → "Su clínica" (contactos).
+- **Guías en paneles:** cada `##` del MDX abre un panel (blanco con borde de tinta o lavanda, alternados). Una idea por panel.
+- **Nada de pasos navegables:** las secuencias van en listas numeradas o tarjetas, todas visibles.
+- **Pocas animaciones:** solo parallax CSS en garabatos e ilustraciones. El texto no se mueve; con "reducir movimiento" o sin soporte, todo queda quieto.
+- **Interactivos que quedan:** buscador de alimentos (cliente) y urgencias desplegables (`<details>` nativo, sin JavaScript).
+
+**Sistema visual (`app/globals.css`):**
+
+- **Color:** papel `canvas` #f2f2ef, tinta `ink` #1d1d22, `brand` azul lavanda: `brand-200` #c6cffb (paneles y resaltador), `brand-400` #6f82ea (ilustración, solo decoración), `brand-600` #3f4fc4 (botones, 6.7:1 con blanco), `brand-700` #323f9e (enlaces, 5.9:1 sobre lavanda). Foco en naranja (`focus` #c2410c) para que se distinga del azul.
+- **Tipografía:** Permanent Marker para títulos cortos (`h1`, `h2`); Atkinson Hyperlegible Next para todo lo demás, también los `h3`.
+- **Formas:** `.marker` (resaltador por línea), `.panel-lavender`, `.blob` (círculo irregular detrás de un dibujo), `.sticker`, botones píldora con contorno de tinta.
+- **Ilustración:** contorno de tinta de 2,5 px y relleno lavanda desplazado 4 px (`components/illustrations/style.ts`). Portadas de guía en `guide-art.tsx`; garabatos en `doodles.tsx`.
+- **Grano de papel** muy suave en el fondo (SVG en línea).

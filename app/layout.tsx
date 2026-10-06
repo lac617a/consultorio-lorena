@@ -1,10 +1,9 @@
-import { Atkinson_Hyperlegible_Next, Fraunces } from "next/font/google";
+import { Atkinson_Hyperlegible_Next, Permanent_Marker } from "next/font/google";
 
 import { QuickAccessBar } from "@/components/layout/quick-access-bar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { textSizeInitScript } from "@/components/layout/text-size-toggle";
-import { MotionProvider } from "@/components/providers/motion-provider";
 import { site } from "@/lib/site";
 
 import "./globals.css";
@@ -20,12 +19,12 @@ const atkinson = Atkinson_Hyperlegible_Next({
   fallback: ["system-ui", "sans-serif"],
 });
 
-const fraunces = Fraunces({
+/** Marcador a mano para títulos cortos, como el folleto. Nunca para texto largo. */
+const marker = Permanent_Marker({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: "400",
+  variable: "--font-marker",
   display: "swap",
-  style: ["normal", "italic"],
-  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fbf7f1",
+  themeColor: "#f2f2ef",
   width: "device-width",
   initialScale: 1,
 };
@@ -51,7 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es-CO"
-      className={`${atkinson.variable} ${fraunces.variable}`}
+      className={`${atkinson.variable} ${marker.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -64,14 +63,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Saltar al contenido
         </a>
-        <MotionProvider>
-          <SiteHeader />
-          <main id="contenido" className="mx-auto w-full max-w-3xl flex-1 px-4 pt-6">
-            {children}
-          </main>
-          <SiteFooter />
-          <QuickAccessBar />
-        </MotionProvider>
+        <SiteHeader />
+        <main id="contenido" className="w-full flex-1">
+          {children}
+        </main>
+        <SiteFooter />
+        <QuickAccessBar />
       </body>
     </html>
   );

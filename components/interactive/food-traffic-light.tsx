@@ -48,15 +48,11 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
   }
 
   return (
-    <section aria-labelledby={`${baseId}-title`} className="my-10">
-      <h2 id={`${baseId}-title`} className="text-3xl">
-        Busque un alimento
-      </h2>
-
+    <div className="my-6">
       <label htmlFor={`${baseId}-search`} className="sr-only">
         Nombre del alimento
       </label>
-      <div className="relative mt-4">
+      <div className="relative">
         <Search
           aria-hidden="true"
           className="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2"
@@ -70,7 +66,7 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Por ejemplo: mazorca, maní, pizza"
           autoComplete="off"
-          className="min-h-tap w-full rounded-2xl border-2 border-ink bg-surface py-3 pr-12 pl-12 text-lg placeholder:text-ink-muted focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          className="min-h-tap w-full rounded-full border-2 border-ink bg-surface py-3 pr-12 pl-12 text-lg placeholder:text-ink-muted focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus"
         />
         {query && (
           <button
@@ -92,8 +88,8 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
             aria-pressed={filter === id}
             onClick={() => setFilter(id)}
             className={cn(
-              "min-h-tap rounded-full border-2 border-ink px-4 text-base font-bold transition-colors",
-              filter === id ? "bg-ink text-canvas" : "bg-surface text-ink hover:bg-brand-50",
+              "min-h-tap rounded-full border-2 border-ink px-3 text-sm font-bold transition-colors",
+              filter === id ? "bg-ink text-white" : "bg-surface text-ink hover:bg-brand-50",
             )}
           >
             {label} <span className="font-normal">({count(id)})</span>
@@ -105,15 +101,15 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
         {visible.length === 1 ? "1 alimento" : `${visible.length} alimentos`}
       </p>
 
-      <ul className="mt-6 space-y-3">
+      <ul className="mt-6 grid list-none gap-3 pl-0 sm:grid-cols-2">
         {sorted.map((food) => {
           const shown = visible.includes(food);
           const verdict = VERDICT[food.verdict];
           return (
             <li key={food.id} hidden={!shown}>
-              <article className="rounded-card border-2 border-ink bg-surface p-4">
+              <article className="h-full rounded-card border-2 border-ink bg-surface p-4">
                 <div className="flex flex-wrap items-start justify-between gap-2">
-                  <h3 className="text-xl">{food.name}</h3>
+                  <h3 className="m-0 text-xl">{food.name}</h3>
                   <p
                     className={cn(
                       "inline-flex shrink-0 items-center gap-1.5 rounded-full border-2 px-3 py-0.5 text-sm font-bold",
@@ -126,7 +122,7 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
                 </div>
                 <p className="mt-1 text-ink-muted">{food.reason}</p>
                 {food.tip && (
-                  <p className="mt-2 rounded-xl bg-canvas-deep px-3 py-2 text-base">
+                  <p className="mt-2 rounded-xl bg-brand-50 px-3 py-2 text-base">
                     <strong>Consejo:</strong> {food.tip}
                   </p>
                 )}
@@ -143,7 +139,7 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
       </ul>
 
       {visible.length === 0 && (
-        <div className="mt-6 rounded-card border-2 border-dashed border-ink p-5">
+        <div className="mt-6 rounded-card border-2 border-dashed border-ink bg-surface p-5">
           <p className="font-bold">No encontramos «{query}» en la lista.</p>
           <p className="mt-1 text-ink-muted">
             Como regla general, evite lo duro y lo pegajoso, y corte en trozos pequeños lo que tenga
@@ -151,6 +147,6 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
           </p>
         </div>
       )}
-    </section>
+    </div>
   );
 }

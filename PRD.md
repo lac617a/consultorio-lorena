@@ -370,30 +370,26 @@ Es contenido de salud, un tema que Google trata como YMYL ("Your Money or Your L
 
 ### Sistema visual
 
-- **Paleta del logo del consultorio:** dorado champán, tinta casi negra y fondo claro. El dorado del logo solo se usa para decorar (2.2:1); texto y botones usan un bronce más oscuro de la misma familia. Colores de estado accesibles para el semáforo y la urgencia.
-- **Evitar el look genérico de clínica dental** (azul o menta, foto de stock, tarjetas iguales). Dirección visual en [docs/design-references.md](docs/design-references.md).
-- Tipografía: **Fraunces** (serif con carácter) para títulos y **Atkinson Hyperlegible Next** (máxima legibilidad) para el texto.
-- **Ilustraciones SVG propias** estilo cuaderno (contorno de tinta y relleno desplazado) de dientes, brackets, arco, ligas, elásticos y herramientas, con capas nombradas para animar.
+- **Folleto ilustrado (D9, 06/10/2026):** papel gris claro, paneles en azul lavanda, tinta casi negra, títulos con trazo de resaltador y garabatos a mano. Simple, fácil de leer y con pocas animaciones. El lavanda claro solo decora; texto y botones usan un azul más oscuro de la misma familia. Colores de estado accesibles para el semáforo y la urgencia. Dirección visual en [docs/design-references.md](docs/design-references.md).
+- Tipografía: **Permanent Marker** (marcador a mano) solo para títulos cortos y **Atkinson Hyperlegible Next** (máxima legibilidad) para el texto.
+- **Ilustraciones SVG propias** estilo folleto (contorno de tinta y relleno lavanda desplazado) de dientes, brackets, arco, ligas, elásticos y herramientas, con capas nombradas.
 - Personas y escenas: unDraw o Humaaans, recoloreadas a la marca.
 - Iconos: Lucide para la interfaz y Healthicons o Tabler para los dentales.
-- Animación con Motion: revelado de pasos, transiciones suaves y microinteracciones. Solo se animan opacidad y transformaciones. Lottie se reserva para 1–2 animaciones decorativas.
+- Animación: solo parallax suave con CSS (animaciones ligadas al scroll) en garabatos e ilustraciones; el texto nunca se mueve. Sin carruseles de pasos, celebraciones ni animaciones en bucle. Lottie se reserva para 1–2 animaciones decorativas.
 
 ### Componentes clave
 
-| Componente                           | Uso                                                                                                                    |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| `StepByStep`                         | Secuencias ilustradas o animadas con anterior/siguiente e indicador de progreso (cepillado, cera, elásticos, limpieza) |
-| `BrushingAnimation`                  | SVG animado de la técnica de cepillado                                                                                 |
-| `Timer`                              | Temporizador de cepillado de 2 minutos por cuadrantes                                                                  |
-| `FoodTrafficLight`                   | Semáforo filtrable de alimentos                                                                                        |
-| `FoodQuiz`                           | Mini-juego "¿Puedo comer esto?"                                                                                        |
-| `BracesColorPicker`                  | Simulador de ligas de colores                                                                                          |
-| `EmergencyTriage`                    | Selector "¿Qué te pasó?" con acción y nivel de urgencia                                                                |
-| `Checklist`                          | Kit de higiene y kit de emergencia (marcado local)                                                                     |
-| `FlipCard`                           | Mitos contra realidades                                                                                                |
-| `ClinicalDisclaimer` y `ReviewStamp` | Aviso y sello de revisión en cada página                                                                               |
-| `TreatmentSelector`                  | Selección de tratamiento en "Empieza aquí"                                                                             |
-| `TextSizeToggle`                     | Control A / A+                                                                                                         |
+| Componente                           | Uso                                                                                          |
+| ------------------------------------ | -------------------------------------------------------------------------------------------- |
+| `Cards`                              | Secuencias ilustradas en tarjetas numeradas, todas visibles (cepillado, elásticos, limpieza) |
+| `BrushingScene`                      | SVG estático de cada momento de la técnica de cepillado                                      |
+| `FoodTrafficLight`                   | Semáforo filtrable de alimentos                                                              |
+| `FoodQuiz`                           | Mini-juego "¿Puedo comer esto?"                                                              |
+| `BracesColorPicker`                  | Simulador de ligas de colores                                                                |
+| `EmergencyGuide`                     | Desplegables nativos "¿Qué le pasó?" con acción y nivel de urgencia                          |
+| `FlipCard`                           | Mitos contra realidades                                                                      |
+| `ClinicalDisclaimer` y `ReviewStamp` | Aviso y sello de revisión en cada página                                                     |
+| `TextSizeToggle`                     | Control A / A+                                                                               |
 
 ## 10. Arquitectura técnica (resumen)
 
@@ -401,7 +397,7 @@ Es contenido de salud, un tema que Google trata como YMYL ("Your Money or Your L
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Framework            | **Next.js 16** (App Router), páginas estáticas (SSG)                                                                                                                                                                                                                                                                                    |
 | Estilos              | **Tailwind CSS v4** con design tokens                                                                                                                                                                                                                                                                                                   |
-| Animación            | **Motion v13** (`motion/react`): `LazyMotion` con `domAnimation` y el componente `m`, más `MotionConfig reducedMotion="user"`                                                                                                                                                                                                           |
+| Animación            | **Solo CSS**: parallax con `animation-timeline: view()`, desactivado con "reducir movimiento" y sin soporte del navegador. Sin librería de animación                                                                                                                                                                                    |
 | Contenido            | **MDX y JSON en el repo**, tipado y validado con **Velite** (esquemas Zod; metadatos de revisión obligatorios)                                                                                                                                                                                                                          |
 | Animaciones Lottie   | `@lottiefiles/dotlottie-react`, carga diferida, WASM servido desde el propio sitio. Solo decorativas                                                                                                                                                                                                                                    |
 | Iconos               | `lucide-react` y Healthicons/Tabler (SVG)                                                                                                                                                                                                                                                                                               |
