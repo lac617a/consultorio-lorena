@@ -63,7 +63,8 @@
 - [x] JSON-LD `Dentist` con nombre, marca, logo, dirección, teléfono y web.
 
 - [x] **Rediseño tipo folleto** (D9): inicio de una página con portada, "Le ayudamos", un panel por guía y "Su clínica"; paleta lavanda, títulos con resaltador, garabatos con parallax CSS y guías en paneles (un `##` por panel). Se retiraron el carrusel de pasos, el cronómetro, el selector de tratamiento, el "Lo tengo" del kit, las celebraciones y la librería Motion.
-- [x] **Inicio** (`/`): portada tipo folleto que lleva a cada guía y a los datos de la clínica. _Reemplaza al selector "Empieza aquí"._
+- [x] **Rediseño "clínica editorial"** (D10, referencia coedental.pe): base monocroma con el oro rosa del logo, DM Serif Display + Nunito Sans, portada oscura, guías como protagonistas en tarjetas numeradas, bloque "Para recordar", cabecera con navegación de guías y pie oscuro.
+- [x] **Inicio** (`/`): portada, guías destacadas ("Empiece aquí"), datos para recordar y "Su clínica". _Reemplaza al selector "Empieza aquí"._
 - [ ] **Primeros días:** molestias, dieta blanda, cómo poner la cera (lista numerada), llagas y cuándo consultar. _Borrador creado en la fase 0 como página de ejemplo; faltan las ilustraciones de los pasos y la revisión clínica._
 - [x] **Cepillado** (`/cepillado`): 7 tarjetas numeradas con `BrushingScene` (escenas SVG estáticas: perfil del diente para los ángulos del cepillo y vista frontal para interdental e hilo). _Pendiente de revisión clínica de textos e ilustraciones._
 - [x] **Kit de higiene** (`/kit-de-higiene`): 10 herramientas ilustradas en "Lo básico" y "Ayudas extra" (para qué sirve, cuándo, cada cuánto cambiarla y "Cómo se usa" plegable). Textos con `{parametro}` clínicos validados por Velite. _Pendiente de revisión clínica._
@@ -146,14 +147,15 @@
 
 ## Decisiones abiertas vinculadas
 
-| ID  | Decisión                                                                    | Debe resolverse antes de        |
-| --- | --------------------------------------------------------------------------- | ------------------------------- |
-| D1  | Hosting: Vercel Pro o Cloudflare Pages / Netlify                            | Fase 3                          |
-| D2  | Datos de la Dra. Lorena para el sello y valores de los parámetros clínicos  | Fase 3 (bloquea el lanzamiento) |
-| D3  | Validación legal: Ley 35 de 1989 y Ley 1581 de 2012                         | Fase 3                          |
-| D4  | Dominio (sugerido: `guia.odontosanchezquintero.com`)                        | Fase 3                          |
-| D5  | Producción de ilustraciones (freelance o interno)                           | Fase 1                          |
-| D6  | Logo y colores: **resuelta (COE Dental)**                                   | —                               |
-| D7  | Dirección de diseño: **resuelta (A + B)**                                   | —                               |
-| D8  | Datos de contacto: **resuelta**                                             | —                               |
-| D9  | Rediseño tipo folleto (lavanda, sin pasos, pocas animaciones): **resuelta** | —                               |
+| ID  | Decisión                                                                               | Debe resolverse antes de        |
+| --- | -------------------------------------------------------------------------------------- | ------------------------------- |
+| D1  | Hosting: Vercel Pro o Cloudflare Pages / Netlify                                       | Fase 3                          |
+| D2  | Datos de la Dra. Lorena para el sello y valores de los parámetros clínicos             | Fase 3 (bloquea el lanzamiento) |
+| D3  | Validación legal: Ley 35 de 1989 y Ley 1581 de 2012                                    | Fase 3                          |
+| D4  | Dominio (sugerido: `guia.odontosanchezquintero.com`)                                   | Fase 3                          |
+| D5  | Producción de ilustraciones (freelance o interno)                                      | Fase 1                          |
+| D6  | Logo y colores: **resuelta (COE Dental)**                                              | —                               |
+| D7  | Dirección de diseño: **resuelta (A + B)**                                              | —                               |
+| D8  | Datos de contacto: **resuelta**                                                        | —                               |
+| D9  | Rediseño tipo folleto (lavanda, sin pasos, pocas animaciones): **reemplazada por D10** | —                               |
+| D10 | Dirección "clínica editorial" (referencia coedental.pe): **resuelta**                  | —                               |

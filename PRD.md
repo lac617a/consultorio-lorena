@@ -370,9 +370,9 @@ Es contenido de salud, un tema que Google trata como YMYL ("Your Money or Your L
 
 ### Sistema visual
 
-- **Folleto ilustrado (D9, 06/10/2026):** papel gris claro, paneles en azul lavanda, tinta casi negra, títulos con trazo de resaltador y garabatos a mano. Simple, fácil de leer y con pocas animaciones. El lavanda claro solo decora; texto y botones usan un azul más oscuro de la misma familia. Colores de estado accesibles para el semáforo y la urgencia. Dirección visual en [docs/design-references.md](docs/design-references.md).
-- Tipografía: **Permanent Marker** (marcador a mano) solo para títulos cortos y **Atkinson Hyperlegible Next** (máxima legibilidad) para el texto.
-- **Ilustraciones SVG propias** estilo folleto (contorno de tinta y relleno lavanda desplazado) de dientes, brackets, arco, ligas, elásticos y herramientas, con capas nombradas.
+- **Clínica editorial (D10, 02/11/2026; referencia: coedental.pe):** base monocroma (blanco, grises y negro), portada y bloques oscuros con grano, tarjetas grises redondeadas y botones píldora. El oro rosa del logo COE Dental es el único acento: el tono del logo solo decora; el texto de acento usa un bronce más oscuro (sobre claro) o más claro (sobre negro). Las guías son lo más visible del inicio. Colores de estado accesibles para el semáforo y la urgencia. Dirección visual en [docs/design-references.md](docs/design-references.md).
+- Tipografía: **DM Serif Display** (serif elegante, en sintonía con el logo) para títulos y **Nunito Sans** (muy legible) para el texto.
+- **Ilustraciones SVG propias** (trazo de tinta, rellenos blancos, sombra gris desplazada y acentos oro rosa) de dientes, brackets, arco, ligas, elásticos y herramientas, con capas nombradas. Más adelante, fotos reales de la clínica con permiso; nunca fotos de stock.
 - Personas y escenas: unDraw o Humaaans, recoloreadas a la marca.
 - Iconos: Lucide para la interfaz y Healthicons o Tabler para los dentales.
 - Animación: solo parallax suave con CSS (animaciones ligadas al scroll) en garabatos e ilustraciones; el texto nunca se mueve. Sin carruseles de pasos, celebraciones ni animaciones en bucle. Lottie se reserva para 1–2 animaciones decorativas.

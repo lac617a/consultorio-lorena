@@ -21,7 +21,7 @@ export function EmergencyAlert() {
     <aside
       key={item.id}
       aria-labelledby={`alerta-${item.id}`}
-      className="my-8 rounded-card border-2 border-stop bg-stop-soft p-5"
+      className="my-8 rounded-card border border-stop/40 bg-stop-soft p-6"
     >
       <p
         id={`alerta-${item.id}`}
@@ -73,16 +73,16 @@ export function EmergencyGuide() {
             <li key={item.id}>
               <details
                 name="urgencias"
-                className="group rounded-card border-2 border-ink bg-surface open:shadow-[var(--shadow-print)]"
+                className="group rounded-card border border-line bg-surface transition-shadow open:shadow-[var(--shadow-soft)]"
               >
                 <summary className="flex min-h-tap items-center gap-3 p-3">
-                  <span className="flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-brand-100">
+                  <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-canvas-soft">
                     <Icon aria-hidden="true" className="size-6" strokeWidth={2.25} />
                   </span>
                   <span className="flex-1">
                     <span className="block text-lg leading-snug font-bold">{item.title}</span>
                     <span
-                      className={`mt-1 inline-flex items-center gap-1 rounded-full border-2 px-2 text-sm font-bold ${urgency.className}`}
+                      className={`mt-1 inline-flex items-center gap-1 rounded-full border px-2.5 text-sm font-bold ${urgency.className}`}
                     >
                       <urgency.Icon aria-hidden="true" className="size-4" />
                       {urgency.label}
@@ -94,7 +94,7 @@ export function EmergencyGuide() {
                   />
                 </summary>
 
-                <div className="border-t-2 border-dashed border-line px-4 pt-3 pb-5">
+                <div className="border-t border-line px-4 pt-3 pb-5">
                   <p className="font-bold">Qué hacer en casa</p>
                   <ol className="mt-2 list-decimal space-y-1.5 pl-6 marker:font-bold">
                     {item.steps.map((step) => (

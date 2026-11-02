@@ -66,7 +66,7 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Por ejemplo: mazorca, maní, pizza"
           autoComplete="off"
-          className="min-h-tap w-full rounded-full border-2 border-ink bg-surface py-3 pr-12 pl-12 text-lg placeholder:text-ink-muted focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          className="min-h-tap w-full rounded-full border border-ink/30 bg-surface py-3 pr-12 pl-12 text-lg placeholder:text-ink-muted focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus"
         />
         {query && (
           <button
@@ -88,8 +88,8 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
             aria-pressed={filter === id}
             onClick={() => setFilter(id)}
             className={cn(
-              "min-h-tap rounded-full border-2 border-ink px-3 text-sm font-bold transition-colors",
-              filter === id ? "bg-ink text-white" : "bg-surface text-ink hover:bg-brand-50",
+              "min-h-tap rounded-full border border-ink/30 px-4 text-sm font-bold transition-colors",
+              filter === id ? "bg-ink text-white" : "bg-surface text-ink hover:bg-canvas-soft",
             )}
           >
             {label} <span className="font-normal">({count(id)})</span>
@@ -107,12 +107,12 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
           const verdict = VERDICT[food.verdict];
           return (
             <li key={food.id} hidden={!shown}>
-              <article className="h-full rounded-card border-2 border-ink bg-surface p-4">
+              <article className="card-soft h-full p-5">
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <h3 className="m-0 text-xl">{food.name}</h3>
                   <p
                     className={cn(
-                      "inline-flex shrink-0 items-center gap-1.5 rounded-full border-2 px-3 py-0.5 text-sm font-bold",
+                      "inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-0.5 text-sm font-bold",
                       verdict.className,
                     )}
                   >
@@ -122,7 +122,7 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
                 </div>
                 <p className="mt-1 text-ink-muted">{food.reason}</p>
                 {food.tip && (
-                  <p className="mt-2 rounded-xl bg-brand-50 px-3 py-2 text-base">
+                  <p className="mt-3 rounded-xl bg-white px-3 py-2 text-base">
                     <strong>Consejo:</strong> {food.tip}
                   </p>
                 )}
@@ -139,7 +139,7 @@ export function FoodTrafficLight({ foods }: { foods: Food[] }) {
       </ul>
 
       {visible.length === 0 && (
-        <div className="mt-6 rounded-card border-2 border-dashed border-ink bg-surface p-5">
+        <div className="mt-6 rounded-card border border-dashed border-ink/40 bg-surface p-5">
           <p className="font-bold">No encontramos «{query}» en la lista.</p>
           <p className="mt-1 text-ink-muted">
             Como regla general, evite lo duro y lo pegajoso, y corte en trozos pequeños lo que tenga

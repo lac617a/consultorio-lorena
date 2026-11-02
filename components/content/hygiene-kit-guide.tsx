@@ -27,8 +27,8 @@ export function HygieneKitGuide({ group }: { group: HygieneTool["group"] }) {
 
 function ToolCard({ tool }: { tool: HygieneTool }) {
   return (
-    <article className="flex h-full flex-col rounded-card border-2 border-ink bg-surface p-4">
-      <div className="flex items-center justify-center rounded-2xl bg-brand-50 px-3 py-4">
+    <article className="card-soft flex h-full flex-col p-5">
+      <div className="flex items-center justify-center rounded-[1.125rem] bg-white px-3 py-5">
         <HygieneToolIllustration tool={tool.id} className="h-14 w-auto max-w-full" />
       </div>
 
@@ -60,7 +60,7 @@ function ToolCard({ tool }: { tool: HygieneTool }) {
 
       {tool.steps.length > 0 && (
         <details className="group mt-3">
-          <summary className="inline-flex min-h-tap items-center gap-1 font-bold text-brand-700">
+          <summary className="inline-flex min-h-tap items-center gap-1 font-bold text-ink underline decoration-1 underline-offset-4">
             Cómo se usa
             <ChevronDown
               aria-hidden="true"

@@ -8,8 +8,8 @@ const TONES = {
   info: {
     Icon: Info,
     label: "Importante",
-    className: "bg-brand-50",
-    iconClass: "text-brand-700",
+    className: "bg-canvas-soft",
+    iconClass: "text-ink",
   },
   warning: {
     Icon: TriangleAlert,
@@ -26,7 +26,7 @@ export function Callout({ tone = "info", children }: CalloutProps) {
   const { Icon, label, className, iconClass } = TONES[tone];
 
   return (
-    <div className={cn("my-6 flex gap-3 rounded-card border-2 border-ink p-4", className)}>
+    <div className={cn("my-6 flex gap-4 rounded-card p-5", className)}>
       <Icon
         aria-hidden="true"
         className={cn("mt-1 size-6 shrink-0", iconClass)}

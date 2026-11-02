@@ -19,13 +19,13 @@ type CardProps = { title: string; illustration?: ReactNode; children: ReactNode 
 
 export function Card({ title, illustration, children }: CardProps) {
   return (
-    <li className="relative rounded-card border-2 border-ink bg-surface p-4 [counter-increment:card]">
+    <li className="card-soft relative p-5 [counter-increment:card]">
       <span
         aria-hidden="true"
-        className="absolute -top-3 -left-2 grid size-10 place-items-center rounded-full border-2 border-ink bg-brand-200 font-display text-xl leading-none before:content-[counter(card)]"
+        className="absolute top-4 left-4 z-10 grid size-9 place-items-center rounded-full bg-ink text-sm leading-none font-bold text-white before:content-[counter(card)]"
       />
       {illustration && (
-        <div className="mb-3 rounded-2xl bg-brand-50 px-6 py-2 [&_svg]:mx-auto [&_svg]:h-28 [&_svg]:w-auto sm:[&_svg]:h-36">
+        <div className="mb-4 rounded-[1.125rem] bg-white px-6 py-3 [&_svg]:mx-auto [&_svg]:h-28 [&_svg]:w-auto sm:[&_svg]:h-36">
           {illustration}
         </div>
       )}

@@ -2,7 +2,7 @@ import type { Page } from "@/lib/content";
 
 export function SourcesList({ sources }: { sources: Page["sources"] }) {
   return (
-    <section aria-labelledby="fuentes" className="space-y-3 border-t-2 border-ink pt-6">
+    <section aria-labelledby="fuentes" className="space-y-3 border-t border-line pt-8">
       <h2 id="fuentes" className="text-2xl">
         Fuentes
       </h2>

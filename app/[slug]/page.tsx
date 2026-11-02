@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -6,7 +6,7 @@ import { ClinicalDisclaimer } from "@/components/content/clinical-disclaimer";
 import { MdxContent } from "@/components/content/mdx-content";
 import { ReviewStamp } from "@/components/content/review-stamp";
 import { SourcesList } from "@/components/content/sources-list";
-import { DoodleSparkle, DoodleStar } from "@/components/illustrations/doodles";
+import { ArcLine } from "@/components/illustrations/decor";
 import { GuideArt } from "@/components/illustrations/guide-art";
 import { JsonLd } from "@/components/seo/json-ld";
 import { allPages, getPage } from "@/lib/content";
@@ -30,6 +30,7 @@ export default async function ContentPage({ params }: PageProps<"/[slug]">) {
   if (!page) notFound();
 
   const related = page.related.map(getPage).filter((item) => item !== undefined);
+  const number = allPages.findIndex((item) => item.slug === page.slug) + 1;
 
   return (
     <article>
@@ -43,62 +44,69 @@ export default async function ContentPage({ params }: PageProps<"/[slug]">) {
         ]}
       />
 
-      <header className="container-text grid items-center gap-6 pt-6 pb-8 sm:grid-cols-[1fr_auto]">
-        <nav aria-label="Ruta de navegación" className="text-sm sm:col-span-2">
-          <ol className="flex gap-2 text-ink-muted">
-            <li>
-              <Link href="/">Inicio</Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page">{page.title}</li>
-          </ol>
-        </nav>
-        <div className="order-2 space-y-4 sm:order-none">
-          <h1 className="text-4xl sm:text-5xl">{page.title}</h1>
-          {page.lead && <p className="text-xl text-ink-muted">{page.lead}</p>}
-          <ReviewStamp review={page.review} />
-        </div>
-        <div className="relative order-1 mx-auto sm:order-none">
-          <DoodleStar className="parallax absolute -top-2 -right-4 size-9 [--parallax:1.5rem]" />
-          <DoodleSparkle className="parallax absolute bottom-0 -left-4 size-8 [--parallax:-1.5rem]" />
-          <div className="blob size-32 [--blob-color:var(--color-brand-200)] sm:size-44">
-            <GuideArt slug={page.slug} className="size-20 sm:size-32" />
+      <header className="container-page pt-3 sm:pt-5">
+        <div className="card-soft relative isolate overflow-hidden px-6 py-8 sm:px-10 sm:py-12 md:grid md:grid-cols-[1fr_auto] md:items-center md:gap-12 md:px-14">
+          <ArcLine className="pointer-events-none absolute -right-20 -bottom-16 -z-10 w-[36rem] max-w-none text-ink/15" />
+          <div>
+            <nav aria-label="Ruta de navegación" className="text-base">
+              <ol className="flex flex-wrap gap-2 text-ink-muted">
+                <li>
+                  <Link href="/">Inicio</Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li aria-current="page">{page.title}</li>
+              </ol>
+            </nav>
+            <p className="eyebrow mt-6">Guía {String(number).padStart(2, "0")}</p>
+            <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl">{page.title}</h1>
+            {page.lead && <p className="mt-5 max-w-xl text-xl text-ink-muted">{page.lead}</p>}
+            <div className="mt-6">
+              <ReviewStamp review={page.review} />
+            </div>
+          </div>
+          <div className="mt-8 grid size-40 place-items-center rounded-full bg-white shadow-[var(--shadow-soft)] max-md:mx-auto md:mt-0 md:size-56">
+            <GuideArt slug={page.slug} className="parallax size-24 [--parallax:1rem] md:size-36" />
           </div>
         </div>
       </header>
 
-      <div className="container-text">
+      <div className="container-text pt-10">
         <ClinicalDisclaimer />
-        <div className="content">
+        <div className="content mt-6">
           <MdxContent code={page.body} />
         </div>
       </div>
 
       {related.length > 0 && (
-        <nav aria-labelledby="relacionados" className="container-text mt-12">
-          <h2 id="relacionados" className="text-3xl">
-            También le puede servir
-          </h2>
-          <ul className="mt-5 grid gap-4 sm:grid-cols-2">
-            {related.map((item) => (
-              <li key={item.slug}>
-                <Link
-                  href={item.url}
-                  className="flex tap items-center gap-3 rounded-card border-2 border-ink bg-surface p-3 font-bold text-ink no-underline hover:bg-brand-50"
-                >
-                  <span className="blob size-14 shrink-0">
-                    <GuideArt slug={item.slug} decorative className="size-10" />
-                  </span>
-                  <span className="flex-1">{item.title}</span>
-                  <ArrowRight aria-hidden="true" className="size-5 shrink-0" />
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav aria-labelledby="relacionados" className="container-page mt-10">
+          <div className="border-t border-line pt-12">
+            <p className="eyebrow">Siga leyendo</p>
+            <h2 id="relacionados" className="mt-2 text-3xl sm:text-4xl">
+              También le puede servir
+            </h2>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((item) => (
+                <li key={item.slug}>
+                  <Link
+                    href={item.url}
+                    className="card-soft group flex tap items-center gap-4 p-4 font-bold no-underline transition-shadow hover:shadow-[var(--shadow-soft)]"
+                  >
+                    <span className="grid size-16 shrink-0 place-items-center rounded-2xl bg-white">
+                      <GuideArt slug={item.slug} decorative className="size-11" />
+                    </span>
+                    <span className="flex-1">{item.title}</span>
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full border border-ink/25 bg-white transition-colors group-hover:bg-ink group-hover:text-white">
+                      <ArrowUpRight aria-hidden="true" className="size-5" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </nav>
       )}
 
-      <div className="container-text mt-12 mb-16">
+      <div className="container-text mt-14 mb-16">
         <SourcesList sources={page.sources} />
       </div>
     </article>

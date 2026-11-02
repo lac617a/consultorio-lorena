@@ -1,41 +1,42 @@
 @import "tailwindcss";
 
 /*
- * Design tokens — dirección "Folleto ilustrado" (D9): papel claro, paneles lavanda,
- * dibujos a mano con contorno de tinta y títulos con trazo de resaltador.
+ * Design tokens — dirección "Clínica editorial" (D10): base monocroma (blanco, grises y
+ * negro), serif elegante para títulos y el oro rosa del logo COE Dental como único acento.
  * Ver docs/design-references.md.
  *
- * `brand` es el azul lavanda del folleto. brand-400 solo llega a 3.1:1: se usa para
- * decorar e ilustrar; texto y botones usan brand-600/700.
+ * El tono del logo (brand-400) solo llega a 2.6:1: se usa para decorar e ilustrar.
+ * Texto de marca sobre claro: brand-600/700. Sobre oscuro: brand-300.
  * Al cambiar colores, verificar contraste: texto ≥ 4.5:1, UI ≥ 3:1.
  */
 @theme {
-  /* Papel y tinta */
-  --color-canvas: #f2f2ef; /* fondo: papel gris claro */
-  --color-canvas-deep: #e8e8e3; /* bloques sutiles sobre el papel */
+  /* Neutros */
+  --color-canvas: #ffffff; /* fondo de página */
+  --color-canvas-soft: #f4f4f2; /* secciones y tarjetas suaves */
   --color-surface: #ffffff; /* tarjetas */
-  --color-ink: #1d1d22; /* texto y trazos (15:1 sobre el papel, 11:1 sobre lavanda) */
-  --color-ink-muted: #4b4b57; /* texto secundario (7.7:1 papel, 5.6:1 lavanda) */
-  --color-line: rgb(29 29 34 / 0.16); /* separadores suaves */
+  --color-ink: #141414; /* texto, botones y bloques oscuros */
+  --color-ink-muted: #5c5c5c; /* texto secundario (6.7:1 en blanco, 6.1:1 en gris) */
+  --color-ink-inverse-muted: #b3b3b3; /* texto secundario sobre oscuro (8.8:1) */
+  --color-line: rgb(20 20 20 / 0.12); /* separadores */
+  --color-line-inverse: rgb(255 255 255 / 0.22);
 
-  /* Marca: azul lavanda */
-  --color-brand-50: #f1f3fe;
-  --color-brand-100: #e3e7fd;
-  --color-brand-200: #c6cffb; /* paneles lavanda y resaltador */
-  --color-brand-300: #a3b1f6;
-  --color-brand-400: #6f82ea; /* relleno de ilustraciones: solo decoración (3.1:1) */
-  --color-brand-500: #5468db; /* bordes y UI (4.3:1) */
-  --color-brand-600: #3f4fc4; /* botones con texto blanco (6.7:1) */
-  --color-brand-700: #323f9e; /* texto de marca y enlaces (8:1 papel, 5.9:1 lavanda) */
-  --color-brand-800: #27317a;
-  --color-brand-900: #1c2358;
+  /* Marca: oro rosa del logo (muestreado: #a8846c · #ba957c · #d2aa8f) */
+  --color-brand-50: #fbf3ee;
+  --color-brand-100: #f3e3d9;
+  --color-brand-200: #e8cfbf;
+  --color-brand-300: #d2aa8f; /* texto de acento sobre oscuro (8.7:1) */
+  --color-brand-400: #ba957c; /* tono del logo: solo decoración (2.6:1) */
+  --color-brand-500: #9e7860;
+  --color-brand-600: #84624d; /* texto de acento sobre claro (5.5:1) */
+  --color-brand-700: #6b4f3e;
 
   /* Anatomía y materiales (solo ilustración) */
   --color-gum: #f1c3bb;
-  --color-metal: #d9dce8;
-  --color-water: #dbeafe;
+  --color-shade: #e2e2df; /* sombra desplazada de las ilustraciones */
+  --color-metal: #dcdcdc;
+  --color-water: #e3eef6;
   --color-plaque: #c77dba;
-  --color-sparkle: #f5c04a;
+  --color-sparkle: #e9c46a;
 
   /* Estados: semáforo y urgencia. Siempre con icono + texto. */
   --color-ok: #1b6e45;
@@ -45,16 +46,16 @@
   --color-stop: #a8231b;
   --color-stop-soft: #fdeae8;
 
-  --color-focus: #c2410c;
+  --color-focus: #1f5fbf;
 
-  /* Tipografía: marcador a mano para títulos cortos, sans muy legible para el texto */
-  --font-sans: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-marker), "Comic Sans MS", ui-rounded, sans-serif;
+  /* Tipografía: serif de títulos (en sintonía con el logo) y sans muy legible */
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-serif), ui-serif, Georgia, serif;
 
   /* Formas */
   --radius-card: 1.5rem;
   --radius-panel: 2rem;
-  --shadow-print: 4px 4px 0 var(--color-ink); /* sombra "impresa" desplazada */
+  --shadow-soft: 0 1px 2px rgb(20 20 20 / 0.04), 0 12px 32px -12px rgb(20 20 20 / 0.12);
 
   --spacing-tap: 2.75rem; /* 44 px: tamaño mínimo táctil */
 }
@@ -85,9 +86,7 @@
 
   body {
     @apply bg-canvas font-sans text-ink antialiased;
-    line-height: 1.6;
-    /* Grano de papel muy suave, como el folleto impreso. */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    line-height: 1.65;
     overflow-x: clip;
   }
 
@@ -95,20 +94,20 @@
   h2 {
     @apply font-display text-ink;
     font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: 0.01em;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
     text-wrap: balance;
   }
 
   h3 {
     @apply font-sans text-ink;
-    font-weight: 700;
-    line-height: 1.25;
+    font-weight: 800;
+    line-height: 1.3;
     text-wrap: balance;
   }
 
   a {
-    @apply text-brand-700 underline decoration-2 underline-offset-3;
+    @apply text-ink underline decoration-1 underline-offset-4;
   }
 
   :focus-visible {
@@ -130,90 +129,87 @@
 @layer components {
   /* Contenedores */
   .container-page {
-    @apply mx-auto w-full max-w-5xl px-4;
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
   }
 
   .container-text {
-    @apply mx-auto w-full max-w-2xl px-4;
+    @apply mx-auto w-full max-w-2xl px-4 sm:px-6;
   }
 
-  /* Botones: píldora con contorno de tinta. Una sola acción primaria por bloque. */
+  /* Botones píldora. Una sola acción primaria por bloque. */
   .btn {
-    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full border-2 border-ink px-5 py-2 font-bold no-underline transition-transform select-none;
-    box-shadow: 3px 3px 0 var(--color-ink);
-  }
-
-  .btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 var(--color-ink);
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full border-[1.5px] px-6 py-2 font-bold whitespace-nowrap no-underline transition-colors select-none;
   }
 
   .btn-primary {
-    @apply bg-brand-600 text-white;
+    @apply border-ink bg-ink text-white hover:bg-ink/85;
   }
 
   .btn-secondary {
-    @apply bg-surface text-ink;
+    @apply border-ink bg-transparent text-ink hover:bg-ink hover:text-white;
   }
 
-  /* Etiqueta tipo sticker */
-  .sticker {
-    @apply inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-surface px-3 py-0.5 text-sm font-bold text-ink;
+  /* Sobre fondo oscuro */
+  .btn-light {
+    @apply border-white bg-white text-ink hover:bg-white/85;
   }
 
-  /*
-   * Trazo de resaltador detrás de un título, como las barras del folleto.
-   * Se repite en cada línea si el título se parte (box-decoration-break).
-   */
-  .marker {
-    background-image: linear-gradient(
-      transparent 18%,
-      var(--marker-color, var(--color-brand-200)) 18%,
-      var(--marker-color, var(--color-brand-200)) 90%,
-      transparent 90%
-    );
-    border-radius: 0.5em 0.2em 0.6em 0.25em;
-    padding-inline: 0.3em;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+  .btn-outline-light {
+    @apply border-white/70 bg-transparent text-white hover:bg-white hover:text-ink;
   }
 
-  /* Panel lavanda: el resaltador pasa a blanco para seguir viéndose. */
-  .panel-lavender {
-    @apply bg-brand-200;
-    --marker-color: var(--color-surface);
+  /* Antetítulo en versalitas */
+  .eyebrow {
+    @apply text-sm font-bold tracking-[0.16em] text-ink-muted uppercase;
   }
 
-  /* Ilustración sobre un círculo de color, como los iconos del folleto. */
-  .blob {
-    @apply relative isolate grid place-items-center;
+  /* Bloque oscuro con foco de luz y grano, como la portada de la referencia. */
+  .surface-dark {
+    @apply text-white;
+    background-color: var(--color-ink);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+      radial-gradient(120% 90% at 15% 0%, #4a4a4a 0%, #1c1c1c 45%, var(--color-ink) 75%);
   }
 
-  .blob::before {
-    content: "";
-    position: absolute;
-    inset: 8%;
-    z-index: -1;
-    border-radius: 46% 54% 50% 50% / 52% 46% 54% 48%;
-    background: var(--blob-color, var(--color-brand-100));
+  .surface-dark h1,
+  .surface-dark h2,
+  .surface-dark h3,
+  .surface-dark a:not(.btn) {
+    @apply text-white;
   }
 
-  /* Texto largo de las guías (MDX). Cada h2 abre un panel (rehype en velite.config.ts). */
+  .surface-dark .eyebrow {
+    @apply text-ink-inverse-muted;
+  }
+
+  .surface-dark :focus-visible {
+    outline-color: #ffffff;
+  }
+
+  /* Tarjeta gris suave con degradado, como las de especialidades de la referencia. */
+  .card-soft {
+    @apply rounded-[var(--radius-card)];
+    background: linear-gradient(180deg, #f7f7f6 0%, #ededeb 100%);
+  }
+
+  /* Texto largo de las guías (MDX). Cada h2 abre una sección numerada (rehype en velite.config.ts). */
+  .content {
+    counter-reset: section;
+  }
+
   .content > section {
-    @apply my-8 rounded-[var(--radius-panel)] px-4 py-7 sm:px-8 sm:py-8;
+    @apply border-t border-line py-10;
+    counter-increment: section;
   }
 
-  .content > section:nth-of-type(even) {
-    @apply bg-brand-200;
-    --marker-color: var(--color-surface);
-  }
-
-  .content > section:nth-of-type(odd) {
-    @apply border-2 border-ink bg-surface;
+  .content > section::before {
+    content: counter(section, decimal-leading-zero);
+    @apply mb-2 block font-display text-lg text-brand-600;
   }
 
   .content h2 {
-    @apply mb-5 text-3xl;
+    @apply mb-5 text-3xl sm:text-4xl;
   }
 
   .content h3 {
@@ -226,32 +222,24 @@
 
   .content section > ul:not([class]),
   .content section > ol:not([class]) {
-    @apply my-4 space-y-2;
+    @apply my-5 space-y-3 pl-0;
   }
 
   .content section > ul:not([class]) {
-    @apply list-none pl-0;
+    @apply list-none;
   }
 
   .content section > ul:not([class]) > li {
-    @apply relative pl-8;
+    @apply relative pl-7;
   }
 
-  /* Viñeta: estrellita dibujada */
   .content section > ul:not([class]) > li::before {
     content: "";
-    position: absolute;
-    left: 0.35rem;
-    top: 0.45em;
-    width: 0.8rem;
-    height: 0.8rem;
-    background: var(--color-brand-400);
-    clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+    @apply absolute top-[0.7em] left-1 size-2 rounded-full bg-brand-400;
   }
 
-  /* Lista numerada con números grandes a mano */
   .content section > ol:not([class]) {
-    @apply list-none pl-0;
+    @apply list-none;
     counter-reset: item;
   }
 
@@ -262,7 +250,7 @@
 
   .content section > ol:not([class]) > li::before {
     content: counter(item);
-    @apply absolute top-0 left-0 grid size-9 place-items-center rounded-full border-2 border-ink bg-surface font-display text-lg leading-none text-ink;
+    @apply absolute top-0 left-0 grid size-8 place-items-center rounded-full bg-ink text-sm leading-none font-bold text-white;
   }
 }
 

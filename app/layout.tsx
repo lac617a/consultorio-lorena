@@ -1,4 +1,4 @@
-import { Atkinson_Hyperlegible_Next, Permanent_Marker } from "next/font/google";
+import { DM_Serif_Display, Nunito_Sans } from "next/font/google";
 
 import { QuickAccessBar } from "@/components/layout/quick-access-bar";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -10,20 +10,18 @@ import "./globals.css";
 
 import type { Metadata, Viewport } from "next";
 
-const atkinson = Atkinson_Hyperlegible_Next({
+const nunito = Nunito_Sans({
   subsets: ["latin"],
-  variable: "--font-atkinson",
+  variable: "--font-nunito",
   display: "swap",
-  // Next no tiene métricas de esta fuente para ajustar el fallback; se usa la del sistema.
-  adjustFontFallback: false,
-  fallback: ["system-ui", "sans-serif"],
 });
 
-/** Marcador a mano para títulos cortos, como el folleto. Nunca para texto largo. */
-const marker = Permanent_Marker({
+/** Serif de títulos, en sintonía con la serif del logo COE Dental. */
+const serif = DM_Serif_Display({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-marker",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -41,22 +39,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f2f2ef",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="es-CO"
-      className={`${atkinson.variable} ${marker.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="es-CO" className={`${nunito.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: textSizeInitScript }} />
       </head>
-      <body className="flex min-h-dvh flex-col pb-24">
+      <body className="flex min-h-dvh flex-col pb-20 xl:pb-0">
         <a
           href="#contenido"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2"

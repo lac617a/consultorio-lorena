@@ -22,12 +22,6 @@ const components = {
   FoodGuide,
   HygieneKitGuide,
   Param,
-  // Cada título de tema lleva el trazo de resaltador del folleto.
-  h2: ({ children, ...props }: ComponentProps<"h2">) => (
-    <h2 {...props}>
-      <span className="marker">{children}</span>
-    </h2>
-  ),
   a: ({ href = "", ...props }: ComponentProps<"a">) =>
     href.startsWith("/") ? (
       <Link href={href} {...props} />

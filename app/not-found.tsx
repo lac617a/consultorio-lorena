@@ -19,7 +19,7 @@ export default function NotFound() {
           <li key={href}>
             <Link
               href={href}
-              className="flex tap items-center gap-3 rounded-card border-2 border-ink bg-surface p-4 font-bold text-ink no-underline hover:bg-brand-50"
+              className="card-soft flex tap items-center gap-3 p-5 font-bold text-ink no-underline hover:shadow-[var(--shadow-soft)]"
             >
               <Icon aria-hidden="true" className="size-6" />
               {label}

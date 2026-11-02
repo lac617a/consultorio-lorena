@@ -10,21 +10,21 @@ export const metadata: Metadata = {
 // Mantener sincronizado con CREDITS.md.
 const CREDITS = [
   {
-    name: "Ilustraciones y garabatos de dientes, brackets, cepillos y alimentos",
+    name: "Ilustraciones de dientes, brackets, cepillos y alimentos",
     author: "Equipo de OrtoGuía",
     license: "Propias",
   },
   {
-    name: "Atkinson Hyperlegible Next (tipografía)",
-    author: "Braille Institute of America",
+    name: "Nunito Sans (tipografía del texto)",
+    author: "Vernon Adams, Jacques Le Bailly, Manvel Shmavonyan y Alexei Vanyashin",
     license: "SIL Open Font License 1.1",
-    url: "https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next",
+    url: "https://fonts.google.com/specimen/Nunito+Sans",
   },
   {
-    name: "Permanent Marker (tipografía de títulos)",
-    author: "Font Diner",
-    license: "Apache License 2.0",
-    url: "https://fonts.google.com/specimen/Permanent+Marker",
+    name: "DM Serif Display (tipografía de títulos)",
+    author: "Colophon Foundry",
+    license: "SIL Open Font License 1.1",
+    url: "https://fonts.google.com/specimen/DM+Serif+Display",
   },
   {
     name: "Lucide (iconos)",
@@ -41,7 +41,7 @@ export default function CreditsPage() {
       <p className="text-ink-muted">Estos son los recursos gráficos que usamos y sus licencias.</p>
       <ul className="space-y-4">
         {CREDITS.map((credit) => (
-          <li key={credit.name} className="rounded-card border-2 border-ink bg-surface p-4">
+          <li key={credit.name} className="card-soft p-5">
             <p className="font-bold">
               {credit.url ? (
                 <a href={credit.url} rel="noopener noreferrer" target="_blank">

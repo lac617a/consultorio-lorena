@@ -43,7 +43,7 @@ export function TextSizeToggle() {
     <div
       role="group"
       aria-label="Tamaño del texto"
-      className="flex rounded-full border-2 border-ink bg-surface p-0.5"
+      className="flex rounded-full border border-line bg-surface p-0.5"
     >
       {(["normal", "large"] as const).map((option) => (
         <button
@@ -54,7 +54,7 @@ export function TextSizeToggle() {
           aria-label={option === "normal" ? "Texto normal" : "Texto grande"}
           className={cn(
             "tap rounded-full px-3 font-bold transition-colors",
-            size === option ? "bg-ink text-white" : "text-ink hover:bg-brand-100",
+            size === option ? "bg-ink text-white" : "text-ink hover:bg-canvas-soft",
           )}
         >
           <span aria-hidden="true" className={option === "large" ? "text-lg" : "text-sm"}>

@@ -1,11 +1,12 @@
-import { DoodleSparkle } from "@/components/illustrations/doodles";
+import { BookOpen } from "lucide-react";
+
 import { FILL, INK, OFFSET, STROKE } from "@/components/illustrations/style";
 
 import type { ReactNode } from "react";
 
 /**
- * Ilustración de portada de cada guía (inicio y cabecera de la guía), estilo folleto:
- * contorno de tinta + relleno lavanda desplazado. viewBox común de 120 × 120.
+ * Ilustración de portada de cada guía (inicio y cabecera de la guía): trazo de tinta,
+ * relleno oro rosa y sombra gris desplazada. viewBox común de 120 × 120.
  */
 const outline = { stroke: INK, strokeWidth: STROKE, strokeLinejoin: "round" as const };
 const shadow = (d: string) => (
@@ -140,7 +141,7 @@ type GuideArtProps = { slug: string; className?: string; decorative?: boolean };
 
 export function GuideArt({ slug, className, decorative = false }: GuideArtProps) {
   const art = ART[slug];
-  if (!art) return <DoodleSparkle className={className} />;
+  if (!art) return <BookOpen aria-hidden="true" strokeWidth={1.5} className={className} />;
 
   return (
     <svg

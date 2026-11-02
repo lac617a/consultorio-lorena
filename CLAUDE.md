@@ -15,7 +15,7 @@ Guía web mobile-first para los pacientes de **ortodoncia** de la **Clínica Odo
 
 Reemplaza los folletos y PDFs que nadie lee. Es **educativa, no publicitaria** (Ley 35 de 1989): nada de precios, promociones ni comparaciones.
 
-- **Dirección visual:** [docs/design-references.md](docs/design-references.md). Folleto ilustrado en azul lavanda con el logo del consultorio.
+- **Dirección visual:** [docs/design-references.md](docs/design-references.md). Clínica editorial (referencia: coedental.pe): monocromo con el oro rosa del logo COE Dental, y las guías como protagonistas.
 
 - **Qué construir y por qué:** [PRD.md](PRD.md)
 - **Orden de trabajo y fase actual:** [roadmap.md](roadmap.md)
@@ -153,13 +153,12 @@ El código se formatea y se valida de forma automática. **No discutas estilo a 
 ## Reglas de UI e implementación
 
 - **Mobile-first.** Diseña a 360 px y mejora hacia escritorio.
-- **Lenguaje visual: folleto ilustrado** (D9, ver `docs/design-references.md`). Simple, fácil de leer y con pocas animaciones:
-  - usa los tokens de `app/globals.css`; nunca colores sueltos. `brand` es el azul lavanda: `brand-200` para paneles y resaltador, `brand-400` solo para decorar e ilustrar, `brand-600`/`700` para texto y botones;
-  - títulos cortos (`h1`, `h2`) con `font-display` (Permanent Marker); todo lo demás con la sans. Nunca texto largo en la fuente de marcador;
-  - `.marker` pone el trazo de resaltador detrás de un título; `.panel-lavender` para bandas lavanda; `.blob` para el círculo detrás de una ilustración;
-  - en las guías, cada `##` del MDX abre un panel solo (plugin rehype en `velite.config.ts`): una idea por panel;
-  - bordes de tinta (`border-2 border-ink`), `.sticker` para etiquetas y garabatos de `components/illustrations/doodles.tsx` para decorar;
-  - botones: `.btn` + `.btn-primary` o `.btn-secondary`. Una sola acción primaria por bloque;
+- **Lenguaje visual: clínica editorial** (D10, ver `docs/design-references.md`). Profesional, sobrio, fácil de leer y con pocas animaciones:
+  - usa los tokens de `app/globals.css`; nunca colores sueltos. Base monocroma (`canvas`, `canvas-soft`, `ink`); `brand` es el oro rosa del logo y es el único acento: `brand-400` solo para decorar e ilustrar, `brand-600`/`700` para texto sobre claro, `brand-300` sobre oscuro;
+  - títulos (`h1`, `h2`) con `font-display` (DM Serif Display; cursiva solo en la portada); texto y `h3` con Nunito Sans;
+  - bloques: `.surface-dark` (negro con foco de luz y grano, texto blanco), `.card-soft` (tarjeta gris con degradado), `.eyebrow` para antetítulos y arcos finos de `components/illustrations/decor.tsx`;
+  - en las guías, cada `##` del MDX abre una sección numerada (01, 02…) con un plugin rehype en `velite.config.ts`: una idea por sección;
+  - botones píldora: `.btn` + `.btn-primary` o `.btn-secondary` (sobre oscuro: `.btn-light` o `.btn-outline-light`). Una sola acción primaria por bloque;
   - sin mecánica de juego (progreso, estrellas, celebraciones, "Lo tengo");
   - ilustraciones con las constantes de `components/illustrations/style.ts`.
 - **Server Components por defecto.** Solo las piezas interactivas llevan `"use client"` (hoy: buscador de alimentos y tamaño del texto). Mantén la primera carga por debajo de ~100 KB de JavaScript.

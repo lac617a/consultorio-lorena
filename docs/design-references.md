@@ -1,6 +1,6 @@
 # Referencias y dirección de diseño
 
-> Estado: **folleto ilustrado** (decisión D9, 06/10/2026). Reemplaza a la mezcla A + B (D7, 28/09/2026): la clínica la encontró abrumadora (pasos, animaciones, mecánica de juego) y pidió algo más parecido a un folleto tríptico, fácil de leer y con parallax suave. Las secciones de abajo se conservan como historial.
+> Estado: **clínica editorial** (decisión D10, 02/11/2026), con [coedental.pe](https://coedental.pe/) como referencia: la clínica sintió que el folleto ilustrado (D9, 06/10/2026) no se veía profesional. D9 había reemplazado a la mezcla A + B (D7, 28/09/2026), que resultó abrumadora. Lo vigente está en la sección "D10" al final; lo demás se conserva como historial.
 
 ## Diagnóstico: por qué el diseño actual se siente genérico
 
@@ -65,7 +65,7 @@ Los sitios revisados son casi todos iguales. Ninguno tiene contenido educativo p
 2. Elegir la dirección.
 3. Aplicarla al inicio y a `/primeros-dias`, y revisarla en el celular antes de seguir con la fase 1.
 
-## D9 · Folleto ilustrado (vigente)
+## D9 · Folleto ilustrado (reemplazado por D10)
 
 **Referencia:** un folleto tríptico de servicios: fondo de papel gris claro, columna central lavanda, iconos dibujados a mano (contorno negro y relleno azul sobre un círculo claro), títulos en mayúsculas con trazo de resaltador, estrellas, destellos y zigzags. Mucho aire y párrafos cortos y centrados.
 
@@ -84,3 +84,24 @@ Los sitios revisados son casi todos iguales. Ninguno tiene contenido educativo p
 - **Formas:** `.marker` (resaltador por línea), `.panel-lavender`, `.blob` (círculo irregular detrás de un dibujo), `.sticker`, botones píldora con contorno de tinta.
 - **Ilustración:** contorno de tinta de 2,5 px y relleno lavanda desplazado 4 px (`components/illustrations/style.ts`). Portadas de guía en `guide-art.tsx`; garabatos en `doodles.tsx`.
 - **Grano de papel** muy suave en el fondo (SVG en línea).
+
+## D10 · Clínica editorial (vigente)
+
+**Referencia:** [coedental.pe](https://coedental.pe/): portada negra con foco de luz y grano, títulos en serif con cursiva, tarjetas grises grandes y redondeadas, botones píldora con flecha ↗, un bloque negro con cifras grandes y arcos de línea fina. Se toma el lenguaje visual, nunca sus textos, fotos, cifras ni testimonios (Ley 35 de 1989).
+
+**Qué cambia respecto a D9:**
+
+- **Las guías son protagonistas:** en el inicio van justo después de la presentación, en tarjetas numeradas (01, 02…). La primera, "Empiece aquí", ocupa dos columnas.
+- **Inicio:** portada oscura → "Lo que necesita saber" → "Sus guías de cuidado" (+ "Próximamente") → bloque negro "Para recordar" (4 datos clave que ya están en las guías, con su enlace) → "Pensada para usted" → "Su clínica".
+- **Guías:** cabecera en tarjeta gris con número de guía, título en serif e ilustración en un círculo blanco; secciones numeradas separadas por una línea fina.
+- **Cabecera:** logo, navegación de guías en escritorio y "Escribir a la clínica". En el celular sigue la barra de accesos rápidos.
+- **Pie:** negro, con las guías y el contacto.
+- Se mantienen las reglas de D9: sin pasos navegables ni mecánica de juego, parallax solo CSS y desplegables nativos.
+
+**Sistema visual (`app/globals.css`):**
+
+- **Color:** blanco `canvas`, gris `canvas-soft` #f4f4f2, negro `ink` #141414, gris de texto `ink-muted` #5c5c5c (6.7:1). Acento único: oro rosa del logo (`brand-400` #ba957c solo decora; `brand-600` #84624d sobre claro, 5.5:1; `brand-300` #d2aa8f sobre negro, 8.7:1).
+- **Tipografía:** DM Serif Display para `h1` y `h2` (en sintonía con la serif del logo); Nunito Sans para el texto y los `h3`.
+- **Formas:** `.surface-dark`, `.card-soft`, `.eyebrow`, botones píldora, sombra suave `--shadow-soft`; arcos y curva de sonrisa en `decor.tsx`.
+- **Ilustración:** trazo de tinta, rellenos blancos, sombra gris desplazada (`shade`) y acentos oro rosa.
+- **Pendiente:** fotos reales de la clínica y del equipo (con permiso) harían la portada todavía más profesional. No usar fotos de stock.
