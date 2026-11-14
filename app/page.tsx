@@ -13,7 +13,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-import { ArchWithBraces } from "@/components/illustrations/arch-with-braces";
 import { ArcLine, SmileCurve } from "@/components/illustrations/decor";
 import { GuideArt } from "@/components/illustrations/guide-art";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -23,6 +22,7 @@ import { dentistJsonLd, websiteJsonLd } from "@/lib/seo";
 import { clinicAddressLine, clinicMapsUrl, clinicPhoneUrl, clinicWhatsappUrl } from "@/lib/site";
 import { EMERGENCY_LINE } from "@/lib/urgency";
 import logoFull from "@/public/brand/logo-full.png";
+import bracesPhoto from "@/public/brand/ortodoncia-brackets.jpg";
 
 import type { Page } from "@/lib/content";
 import type { Metadata } from "next";
@@ -30,10 +30,6 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
-
-const HERO_LIGATURES = Array.from({ length: 10 }, (_, index) =>
-  index % 2 === 0 ? "var(--color-brand-400)" : "var(--color-ink)",
-);
 
 /** Guías planeadas (fase 2): se listan como "Próximamente" hasta que exista su página. */
 const PLANNED = [
@@ -136,9 +132,51 @@ export default function HomePage() {
             </div>
           </div>
           <div className="mt-12 md:mt-0">
-            <div className="parallax rounded-[1.75rem] bg-white px-4 py-6 shadow-[0_30px_60px_-20px_rgb(0_0_0/0.5)] [--parallax:1.25rem] sm:px-8">
-              <ArchWithBraces annotated ligatureColors={HERO_LIGATURES} className="w-full" />
-            </div>
+            <figure className="overflow-hidden rounded-[1.4rem] bg-white p-1 shadow-[0_30px_60px_-20px_rgb(0_0_0/0.5)]">
+              <div className="relative overflow-hidden rounded-[1.15rem]">
+                <Image
+                  src={bracesPhoto}
+                  alt="Sonrisa con brackets: el arco pasa por los brackets y una liga rosada sujeta el arco."
+                  sizes="(max-width: 767px) calc(100vw - 5rem), (max-width: 1200px) 42vw, 500px"
+                  className="h-auto w-full contrast-[1.03] saturate-[0.85]"
+                  preload
+                />
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 1800 857"
+                  preserveAspectRatio="none"
+                  className="pointer-events-none absolute inset-0 h-full w-full fill-none stroke-white [filter:drop-shadow(0_1px_3px_rgb(0_0_0/0.9))]"
+                  strokeWidth="6"
+                >
+                  <path
+                    d="M 500 170 C 545 195, 530 265, 600 331 M 950 170 C 905 210, 910 325, 827 407 M 1360 700 C 1325 620, 1190 590, 1100 478"
+                    strokeDasharray="16 15"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="600" cy="331" r="13" />
+                  <circle cx="827" cy="407" r="13" />
+                  <circle cx="1100" cy="478" r="13" />
+                </svg>
+                <span
+                  aria-hidden="true"
+                  className="absolute top-[9%] left-[20%] rounded-full bg-ink px-2 py-0.5 text-xs font-bold text-white sm:text-sm"
+                >
+                  Liga
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="absolute top-[9%] left-[46%] rounded-full bg-ink px-2 py-0.5 text-xs font-bold text-white sm:text-sm"
+                >
+                  Bracket
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="absolute right-[15%] bottom-[10%] rounded-full bg-ink px-2 py-0.5 text-xs font-bold text-white sm:text-sm"
+                >
+                  Arco
+                </span>
+              </div>
+            </figure>
           </div>
         </div>
       </section>

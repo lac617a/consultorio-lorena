@@ -15,6 +15,11 @@ const CREDITS = [
     license: "Propias",
   },
   {
+    name: "Fotografía de brackets de la portada",
+    author: "Proporcionada por el usuario; autor por confirmar",
+    license: "Permiso por confirmar",
+  },
+  {
     name: "Nunito Sans (tipografía del texto)",
     author: "Vernon Adams, Jacques Le Bailly, Manvel Shmavonyan y Alexei Vanyashin",
     license: "SIL Open Font License 1.1",

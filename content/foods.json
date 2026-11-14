@@ -25,7 +25,7 @@
   },
   {
     "id": "palomitas",
-    "name": "Palomitas de maíz",
+    "name": "Crispetas o palomitas de maíz",
     "verdict": "evitar",
     "reason": "Los granos duros y las cáscaras se atoran en los brackets."
   },
@@ -35,6 +35,30 @@
     "verdict": "evitar",
     "reason": "Morder la mazorca puede despegar los brackets de enfrente.",
     "tip": "Desgránela con un cuchillo y cómala con cuchara."
+  },
+  {
+    "id": "chicharron",
+    "name": "Chicharrón crocante",
+    "verdict": "evitar",
+    "reason": "La parte dura y crocante puede despegar brackets."
+  },
+  {
+    "id": "patacon",
+    "name": "Patacón crocante",
+    "verdict": "evitar",
+    "reason": "Si está duro y crocante, puede despegar brackets."
+  },
+  {
+    "id": "yuca-frita",
+    "name": "Yuca frita crocante",
+    "verdict": "evitar",
+    "reason": "La parte dura y crocante puede despegar brackets."
+  },
+  {
+    "id": "empanada",
+    "name": "Bordes de empanada crocantes",
+    "verdict": "evitar",
+    "reason": "Los bordes duros pueden despegar brackets."
   },
   {
     "id": "gomitas",

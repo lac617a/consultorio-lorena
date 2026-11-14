@@ -128,6 +128,8 @@ Existen también hilo prerroscado y flossers con púa (MouthHealthy).
 
 Fuentes del semáforo: AAO, BOS, NHS, MouthHealthy, Sonría.
 
+- **Folleto de recomendaciones de ortodoncia de la Dra. Lorena**, fotografía facilitada por el usuario el 14 de noviembre de 2026: recomienda evitar chicharrón, patacón, yuca frita y bordes de empanada, entre otros alimentos crocantes. También menciona las crispetas. Estos ejemplos locales están pendientes de revisión clínica en la guía.
+
 - **Primeros días (dieta blanda):** sopa, pasta, yogur, queso, smoothies, huevo revuelto, avena, puré, verduras cocidas (BOS, AAO).
 
 ### Bebidas y azúcar
@@ -388,6 +390,7 @@ Dura ~20–40 minutos. Puede haber molestia de horas a unos días (3–5 días s
 
 - Seguir yendo al dentista general, al menos cada 6 meses (AAO, BOS).
 - Faltar a citas o romper aparatos alarga el tratamiento (AAO, BOS).
+- El folleto de la Dra. Lorena facilitado por el usuario también recomienda asistir a los controles y realizar limpiezas dentales periódicas con el odontólogo. La frecuencia individual queda a criterio del profesional.
 - Llevar el retenedor a cada control (BOS).
 
 **Fuentes**
